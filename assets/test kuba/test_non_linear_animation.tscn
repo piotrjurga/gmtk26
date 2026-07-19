@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://wj3tfsbqum5d"]
 
-[ext_resource type="Texture2D" path="res://assets/blender files/tekstura test.png" id="1_is0he"]
+[ext_resource type="Texture2D" path="res://assets/blender files/tekstura test.png" id="1_jjqol"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a7ha3"]
-albedo_texture = ExtResource("1_is0he")
+albedo_texture = ExtResource("1_jjqol")
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_na6g1"]
 
@@ -26,7 +26,7 @@ node_connections = [&"output", 0, &"Add2", &"Add2", 0, &"Animation", &"Add2", 1,
 [node name="test non linear animation" unique_id=586631314]
 
 [node name="Cube" parent="." index="0" unique_id=599869446]
-transform = Transform3D(0.99616987, -0.056362208, 0.066850424, 0.060592744, 0.99616987, -0.063041225, -0.06304123, 0.06685042, 0.9957695, -2.061417, 0, 0)
+transform = Transform3D(0.248169, 0.53935874, 0.80467653, 0.86629987, 0.24816883, -0.4335168, -0.43351668, 0.8046766, -0.4056586, -2.2434728, 0, 0)
 material_override = SubResource("StandardMaterial3D_a7ha3")
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2" unique_id=1274076933]
