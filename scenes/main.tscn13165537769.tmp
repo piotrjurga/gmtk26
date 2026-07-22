@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cjrk6ad1uedht"]
+
+[ext_resource type="Script" uid="uid://c8rjmu4qg65n" path="res://scenes/main.gd" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://d4n4p73nbmwg2" path="res://managers/RythmManager.tscn" id="2_0wfyh"]
+
+[node name="Main" type="Node2D" unique_id=878863177]
+script = ExtResource("1_o5qli")
+
+[node name="RythmManager" parent="." unique_id=82670960 instance=ExtResource("2_0wfyh")]

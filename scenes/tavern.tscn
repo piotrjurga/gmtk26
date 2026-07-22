@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c5u8hbh2l8gyt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gxi48"]
+font_size = 36
+
+[node name="Tavern" type="Node2D" unique_id=2119835233]
+
+[node name="Label" type="Label" parent="." unique_id=300132292]
+offset_left = 463.0
+offset_top = 289.0
+offset_right = 525.0
+offset_bottom = 312.0
+text = "TAVERN"
+label_settings = SubResource("LabelSettings_gxi48")

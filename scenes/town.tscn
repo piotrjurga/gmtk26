@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c5iwlmys3ar48"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vaf5k"]
+font_size = 36
+
+[node name="Town" type="Node2D" unique_id=726534725]
+
+[node name="Label" type="Label" parent="." unique_id=977544654]
+offset_left = 463.0
+offset_top = 289.0
+offset_right = 525.0
+offset_bottom = 312.0
+text = "TOWN"
+label_settings = SubResource("LabelSettings_vaf5k")
