@@ -7,7 +7,7 @@ var armour : PackedScene = preload("res://scenes/armour/armour.tscn")
 var gym : PackedScene = preload("res://scenes/gym/gym.tscn")
 var boss : PackedScene = preload("res://scenes/boss/boss.tscn")
 
-var current_scene : Node2D
+var current_scene : Scene
 
 func _ready():
     Signals.tick.connect(pick_new_scene)
@@ -18,10 +18,7 @@ func pick_new_scene(current_tick):
         return
         
     if current_tick == 1:
-        if current_scene.name.to_lower() == 'town':
-            change_scene(tavern)
-        else:
-            change_scene(town)
+        change_scene(current_scene.next_scene())
             
 
 func change_scene(new_scene : PackedScene):

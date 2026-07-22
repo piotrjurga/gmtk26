@@ -1,3 +1,17 @@
 [gd_scene format=3 uid="uid://d37wpxi6lu24d"]
 
+[ext_resource type="Script" uid="uid://bpewwheogyu8a" path="res://scenes/gym/gym.gd" id="1_ih2u8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ih2u8"]
+font_size = 36
+
 [node name="Gym" type="Node2D" unique_id=1809102907]
+script = ExtResource("1_ih2u8")
+
+[node name="Label" type="Label" parent="." unique_id=762319772]
+offset_left = 463.0
+offset_top = 289.0
+offset_right = 525.0
+offset_bottom = 312.0
+text = "Gym"
+label_settings = SubResource("LabelSettings_ih2u8")

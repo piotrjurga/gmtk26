@@ -1,3 +1,17 @@
 [gd_scene format=3 uid="uid://dooptkbwkfbv5"]
 
+[ext_resource type="Script" uid="uid://cek151lsu5v72" path="res://scenes/armour/armour.gd" id="1_4rhgh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4rhgh"]
+font_size = 36
+
 [node name="Armour" type="Node2D" unique_id=441942228]
+script = ExtResource("1_4rhgh")
+
+[node name="Label" type="Label" parent="." unique_id=210693204]
+offset_left = 463.0
+offset_top = 289.0
+offset_right = 525.0
+offset_bottom = 312.0
+text = "Armour"
+label_settings = SubResource("LabelSettings_4rhgh")

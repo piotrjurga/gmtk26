@@ -1,3 +1,17 @@
 [gd_scene format=3 uid="uid://c7imgit4wp1aj"]
 
+[ext_resource type="Script" uid="uid://bdqno38m8uvf2" path="res://scenes/boss/boss.gd" id="1_dgf3a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dgf3a"]
+font_size = 36
+
 [node name="Boss" type="Node2D" unique_id=857239352]
+script = ExtResource("1_dgf3a")
+
+[node name="Label" type="Label" parent="." unique_id=1995865556]
+offset_left = 463.0
+offset_top = 289.0
+offset_right = 525.0
+offset_bottom = 312.0
+text = "Boss"
+label_settings = SubResource("LabelSettings_dgf3a")
