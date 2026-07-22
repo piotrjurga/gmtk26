@@ -4,9 +4,23 @@ enum Places {Tavern, Gym, Swords, Armour, Street}
 
 @export var place : Places
 @export var area : Area2D
+var is_picked : bool = false
 
 func _ready():
     area.body_entered.connect(pick_place)
-
+    Signals.place_picked.connect(place_picked)
+    
 func pick_place(body : Node2D):
     Signals.place_picked.emit(place)
+
+func place_picked(new_place : TownPlace.Places):
+    is_picked = new_place == place
+    
+func _physics_process(delta):
+    if !is_picked:
+        scale = Vector2.ONE
+        return
+    
+    var t = Time.get_ticks_msec()
+    scale.x = 1 + sin(t * 4e-3 * PI) / 4
+    scale.y = 1 + cos(t * 3e-3 * PI) / 4

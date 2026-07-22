@@ -17,6 +17,7 @@ func tick():
     if current_tick == max_ticks:
         current_tick = 0
         pop_sound.play()
+        Signals.last_tick.emit()
         return
     
     pip_sound.play()

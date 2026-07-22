@@ -28,10 +28,11 @@ offset_bottom = 339.0
 text = "TOWN"
 label_settings = SubResource("LabelSettings_vaf5k")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1037026528]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1037026528 node_paths=PackedStringArray("places")]
 position = Vector2(524, 315)
 collision_layer = 3
 script = ExtResource("1_n11nm")
+places = [NodePath("../tavern"), NodePath("../gym"), NodePath("../swords"), NodePath("../armour")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1853602988]
 shape = SubResource("CircleShape2D_gxi48")

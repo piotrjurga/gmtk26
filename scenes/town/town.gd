@@ -4,7 +4,7 @@ var picked_place : TownPlace.Places = TownPlace.Places.Street
 
 func _ready():
     Signals.place_picked.connect(place_picked)
-
+    
 func place_picked(place : TownPlace.Places):
     picked_place = place
 
