@@ -12,9 +12,7 @@ func _ready():
     
 func tick():
     current_tick += 1
-    
     Signals.tick.emit(current_tick)
-    
     
     if current_tick == max_ticks:
         current_tick = 0
@@ -22,5 +20,3 @@ func tick():
         return
     
     pip_sound.play()
-        
-        

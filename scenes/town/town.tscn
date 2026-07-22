@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://c5iwlmys3ar48"]
+
+[ext_resource type="Script" uid="uid://d2qes43sejn1o" path="res://scenes/town/character.gd" id="1_n11nm"]
+[ext_resource type="Texture2D" uid="uid://nruu7s0ldr2d" path="res://icon.svg" id="2_gxugk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vaf5k"]
+font_size = 36
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gxi48"]
+radius = 18.027756
+
+[node name="Town" type="Node2D" unique_id=726534725]
+
+[node name="Label" type="Label" parent="." unique_id=977544654]
+offset_left = 463.0
+offset_top = 289.0
+offset_right = 574.0
+offset_bottom = 339.0
+text = "TOWN"
+label_settings = SubResource("LabelSettings_vaf5k")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1037026528]
+position = Vector2(524, 315)
+script = ExtResource("1_n11nm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1853602988]
+shape = SubResource("CircleShape2D_gxi48")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=706238606]
+scale = Vector2(0.234375, 0.234375)
+texture = ExtResource("2_gxugk")

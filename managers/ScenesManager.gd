@@ -1,7 +1,11 @@
 extends Node
 
-var town : PackedScene = preload("res://scenes/town.tscn")
-var tavern : PackedScene = preload("res://scenes/tavern.tscn")
+var town : PackedScene = preload("res://scenes/town/town.tscn")
+var tavern : PackedScene = preload("res://scenes/tavern/tavern.tscn")
+var sword : PackedScene = preload("res://scenes/sword/sword.tscn")
+var armour : PackedScene = preload("res://scenes/armour/armour.tscn")
+var gym : PackedScene = preload("res://scenes/gym/gym.tscn")
+var boss : PackedScene = preload("res://scenes/boss/boss.tscn")
 
 var current_scene : Node2D
 
