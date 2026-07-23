@@ -20,13 +20,12 @@ size = Vector2(43, 94.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4p3a"]
 size = Vector2(20, 66)
 
-[node name="Gym" type="Node2D" unique_id=1809102907 node_paths=PackedStringArray("timer", "main_spawn_point", "init_spawn_point_a", "gym_character")]
+[node name="Gym" type="Node2D" unique_id=1809102907 node_paths=PackedStringArray("timer", "main_spawn_point", "init_spawn_point_a")]
 script = ExtResource("1_ih2u8")
 timer = NodePath("Timer")
 obstacles = Array[PackedScene]([ExtResource("2_a8uch"), ExtResource("3_eaum8"), ExtResource("4_j4p3a"), ExtResource("5_th6f5")])
 main_spawn_point = NodePath("SpawnPoint")
 init_spawn_point_a = NodePath("SpawnPoint2")
-gym_character = NodePath("CharacterBody2D")
 
 [node name="Timer" type="Timer" parent="." unique_id=853344176]
 wait_time = 0.5
@@ -39,12 +38,6 @@ offset_right = 525.0
 offset_bottom = 312.0
 text = "Gym"
 label_settings = SubResource("LabelSettings_ih2u8")
-
-[node name="SpawnPoint" type="Node2D" parent="." unique_id=424610660]
-position = Vector2(2028, 800)
-
-[node name="SpawnPoint2" type="Node2D" parent="." unique_id=1898616915]
-position = Vector2(1591, 800)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1888255019]
 position = Vector2(11, 842)
@@ -73,3 +66,9 @@ texture = ExtResource("3_w02y4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D" unique_id=865813916]
 position = Vector2(4, -47)
 shape = SubResource("RectangleShape2D_j4p3a")
+
+[node name="SpawnPoint" type="Node2D" parent="." unique_id=424610660]
+position = Vector2(2028, 800)
+
+[node name="SpawnPoint2" type="Node2D" parent="." unique_id=1898616915]
+position = Vector2(1591, 800)

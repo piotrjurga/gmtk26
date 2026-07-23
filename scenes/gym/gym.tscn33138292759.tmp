@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://d37wpxi6lu24d"]
+
+[ext_resource type="Script" uid="uid://bpewwheogyu8a" path="res://scenes/gym/gym.gd" id="1_ih2u8"]
+[ext_resource type="Script" uid="uid://d3bf5q4xdvm12" path="res://scenes/gym/character.gd" id="2_y08fo"]
+[ext_resource type="Texture2D" uid="uid://nruu7s0ldr2d" path="res://icon.svg" id="3_w02y4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ih2u8"]
+font_size = 36
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1k5f7"]
+size = Vector2(1780, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gxi48"]
+size = Vector2(43, 99.5)
+
+[node name="Gym" type="Node2D" unique_id=1809102907 node_paths=PackedStringArray("timer", "spawn_point")]
+script = ExtResource("1_ih2u8")
+timer = NodePath("Timer")
+spawn_point = NodePath("SpawnPoint")
+
+[node name="Label" type="Label" parent="." unique_id=762319772]
+offset_left = 463.0
+offset_top = 289.0
+offset_right = 525.0
+offset_bottom = 312.0
+text = "Gym"
+label_settings = SubResource("LabelSettings_ih2u8")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1888255019]
+position = Vector2(11, 842)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1225128070]
+position = Vector2(1144, -15)
+shape = SubResource("RectangleShape2D_1k5f7")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1312142427]
+position = Vector2(324, 794)
+script = ExtResource("2_y08fo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1461812408]
+position = Vector2(1.5, -47.25)
+shape = SubResource("RectangleShape2D_gxi48")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1172503631]
+position = Vector2(3, -48)
+scale = Vector2(0.3783723, 0.8381923)
+texture = ExtResource("3_w02y4")
+
+[node name="Timer" type="Timer" parent="." unique_id=853344176]
+wait_time = 0.4
+autostart = true
+
+[node name="SpawnPoint" type="Node2D" parent="." unique_id=424610660]
+position = Vector2(2028, 800)

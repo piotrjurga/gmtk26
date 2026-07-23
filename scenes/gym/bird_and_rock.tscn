@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ct65ys068a26m"]
+
+[ext_resource type="PackedScene" uid="uid://cbk0yljbj6acr" path="res://scenes/gym/bird.tscn" id="1_q21du"]
+[ext_resource type="PackedScene" uid="uid://bhbdvbxmrh35f" path="res://scenes/gym/rock.tscn" id="2_vca2k"]
+
+[node name="BirdAndRock" type="Node2D" unique_id=451896022]
+
+[node name="Bird" parent="." unique_id=996567956 instance=ExtResource("1_q21du")]
+
+[node name="Node2D" parent="." unique_id=621158504 instance=ExtResource("2_vca2k")]

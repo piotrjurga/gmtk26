@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cbk0yljbj6acr"]
+
+[ext_resource type="Script" uid="uid://c50t8hp5ew6vc" path="res://scenes/gym/obstacle.gd" id="1_mwqnb"]
+[ext_resource type="Texture2D" uid="uid://nruu7s0ldr2d" path="res://icon.svg" id="2_x5262"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rr0yp"]
+size = Vector2(48, 48)
+
+[node name="Bird" type="Node2D" unique_id=996567956]
+script = ExtResource("1_mwqnb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=741748052]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-0.6515751, -220.65157)
+scale = Vector2(0.45856914, 0.45856914)
+texture = ExtResource("2_x5262")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1013567923]
+position = Vector2(0.76028633, -220.23969)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=837909781]
+position = Vector2(-1.4118614, 2.5881348)
+shape = SubResource("RectangleShape2D_rr0yp")
