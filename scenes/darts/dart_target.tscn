@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ql0cs4d8v434"]
+
+[ext_resource type="Texture2D" uid="uid://dasigls5sjisn" path="res://assets/scroll.png" id="1_h5gej"]
+
+[node name="Target" type="Node2D" unique_id=139521801]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1423420068]
+position = Vector2(17, 11)
+scale = Vector2(0.245, 0.245)
+texture = ExtResource("1_h5gej")

@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://d2ym6jnmfkq1u"]
+
+[ext_resource type="PackedScene" uid="uid://ql0cs4d8v434" path="res://scenes/darts/dart_target.tscn" id="1_57ewy"]
+[ext_resource type="Script" uid="uid://djx3tepqy4bmx" path="res://scenes/darts/darts.gd" id="1_x4xqp"]
+[ext_resource type="PackedScene" uid="uid://e6iw8vpxpnn3" path="res://scenes/darts/dart_throw.tscn" id="2_somb7"]
+[ext_resource type="PackedScene" uid="uid://bohk2ejkjy566" path="res://scenes/darts/sight.tscn" id="2_x4xqp"]
+
+[node name="darts" type="Node2D" unique_id=1772197419 node_paths=PackedStringArray("sight", "dart", "targets")]
+script = ExtResource("1_x4xqp")
+sight = NodePath("Sight")
+dart = NodePath("dart")
+targets = [NodePath("Target"), NodePath("Target2"), NodePath("Target3"), NodePath("Target4"), NodePath("Target5"), NodePath("Target6")]
+
+[node name="Target" parent="." unique_id=139521801 instance=ExtResource("1_57ewy")]
+position = Vector2(204, 190)
+
+[node name="Target2" parent="." unique_id=508167755 instance=ExtResource("1_57ewy")]
+position = Vector2(486, 269)
+
+[node name="Target3" parent="." unique_id=744363297 instance=ExtResource("1_57ewy")]
+position = Vector2(789, 185)
+
+[node name="Target4" parent="." unique_id=394666032 instance=ExtResource("1_57ewy")]
+position = Vector2(985, 415)
+
+[node name="Target5" parent="." unique_id=1249790267 instance=ExtResource("1_57ewy")]
+position = Vector2(731, 487)
+
+[node name="Target6" parent="." unique_id=2046029820 instance=ExtResource("1_57ewy")]
+position = Vector2(279, 477)
+
+[node name="Sight" parent="." unique_id=1568300132 instance=ExtResource("2_x4xqp")]
+position = Vector2(549, 410)
+
+[node name="dart" parent="." unique_id=1523667051 instance=ExtResource("2_somb7")]
+position = Vector2(571, 722)

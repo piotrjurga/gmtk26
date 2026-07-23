@@ -1,17 +1,54 @@
 [gd_scene format=3 uid="uid://c5u8hbh2l8gyt"]
 
 [ext_resource type="Script" uid="uid://btisk6hild45h" path="res://scenes/tavern/tavern.gd" id="1_inl0q"]
+[ext_resource type="Script" uid="uid://6yhk50l24twa" path="res://scenes/tavern/tavern_text_effect.gd" id="2_j7gx7"]
+[ext_resource type="Script" uid="uid://dtikkcn7g8abb" path="res://scenes/tavern/full_text.gd" id="3_5jmso"]
+[ext_resource type="Script" uid="uid://dg504ct80dgrv" path="res://scenes/tavern/success.gd" id="4_nd0ff"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_gxi48"]
-font_size = 36
+[sub_resource type="RichTextEffect" id="RichTextEffect_5jmso"]
+script = ExtResource("3_5jmso")
+metadata/_custom_type_script = "uid://dtikkcn7g8abb"
 
-[node name="Tavern" type="Node2D" unique_id=2119835233]
+[sub_resource type="RichTextEffect" id="RichTextEffect_inl0q"]
+script = ExtResource("2_j7gx7")
+metadata/_custom_type_script = "uid://6yhk50l24twa"
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_nnv1s"]
+script = ExtResource("4_nd0ff")
+metadata/_custom_type_script = "uid://dg504ct80dgrv"
+
+[node name="Tavern" type="Node2D" unique_id=2119835233 node_paths=PackedStringArray("word_label")]
 script = ExtResource("1_inl0q")
+words = Array[String](["revolution", "we can do it", "eat the rich"])
+word_label = NodePath("Control/RichTextLabel")
 
-[node name="Label" type="Label" parent="." unique_id=300132292]
-offset_left = 463.0
-offset_top = 289.0
-offset_right = 525.0
-offset_bottom = 312.0
-text = "TAVERN"
-label_settings = SubResource("LabelSettings_gxi48")
+[node name="Control" type="Control" parent="." unique_id=163089909]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=220715103]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -87.0
+offset_right = 576.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 52
+bbcode_enabled = true
+text = "[success]success"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+custom_effects = [SubResource("RichTextEffect_5jmso"), SubResource("RichTextEffect_inl0q"), SubResource("RichTextEffect_nnv1s")]

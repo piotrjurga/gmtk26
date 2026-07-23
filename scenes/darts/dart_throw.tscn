@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://e6iw8vpxpnn3"]
+
+[ext_resource type="Texture2D" uid="uid://dbo4c75oc2th0" path="res://assets/dart.png" id="1_crvcy"]
+[ext_resource type="Script" uid="uid://blwrunxwudupj" path="res://scenes/darts/dart_throw.gd" id="1_q67yp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gxi48"]
+size = Vector2(20, 103)
+
+[node name="dart" type="CharacterBody2D" unique_id=656937881]
+script = ExtResource("1_q67yp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1382180909]
+position = Vector2(-76.99998, -0.4999771)
+rotation = 1.5707964
+scale = Vector2(0.2975, 0.2975)
+texture = ExtResource("1_crvcy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1617701150]
+position = Vector2(-76.999985, -3.999977)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_gxi48")

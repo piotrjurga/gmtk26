@@ -4,6 +4,7 @@ var progress : float = 100.0
 
 func _ready():
     Signals.tick.connect(tick)
+    Signals.last_tick.connect(last_tick)
 
 func tick(current_tick : int):
     if self != ScenesManager.current_scene:
@@ -13,6 +14,9 @@ func tick(current_tick : int):
     else:
         progress -= 100.0 / 3 
         Signals.progress_bar_set.emit(progress)
+    
+func last_tick():
+    pass
     
 func next_scene() -> PackedScene:
     return ScenesManager.town

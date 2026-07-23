@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bohk2ejkjy566"]
+
+[ext_resource type="Script" uid="uid://dvcb036dtqfp" path="res://scenes/darts/sight.gd" id="1_3ld67"]
+[ext_resource type="Texture2D" uid="uid://b5vncech1ujyo" path="res://assets/sight.png" id="1_x5k5e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gxi48"]
+
+[node name="Sight" type="CharacterBody2D" unique_id=1568300132]
+script = ExtResource("1_3ld67")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=902515379]
+shape = SubResource("CircleShape2D_gxi48")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1055776568]
+position = Vector2(0, 1)
+scale = Vector2(0.055, 0.055)
+texture = ExtResource("1_x5k5e")
