@@ -1,12 +1,22 @@
 [gd_scene format=3 uid="uid://dxanvgyx2iumk"]
 
 [ext_resource type="Script" uid="uid://by0nagtl04oiq" path="res://scenes/sword/sword.gd" id="1_v80dd"]
+[ext_resource type="Texture2D" uid="uid://nruu7s0ldr2d" path="res://icon.svg" id="2_2ps2e"]
+[ext_resource type="Script" uid="uid://cdmo213bse43b" path="res://scenes/sword/prong.gd" id="3_ikpse"]
+[ext_resource type="Script" uid="uid://3rx1w1odru14" path="res://scenes/sword/rock.gd" id="4_8bg4s"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_v80dd"]
 font_size = 36
 
-[node name="Sword" type="Node2D" unique_id=2094122229]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gxi48"]
+size = Vector2(133.33344, 128.8235)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gxi48"]
+radius = 86.09297
+
+[node name="Sword" type="Node2D" unique_id=2094122229 node_paths=PackedStringArray("prongs")]
 script = ExtResource("1_v80dd")
+prongs = [NodePath("Node2D/Sprite2D"), NodePath("Node2D/Sprite2D2"), NodePath("Node2D/Sprite2D3")]
 
 [node name="Label" type="Label" parent="." unique_id=1849071477]
 offset_left = 463.0
@@ -15,3 +25,103 @@ offset_right = 525.0
 offset_bottom = 312.0
 text = "Sword"
 label_settings = SubResource("LabelSettings_v80dd")
+
+[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=686143359]
+position = Vector2(956, 37.99994)
+scale = Vector2(0.47999996, 3.4)
+texture = ExtResource("2_2ps2e")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=750945488]
+position = Vector2(970, 270)
+rotation = 1.5707964
+scale = Vector2(0.7472482, 8.248548)
+texture = ExtResource("2_2ps2e")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1978324562]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=937572318 node_paths=PackedStringArray("area", "bad_sprite")]
+position = Vector2(542, 523)
+scale = Vector2(0.47999996, 3.4)
+texture = ExtResource("2_2ps2e")
+script = ExtResource("3_ikpse")
+area = NodePath("Area2D")
+bad_sprite = NodePath("Sprite2D4")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Node2D/Sprite2D" unique_id=1156060489]
+modulate = Color(0.20152658, 0.20152658, 0.20152658, 1)
+scale = Vector2(1.0000001, 1.0000001)
+texture = ExtResource("2_2ps2e")
+
+[node name="Area2D" type="Area2D" parent="Node2D/Sprite2D" unique_id=1785409279]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Sprite2D/Area2D" unique_id=1033222224]
+position = Vector2(-2.083374, -0.5882263)
+scale = Vector2(1.0000005, 1.0000002)
+shape = SubResource("RectangleShape2D_gxi48")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D" unique_id=533569763 node_paths=PackedStringArray("area", "bad_sprite")]
+position = Vector2(956.0001, 515)
+scale = Vector2(0.47999996, 3.4)
+texture = ExtResource("2_2ps2e")
+script = ExtResource("3_ikpse")
+area = NodePath("Area2D")
+bad_sprite = NodePath("Sprite2D4")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Node2D/Sprite2D2" unique_id=418350064]
+modulate = Color(0.20152658, 0.20152658, 0.20152658, 1)
+scale = Vector2(1.0000001, 1.0000001)
+texture = ExtResource("2_2ps2e")
+
+[node name="Area2D" type="Area2D" parent="Node2D/Sprite2D2" unique_id=1582657478]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Sprite2D2/Area2D" unique_id=2053253842]
+position = Vector2(-2.083374, -0.5882263)
+scale = Vector2(1.0000005, 1.0000002)
+shape = SubResource("RectangleShape2D_gxi48")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D" unique_id=811109594 node_paths=PackedStringArray("area", "bad_sprite")]
+position = Vector2(1464.9999, 524.99994)
+scale = Vector2(0.47999996, 3.4)
+texture = ExtResource("2_2ps2e")
+script = ExtResource("3_ikpse")
+area = NodePath("Area2D")
+bad_sprite = NodePath("Sprite2D4")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Node2D/Sprite2D3" unique_id=1552548442]
+modulate = Color(0.20152658, 0.20152658, 0.20152658, 1)
+scale = Vector2(1.0000001, 1.0000001)
+texture = ExtResource("2_2ps2e")
+
+[node name="Area2D" type="Area2D" parent="Node2D/Sprite2D3" unique_id=954136958]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Sprite2D3/Area2D" unique_id=829972272]
+position = Vector2(-2.083374, -0.5882263)
+scale = Vector2(1.0000005, 1.0000002)
+shape = SubResource("RectangleShape2D_gxi48")
+
+[node name="Rock" type="Node2D" parent="." unique_id=1496486697 node_paths=PackedStringArray("point_a", "point_b", "point_off_camera")]
+modulate = Color(0.69513345, 0.39937568, 1.92523e-07, 1)
+position = Vector2(182, 918)
+script = ExtResource("4_8bg4s")
+point_a = NodePath("../PointA")
+point_b = NodePath("../PointB")
+point_off_camera = NodePath("../PointOffCamera")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Rock" unique_id=957299569]
+modulate = Color(0.44488046, 0.32770866, 0.1571635, 1)
+scale = Vector2(1.0000001, 1.0000001)
+texture = ExtResource("2_2ps2e")
+
+[node name="Area2D" type="Area2D" parent="Rock" unique_id=1283738955]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rock/Area2D" unique_id=114156878]
+shape = SubResource("CircleShape2D_gxi48")
+
+[node name="PointA" type="Node2D" parent="." unique_id=728439861]
+position = Vector2(262, 922)
+
+[node name="PointB" type="Node2D" parent="." unique_id=53851130]
+position = Vector2(1658, 922)
+
+[node name="PointOffCamera" type="Node2D" parent="." unique_id=329466397]
+position = Vector2(1024, 1389)

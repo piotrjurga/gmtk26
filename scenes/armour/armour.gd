@@ -20,8 +20,6 @@ var block_clicking : bool = false
 var is_success : bool = false
 var starting_scale : Vector2
 
-
-
 func _ready():
     super._ready()
     clicked_points = []
@@ -57,7 +55,6 @@ func on_click(mouse_pos : Vector2):
             score_points.erase(score_point)
             score_point.queue_free()
 
-
 func last_tick():
     block_clicking = true
     score_points = score_points_root.get_children()
@@ -65,7 +62,3 @@ func last_tick():
     if (float(score_points.size()) / float(max_points_count)) < 0.3:
         is_success = true
         print(is_success)
-
-func _physics_process(delta):
-    if ! is_success:
-        return

@@ -12,7 +12,7 @@ func _ready():
     super._ready()
     target_positions = target_positions_root.get_children()
     target_positions.shuffle()
-    print(TargetManager.targets)
+
     for target : Target in TargetManager.targets:
         var new_target : DartTarget = target_scene.instantiate()
         new_target.init_from_target(target)
