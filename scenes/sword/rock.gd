@@ -23,8 +23,9 @@ func _physics_process(delta):
 func swing(delta):
     if target.global_position.distance_to(global_position) < 20 && target != point_off_camera:
         target = point_a if target == point_b else point_b
-        tween.kill()
-        tween = null
+        if tween:
+            tween.kill()
+            tween = null
         
     if tween:
         return
