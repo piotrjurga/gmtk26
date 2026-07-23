@@ -18,12 +18,15 @@ func _ready():
     super._ready()
     blade.global_position.y = blade_bottom_max_y
     min_height = blade_bottom_max_y
+    head.init_from_target(TargetManager.current_target)
 
 func _physics_process(delta):
     if blade.global_position.y < min_height:
         blade.global_position.y += delta * fall_speed
     if blade.global_position.y >= blade_drop_y:
-         head.fall()
+        head.fall()
+        if TargetManager.current_target is Target:
+            Signals.target_dead.emit(TargetManager.current_target)
 
 func last_tick():
     if blade_success_height > blade.global_position.y:
@@ -39,11 +42,13 @@ func _input(event):
         return
     if ! Input.is_action_just_pressed("space"):
         return
-        
+
     blade.global_position.y -= strength
     if blade.global_position.y < blade_top_max_y:
         blade.global_position.y = blade_top_max_y
-        
-    
-    
-        
+
+func next_scene() -> PackedScene:
+    if TargetManager.current_target is Target:
+        return ScenesManager.town
+    else:
+        return ScenesManager.darts

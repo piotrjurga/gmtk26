@@ -10,6 +10,11 @@ func fall():
     velocity.y = -200 + randf() * -200
     velocity.x = 200 * randf() - 200
     
+    
+    
+func init_from_target(target : Target):
+    sprite.texture = target.head
+    
 func _physics_process(delta):
     if !is_fall:
         return

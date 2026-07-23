@@ -4,19 +4,22 @@
 [ext_resource type="Texture2D" uid="uid://du3mvcvyd353f" path="res://assets/armour-good.png" id="2_g7uqp"]
 [ext_resource type="Shader" uid="uid://dth8palkphw3q" path="res://scenes/armour/armour.gdshader" id="3_r42f3"]
 [ext_resource type="Texture2D" uid="uid://c2f0fgxirwxw8" path="res://assets/armour-bad.png" id="4_kgeru"]
+[ext_resource type="Texture2D" uid="uid://cxk5mb1c1cora" path="res://assets/Hammer.png" id="5_r42f3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4rhgh"]
 font_size = 36
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gxi48"]
 shader = ExtResource("3_r42f3")
-shader_parameter/points = PackedVector2Array(0, 0)
-shader_parameter/click_size = 0.0
+shader_parameter/points = PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
-[node name="Armour" type="Node2D" unique_id=441942228 node_paths=PackedStringArray("armour_bad", "score_points_root")]
+[node name="Armour" type="Node2D" unique_id=441942228 node_paths=PackedStringArray("armour_good", "armour_bad", "score_points_root", "hammer_icon")]
 script = ExtResource("1_4rhgh")
+armour_good = NodePath("ArmourGood")
 armour_bad = NodePath("ArmourGood/ArmourBad")
 score_points_root = NodePath("Points")
+hammer_icon = NodePath("Hammer")
+hammer_rotation_hit = -75.0
 
 [node name="Label" type="Label" parent="." unique_id=210693204]
 offset_left = 487.0
@@ -336,3 +339,9 @@ position = Vector2(621, 461)
 
 [node name="point100" type="Node2D" parent="Points" unique_id=943970229]
 position = Vector2(596, 218)
+
+[node name="Hammer" type="Sprite2D" parent="." unique_id=717574599]
+position = Vector2(-212, 220)
+scale = Vector2(0.11833657, 0.11833657)
+texture = ExtResource("5_r42f3")
+offset = Vector2(-50.70288, -211.26184)

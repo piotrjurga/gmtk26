@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Target" format=3 uid="uid://dp006ubeinit8"]
+
+[ext_resource type="Texture2D" uid="uid://dykwt841iq5ot" path="res://assets/guillotine/head.png" id="1_t30u8"]
+[ext_resource type="Script" uid="uid://dt8qxeyrvd18u" path="res://targets/TargetResource.gd" id="2_p4n7v"]
+[ext_resource type="Texture2D" uid="uid://dasigls5sjisn" path="res://assets/scroll.png" id="3_3d5ut"]
+
+[resource]
+script = ExtResource("2_p4n7v")
+name = "Count la'Baguette"
+gold = 2
+texture = ExtResource("3_3d5ut")
+head = ExtResource("1_t30u8")
+metadata/_custom_type_script = "uid://dt8qxeyrvd18u"

@@ -6,11 +6,18 @@ var minion : PackedScene = preload("res://scenes/bullet-hell/minions/minion.tscn
 var player : PackedScene = preload("res://scenes/bullet-hell/player.tscn")
 
 var minion_count: int
+var last_tick_count : int = 0
+var max_last_tick_count : int = 2
 
 func minion_lost():
     minion_count -= 1
     if minion_count == 0:
         Signals.scene_done.emit(false)
+
+func next_scene() -> PackedScene:
+    if minion_count >= 1:
+        return ScenesManager.guillotine
+    return ScenesManager.town
 
 func setup(enemy_count: int, minion_count_: int):
     minion_count = minion_count_
@@ -38,6 +45,7 @@ func setup(enemy_count: int, minion_count_: int):
         add_child(e)
 
 func _ready():
+    super._ready()
     window_size = get_window().size
     setup(3, 5)
     Signals.minion_died.connect(minion_lost)
@@ -46,3 +54,15 @@ func clear():
     for c in get_children():
         c.queue_free()
         remove_child(c)
+        
+func tick(current_tick : int):
+    if self != ScenesManager.current_scene:
+        return
+    if current_tick == 1:
+        last_tick_count += 1
+    
+    if last_tick_count == max_last_tick_count:
+        Signals.scene_ended.emit()
+    else:
+        progress -= 100.0 / 7
+        Signals.progress_bar_set.emit(progress)

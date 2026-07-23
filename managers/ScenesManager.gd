@@ -5,7 +5,7 @@ var tavern : PackedScene = preload("res://scenes/tavern/tavern.tscn")
 var sword : PackedScene = preload("res://scenes/sword/sword.tscn")
 var armour : PackedScene = preload("res://scenes/armour/armour.tscn")
 var gym : PackedScene = preload("res://scenes/gym/gym.tscn")
-var boss : PackedScene = preload("res://scenes/boss/boss.tscn")
+var boss : PackedScene = preload("res://scenes/bullet-hell/bullet-hell.tscn")
 var darts : PackedScene = preload("res://scenes/darts/darts.tscn")
 var guillotine : PackedScene = preload("res://scenes/guillotine/guillotine.tscn")
 
@@ -32,5 +32,5 @@ func new_game(current_tick : int):
         
         # to delete, should be town
         #change_scene(tavern)
-        change_scene(guillotine)
+        change_scene(darts)
         

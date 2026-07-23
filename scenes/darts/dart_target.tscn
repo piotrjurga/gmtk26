@@ -1,10 +1,41 @@
 [gd_scene format=3 uid="uid://ql0cs4d8v434"]
 
+[ext_resource type="Script" uid="uid://b37p6d8i3e4oh" path="res://scenes/darts/dart_target.gd" id="1_ep5d0"]
 [ext_resource type="Texture2D" uid="uid://dasigls5sjisn" path="res://assets/scroll.png" id="1_h5gej"]
 
-[node name="Target" type="Node2D" unique_id=139521801]
+[sub_resource type="LabelSettings" id="LabelSettings_gxi48"]
+font_size = 14
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ep5d0"]
+font_size = 14
+font_color = Color(0.8941013, 0.7670424, 0, 1)
+
+[node name="Target" type="Node2D" unique_id=139521801 node_paths=PackedStringArray("dart_image", "name_label", "gold_label")]
+script = ExtResource("1_ep5d0")
+dart_image = NodePath("Sprite2D")
+name_label = NodePath("Name")
+gold_label = NodePath("Gold")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1423420068]
 position = Vector2(17, 11)
 scale = Vector2(0.245, 0.245)
 texture = ExtResource("1_h5gej")
+
+[node name="Name" type="Label" parent="." unique_id=2044214208]
+offset_left = -76.0
+offset_top = -67.0
+offset_right = 74.0
+offset_bottom = -44.0
+label_settings = SubResource("LabelSettings_gxi48")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Gold" type="Label" parent="." unique_id=95995590]
+offset_left = -71.0
+offset_top = 76.0
+offset_right = 79.0
+offset_bottom = 99.0
+label_settings = SubResource("LabelSettings_ep5d0")
+horizontal_alignment = 1
+vertical_alignment = 1
