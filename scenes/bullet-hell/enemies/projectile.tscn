@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c2e8fea0ltu0n"]
+
+[ext_resource type="Texture2D" uid="uid://nruu7s0ldr2d" path="res://icon.svg" id="1_kafko"]
+[ext_resource type="Script" uid="uid://cqfutil280aph" path="res://scenes/bullet-hell/enemies/projectile.gd" id="1_opefv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uj04i"]
+radius = 9.0
+
+[node name="Projectile" type="CharacterBody2D" unique_id=785256407]
+collision_layer = 4
+script = ExtResource("1_opefv")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=289819640]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_kafko")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=10097782]
+shape = SubResource("CircleShape2D_uj04i")

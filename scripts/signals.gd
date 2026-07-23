@@ -8,3 +8,7 @@ signal progress_bar_set(value : float)
 
 # town
 signal place_picked(place : TownPlace.Places)
+
+# bullet hell
+signal minion_died()
+signal scene_done(success : bool)

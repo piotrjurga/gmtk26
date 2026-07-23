@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://vpkv5slu5x12"]
+
+[ext_resource type="Script" uid="uid://g2pwwab6oqin" path="res://scenes/bullet-hell/minions/minion.gd" id="1_c2eyd"]
+[ext_resource type="Texture2D" uid="uid://nruu7s0ldr2d" path="res://icon.svg" id="2_dxnyw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxnyw"]
+size = Vector2(38, 124)
+
+[node name="Minion" type="CharacterBody2D" unique_id=665359883 groups=["minions"]]
+collision_mask = 7
+script = ExtResource("1_c2eyd")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1293093790]
+scale = Vector2(0.33, 1)
+texture = ExtResource("2_dxnyw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=718312711]
+shape = SubResource("RectangleShape2D_dxnyw")
