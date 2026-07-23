@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ddrb343mv43b5"]
+
+[ext_resource type="Script" uid="uid://dh7avmvej2t0u" path="res://scenes/bullet-hell/enemies/enemy.gd" id="1_x6wcx"]
+[ext_resource type="Texture2D" uid="uid://nruu7s0ldr2d" path="res://icon.svg" id="2_72uv0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uj04i"]
+size = Vector2(38, 124)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1386190873]
+collision_layer = 2
+script = ExtResource("1_x6wcx")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=899273029]
+modulate = Color(1, 0.14901961, 0.007843138, 1)
+scale = Vector2(0.33, 1)
+texture = ExtResource("2_72uv0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=230723493]
+shape = SubResource("RectangleShape2D_uj04i")

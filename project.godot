@@ -29,6 +29,10 @@ Signals="*uid://ba4bplrou1lyk"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[global_group]
+
+minions=""
+
 [input]
 
 up={

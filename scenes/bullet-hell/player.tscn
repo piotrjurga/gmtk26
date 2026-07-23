@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://fdd7ple1dfuw"]
+
+[ext_resource type="Script" uid="uid://mdnb4qiqrp3t" path="res://scenes/bullet-hell/player.gd" id="1_2s6r4"]
+[ext_resource type="Texture2D" uid="uid://nruu7s0ldr2d" path="res://icon.svg" id="2_8hhjw"]
+
+[node name="Player" type="CharacterBody2D" unique_id=593400136]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_2s6r4")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1586286704]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_8hhjw")
