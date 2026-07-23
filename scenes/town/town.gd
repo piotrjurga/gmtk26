@@ -3,6 +3,7 @@ extends Scene
 var picked_place : TownPlace.Places = TownPlace.Places.Street
 
 func _ready():
+    super._ready()
     Signals.place_picked.connect(place_picked)
     
 func place_picked(place : TownPlace.Places):
@@ -18,6 +19,8 @@ func next_scene() -> PackedScene:
             return ScenesManager.sword
         TownPlace.Places.Armour:
             return ScenesManager.armour
+        TownPlace.Places.Boss:
+            return ScenesManager.boss
         TownPlace.Places.Street:
             return ScenesManager.town
     return ScenesManager.town

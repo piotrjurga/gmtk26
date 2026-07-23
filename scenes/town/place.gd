@@ -1,6 +1,6 @@
 class_name TownPlace extends Sprite2D
 
-enum Places {Tavern, Gym, Swords, Armour, Street}
+enum Places {Tavern, Gym, Swords, Armour, Street, Boss}
 
 @export var place : Places
 @export var area : Area2D

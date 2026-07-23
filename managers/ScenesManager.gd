@@ -10,20 +10,22 @@ var boss : PackedScene = preload("res://scenes/boss/boss.tscn")
 var current_scene : Scene
 
 func _ready():
-    Signals.tick.connect(pick_new_scene)
+    Signals.scene_ended.connect(pick_new_scene)
+    Signals.tick.connect(new_game)
     
-func pick_new_scene(current_tick):
-    if current_scene == null:
-        change_scene(town)
-        return
-        
-    if current_tick == 1:
-        change_scene(current_scene.next_scene())
-            
+func pick_new_scene():
+    change_scene(current_scene.next_scene())
 
 func change_scene(new_scene : PackedScene):
+    Signals.progress_bar_set.emit(100.0)
     if current_scene:
         current_scene.queue_free()
     current_scene = new_scene.instantiate()
     
     get_tree().root.add_child(current_scene)
+
+func new_game(current_tick : int):
+    if current_scene == null:
+        Signals.tick.disconnect(new_game)
+        change_scene(town)
+        

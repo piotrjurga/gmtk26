@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://3mowualejyn3"]
 
+[ext_resource type="Texture2D" uid="uid://nruu7s0ldr2d" path="res://icon.svg" id="1_ks8t7"]
+[ext_resource type="Script" uid="uid://deymo0jeo3fgy" path="res://ui/texture_progress_bar.gd" id="2_wl5ax"]
+
 [node name="UI" type="Control" unique_id=1876686818]
 layout_mode = 3
 anchors_preset = 15
@@ -8,8 +11,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="." unique_id=803650067]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1559931399]
 layout_mode = 0
-offset_right = 1153.0
-offset_bottom = 27.0
-show_percentage = false
+offset_left = -1.0
+offset_top = 610.0
+offset_right = 39.0
+offset_bottom = 650.0
+scale = Vector2(9, 0.27999997)
+value = 100.0
+texture_under = ExtResource("1_ks8t7")
+texture_progress = ExtResource("1_ks8t7")
+tint_under = Color(0.9607843, 0.9607843, 0.9607843, 0.2784314)
+tint_progress = Color(0.81389046, 0.95005375, 0.139433, 1)
+script = ExtResource("2_wl5ax")
