@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://c3v2f1xc0pvnw" path="res://scenes/bullet-hell/bullet_hell.gd" id="1_eywxy"]
 
 [node name="BulletHell" type="Node2D" unique_id=1230109447]
+y_sort_enabled = true
 script = ExtResource("1_eywxy")

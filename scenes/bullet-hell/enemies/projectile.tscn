@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_uj04i"]
 radius = 9.0
 
-[node name="Projectile" type="CharacterBody2D" unique_id=785256407]
+[node name="Projectile" type="Area2D" unique_id=335891914]
 collision_layer = 4
 script = ExtResource("1_opefv")
 

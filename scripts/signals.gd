@@ -11,6 +11,7 @@ signal place_picked(place : TownPlace.Places)
 
 # bullet hell
 signal minion_died()
+signal enemy_died()
 signal scene_done(success : bool)
 
 # target

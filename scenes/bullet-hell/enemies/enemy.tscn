@@ -3,17 +3,34 @@
 [ext_resource type="Script" uid="uid://dh7avmvej2t0u" path="res://scenes/bullet-hell/enemies/enemy.gd" id="1_x6wcx"]
 [ext_resource type="Texture2D" uid="uid://nruu7s0ldr2d" path="res://icon.svg" id="2_72uv0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uj04i"]
-size = Vector2(38, 124)
+[sub_resource type="CircleShape2D" id="CircleShape2D_uj04i"]
+radius = 19.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72uv0"]
+size = Vector2(34, 121)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1386190873]
 collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_x6wcx")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=899273029]
 modulate = Color(1, 0.14901961, 0.007843138, 1)
+position = Vector2(0, -64.985)
 scale = Vector2(0.33, 1)
 texture = ExtResource("2_72uv0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=230723493]
-shape = SubResource("RectangleShape2D_uj04i")
+[node name="Feet" type="CollisionShape2D" parent="." unique_id=230723493]
+position = Vector2(0, -15)
+shape = SubResource("CircleShape2D_uj04i")
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=2037640259]
+position = Vector2(0, -15)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=526362314]
+position = Vector2(0, -50.5)
+shape = SubResource("RectangleShape2D_72uv0")
+
+[node name="Weapon" type="Marker2D" parent="." unique_id=1375152488]
+position = Vector2(20, -70)
