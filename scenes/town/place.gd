@@ -1,9 +1,10 @@
-class_name TownPlace extends Sprite2D
+class_name TownPlace extends Node2D
 
 enum Places {Tavern, Gym, Swords, Armour, Street, Boss}
 
 @export var place : Places
 @export var area : Area2D
+@export var sprite : Sprite2D
 var is_picked : bool = false
 
 func _ready():
@@ -18,9 +19,9 @@ func place_picked(new_place : TownPlace.Places):
     
 func _physics_process(delta):
     if !is_picked:
-        scale = Vector2.ONE
+        sprite.scale = Vector2.ONE
         return
     
     var t = Time.get_ticks_msec()
-    scale.x = 1 + sin(t * 4e-3 * PI) / 4
-    scale.y = 1 + cos(t * 3e-3 * PI) / 4
+    sprite.scale.x = 1 + sin(t * 4e-3 * PI) / 4
+    sprite.scale.y = 1 + cos(t * 3e-3 * PI) / 4

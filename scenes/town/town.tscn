@@ -32,7 +32,7 @@ label_settings = SubResource("LabelSettings_vaf5k")
 position = Vector2(524, 315)
 collision_layer = 3
 script = ExtResource("1_n11nm")
-places = [NodePath("../tavern"), NodePath("../gym"), NodePath("../swords"), NodePath("../armour"), NodePath("../boss")]
+places = [NodePath("../tavern"), NodePath("../boss"), NodePath("../gym"), NodePath("../swords"), NodePath("../armour")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1853602988]
 shape = SubResource("CircleShape2D_gxi48")
@@ -41,11 +41,14 @@ shape = SubResource("CircleShape2D_gxi48")
 scale = Vector2(0.234375, 0.234375)
 texture = ExtResource("2_gxugk")
 
-[node name="tavern" type="Sprite2D" parent="." unique_id=285379378 node_paths=PackedStringArray("area")]
+[node name="tavern" type="Node2D" parent="." unique_id=1705705785 node_paths=PackedStringArray("area", "sprite")]
 position = Vector2(238, 154)
-texture = ExtResource("2_gxugk")
 script = ExtResource("4_8b7wv")
 area = NodePath("Area2D")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="tavern" unique_id=1928099726]
+texture = ExtResource("2_gxugk")
 
 [node name="Label2" type="Label" parent="tavern" unique_id=2101368127]
 offset_left = -51.0
@@ -67,12 +70,15 @@ shape = SubResource("RectangleShape2D_gxi48")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tavern/StaticBody2D" unique_id=1709260584]
 shape = SubResource("RectangleShape2D_1k5f7")
 
-[node name="boss" type="Sprite2D" parent="." unique_id=2089304625 node_paths=PackedStringArray("area")]
+[node name="boss" type="Node2D" parent="." unique_id=1654516023 node_paths=PackedStringArray("area", "sprite")]
 position = Vector2(556, 4)
-texture = ExtResource("2_gxugk")
 script = ExtResource("4_8b7wv")
 place = 5
 area = NodePath("Area2D")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="boss" unique_id=796772355]
+texture = ExtResource("2_gxugk")
 
 [node name="Label2" type="Label" parent="boss" unique_id=970659078]
 offset_left = -58.0
@@ -94,12 +100,15 @@ shape = SubResource("RectangleShape2D_gxi48")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boss/StaticBody2D" unique_id=840313698]
 shape = SubResource("RectangleShape2D_1k5f7")
 
-[node name="gym" type="Sprite2D" parent="." unique_id=656405833 node_paths=PackedStringArray("area")]
+[node name="gym" type="Node2D" parent="." unique_id=480905846 node_paths=PackedStringArray("area", "sprite")]
 position = Vector2(242, 449)
-texture = ExtResource("2_gxugk")
 script = ExtResource("4_8b7wv")
 place = 1
 area = NodePath("Area2D")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="gym" unique_id=1826165453]
+texture = ExtResource("2_gxugk")
 
 [node name="Label3" type="Label" parent="gym" unique_id=558705956]
 offset_left = -53.0
@@ -121,12 +130,15 @@ shape = SubResource("RectangleShape2D_gxi48")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="gym/StaticBody2D" unique_id=529033808]
 shape = SubResource("RectangleShape2D_1k5f7")
 
-[node name="swords" type="Sprite2D" parent="." unique_id=1246720678 node_paths=PackedStringArray("area")]
+[node name="swords" type="Node2D" parent="." unique_id=961192497 node_paths=PackedStringArray("area", "sprite")]
 position = Vector2(875, 158)
-texture = ExtResource("2_gxugk")
 script = ExtResource("4_8b7wv")
 place = 2
 area = NodePath("Area2D")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="swords" unique_id=157792980]
+texture = ExtResource("2_gxugk")
 
 [node name="Label4" type="Label" parent="swords" unique_id=525164061]
 offset_left = -58.0
@@ -148,12 +160,15 @@ shape = SubResource("RectangleShape2D_gxi48")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="swords/StaticBody2D" unique_id=100363682]
 shape = SubResource("RectangleShape2D_1k5f7")
 
-[node name="armour" type="Sprite2D" parent="." unique_id=1789322083 node_paths=PackedStringArray("area")]
+[node name="armour" type="Node2D" parent="." unique_id=908161456 node_paths=PackedStringArray("area", "sprite")]
 position = Vector2(847, 435)
-texture = ExtResource("2_gxugk")
 script = ExtResource("4_8b7wv")
 place = 3
 area = NodePath("Area2D")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="armour" unique_id=359351742]
+texture = ExtResource("2_gxugk")
 
 [node name="Label5" type="Label" parent="armour" unique_id=1522845570]
 offset_left = -57.0
