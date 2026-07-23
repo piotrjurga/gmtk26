@@ -6,7 +6,7 @@ const SPEED = 1500.0
 @export var target : Vector2 = Vector2.ZERO
 
 func set_target(new_target : Vector2):
-    target = new_target + Vector2(50 - randf() * 100, 50 - randf() * 100)
+    target = new_target + Vector2(25 - randf() * 50, 25 - randf() * 50)
     look_at(target)
 
 func _physics_process(delta):

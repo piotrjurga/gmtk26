@@ -25,21 +25,24 @@ size = Vector2(1925, 20)
 
 [node name="guillotine" type="Node2D" unique_id=959309012 node_paths=PackedStringArray("blade", "head")]
 script = ExtResource("1_woxi1")
-blade_success_height = 375.0
-blade_top_max_y = 330.0
-blade_bottom_max_y = 540.0
-blade_drop_y = 621.0
+blade_success_height = 578.0
+blade_top_max_y = 533.0
+blade_bottom_max_y = 742.0
+blade_drop_y = 825.0
 blade = NodePath("Blade")
 fall_speed = 200.0
 strength = 40.0
 head = NodePath("Head2")
 
 [node name="Body" type="Sprite2D" parent="." unique_id=1469451113]
-position = Vector2(279, 330)
+position = Vector2(669, 534)
 texture = ExtResource("3_t8lfn")
 
+[node name="RopeCutof" type="Marker2D" parent="." unique_id=1712054979]
+position = Vector2(935, 301)
+
 [node name="Blade" type="Sprite2D" parent="." unique_id=913683736]
-position = Vector2(276, 621)
+position = Vector2(666, 578)
 texture = ExtResource("2_rsnbr")
 
 [node name="Sprite2D" type="Sprite2D" parent="Blade" unique_id=312318397 node_paths=PackedStringArray("cutof_point")]
@@ -50,16 +53,14 @@ position = Vector2(267, -399)
 scale = Vector2(-0.08584001, 3.0453715)
 texture = ExtResource("4_t8lfn")
 script = ExtResource("6_prif8")
-cutof_point = NodePath("../RopeCutof")
-
-[node name="RopeCutof" type="Node2D" parent="Blade" unique_id=1044831235]
-position = Vector2(269, -526)
+cutof_point = NodePath("../../RopeCutof")
 
 [node name="FrontFrame" type="Sprite2D" parent="." unique_id=1146797591]
-position = Vector2(279, 330)
+position = Vector2(669, 534)
 texture = ExtResource("4_6wx65")
 
 [node name="Head2" type="CharacterBody2D" parent="." unique_id=454538128 node_paths=PackedStringArray("sprite")]
+position = Vector2(390, 204)
 floor_stop_on_slope = false
 floor_block_on_wall = false
 script = ExtResource("5_rsnbr")
@@ -75,6 +76,7 @@ position = Vector2(543, 485)
 shape = SubResource("CircleShape2D_gxi48")
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=1272140800]
+position = Vector2(390, 204)
 physics_material_override = SubResource("PhysicsMaterial_1k5f7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=41609280]

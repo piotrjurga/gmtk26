@@ -13,41 +13,41 @@ target_positions_root = NodePath("TargetPositions")
 [node name="TargetPositions" type="Node2D" parent="." unique_id=1493673657]
 
 [node name="TargetPosition" type="Node2D" parent="TargetPositions" unique_id=1807159907]
-position = Vector2(154, 165)
+position = Vector2(383, 193)
 
 [node name="TargetPosition2" type="Node2D" parent="TargetPositions" unique_id=1725992997]
-position = Vector2(377, 124)
+position = Vector2(427, 504)
 
 [node name="TargetPosition3" type="Node2D" parent="TargetPositions" unique_id=1951905453]
-position = Vector2(330, 370)
+position = Vector2(204, 706)
 
 [node name="TargetPosition4" type="Node2D" parent="TargetPositions" unique_id=969970363]
-position = Vector2(160, 496)
+position = Vector2(477, 851)
 
 [node name="TargetPosition5" type="Node2D" parent="TargetPositions" unique_id=558544319]
-position = Vector2(432, 497)
+position = Vector2(692, 638)
 
 [node name="TargetPosition6" type="Node2D" parent="TargetPositions" unique_id=346117102]
-position = Vector2(593, 305)
+position = Vector2(904, 255)
 
 [node name="TargetPosition7" type="Node2D" parent="TargetPositions" unique_id=764518188]
-position = Vector2(710, 124)
+position = Vector2(1077, 526)
 
 [node name="TargetPosition8" type="Node2D" parent="TargetPositions" unique_id=1542670097]
-position = Vector2(749, 449)
+position = Vector2(1283, 223)
 
 [node name="TargetPosition9" type="Node2D" parent="TargetPositions" unique_id=1029720446]
-position = Vector2(905, 237)
+position = Vector2(1680, 325)
 
 [node name="TargetPosition10" type="Node2D" parent="TargetPositions" unique_id=1700194026]
-position = Vector2(915, 517)
+position = Vector2(1458, 564)
 
 [node name="TargetPosition11" type="Node2D" parent="TargetPositions" unique_id=577431908]
-position = Vector2(1022, 367)
+position = Vector2(1669, 810)
 
 [node name="Sight" parent="." unique_id=1568300132 instance=ExtResource("2_x4xqp")]
-position = Vector2(549, 410)
+position = Vector2(1017, 843)
 
 [node name="dart" parent="." unique_id=1523667051 instance=ExtResource("2_somb7")]
 z_index = 100
-position = Vector2(571, 722)
+position = Vector2(963, 1240)

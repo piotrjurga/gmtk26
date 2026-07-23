@@ -12,12 +12,14 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1559931399]
-layout_mode = 0
-offset_left = -1.0
-offset_top = 610.0
-offset_right = 39.0
-offset_bottom = 650.0
-scale = Vector2(9, 0.27999997)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -128.0
+grow_horizontal = 2
+grow_vertical = 0
 value = 100.0
 texture_under = ExtResource("1_ks8t7")
 texture_progress = ExtResource("1_ks8t7")

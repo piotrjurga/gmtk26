@@ -28,7 +28,7 @@ TargetManager="*uid://7dvya17wmg6x"
 [display]
 
 window/size/viewport_width=1920
-window/size/viewport_height=1280
+window/size/viewport_height=1080
 window/size/resizable=false
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_height"

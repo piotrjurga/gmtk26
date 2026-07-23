@@ -10,3 +10,5 @@ script = ExtResource("1_o5qli")
 [node name="RythmManager" parent="." unique_id=82670960 instance=ExtResource("2_0wfyh")]
 
 [node name="UI" parent="." unique_id=1876686818 instance=ExtResource("3_sugp2")]
+offset_right = 1920.0
+offset_bottom = 1080.0
