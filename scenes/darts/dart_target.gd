@@ -13,7 +13,7 @@ var target : Target
 
 func init_from_target(new_target : Target):
     target = new_target
-    name_label.text = target.name
+    name_label.text = target.title + ' ' + target.name
     gold_label.text = str(target.gold) + " g"
     count_head.set_cutoff(top.global_position, bot.global_position, left.global_position, right.global_position)
     count_head.init_from_target(target)

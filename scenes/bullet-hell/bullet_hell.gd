@@ -61,6 +61,7 @@ func setup(enemy_count_: int):
 
 func _ready():
     super._ready()
+    Signals.set_stream.emit(2)
     window_size = get_window().size
     setup(5)
     Signals.minion_died.connect(minion_down)
@@ -76,6 +77,7 @@ func tick(current_tick : int):
         return
     if current_tick == 1:
         last_tick_count += 1
+        Signals.set_stream.emit(3)
     
     if last_tick_count == max_last_tick_count:
         Signals.scene_ended.emit()

@@ -27,7 +27,7 @@ size = Vector2(677, 296)
 size = Vector2(518, 195)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4yhmd"]
-size = Vector2(572, 508)
+size = Vector2(500, 508)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b3xbq"]
 size = Vector2(412, 356)
@@ -66,7 +66,7 @@ position = Vector2(497, 251)
 texture = ExtResource("2_dmgee")
 
 [node name="tavern" type="Node2D" parent="." unique_id=1705705785 node_paths=PackedStringArray("area", "sprite")]
-position = Vector2(854, 281)
+position = Vector2(854, 336)
 script = ExtResource("4_8b7wv")
 area = NodePath("Area2D")
 sprite = NodePath("Back")
@@ -92,7 +92,7 @@ position = Vector2(56, 9.5)
 shape = SubResource("RectangleShape2D_wpqog")
 
 [node name="boss" type="Node2D" parent="." unique_id=1654516023 node_paths=PackedStringArray("area", "sprite")]
-position = Vector2(1701, 294)
+position = Vector2(1546, 308)
 script = ExtResource("4_8b7wv")
 place = 5
 area = NodePath("Area2D")
@@ -109,7 +109,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boss/Area2D" unique_id=1090330688]
-position = Vector2(-33, 33)
+position = Vector2(3, 33)
 shape = SubResource("RectangleShape2D_4yhmd")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="boss" unique_id=869611807]
@@ -138,7 +138,7 @@ collision_mask = 2
 shape = SubResource("RectangleShape2D_dmgee")
 
 [node name="swords" type="Node2D" parent="." unique_id=961192497 node_paths=PackedStringArray("area", "sprite")]
-position = Vector2(281, 467)
+position = Vector2(286, 512)
 script = ExtResource("4_8b7wv")
 place = 2
 area = NodePath("Area2D")
@@ -165,7 +165,7 @@ position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_1k5f7")
 
 [node name="armour" type="Node2D" parent="." unique_id=908161456 node_paths=PackedStringArray("area", "sprite")]
-position = Vector2(1680, 843)
+position = Vector2(1680, 880)
 script = ExtResource("4_8b7wv")
 place = 3
 area = NodePath("Area2D")

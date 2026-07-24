@@ -5,13 +5,19 @@
 [ext_resource type="AudioStream" uid="uid://cvyqj8i5enuvv" path="res://sounds/pop.wav" id="3_7tegy"]
 [ext_resource type="AudioStream" uid="uid://blylnuy5cu5yi" path="res://assets/Music/song town.wav" id="4_7tegy"]
 [ext_resource type="AudioStream" uid="uid://36pr16vidq0t" path="res://assets/Music/song tawern.wav" id="5_7tegy"]
+[ext_resource type="AudioStream" uid="uid://bjw7464b0yy4r" path="res://assets/Music/boss_fightA.wav" id="6_72hui"]
+[ext_resource type="AudioStream" uid="uid://nd5ur0kqnwf7" path="res://assets/Music/boss_fightB.wav" id="7_qc1qe"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_kenwu"]
-stream_count = 2
+stream_count = 4
 stream_0/stream = ExtResource("4_7tegy")
 stream_0/volume = 0.0
 stream_1/stream = ExtResource("5_7tegy")
 stream_1/volume = 0.0
+stream_2/stream = ExtResource("6_72hui")
+stream_2/volume = 0.0
+stream_3/stream = ExtResource("7_qc1qe")
+stream_3/volume = 0.0
 
 [node name="RythmManager" type="Node" unique_id=82670960 node_paths=PackedStringArray("pip_sound", "pop_sound", "music", "delay_start_timer")]
 script = ExtResource("1_kenwu")

@@ -9,4 +9,3 @@ func last_tick():
             return
             
     StatsManager.get_fork()
-    print("success")

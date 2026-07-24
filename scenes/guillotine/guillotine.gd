@@ -18,13 +18,15 @@ func _ready():
     super._ready()
     blade.global_position.y = blade_bottom_max_y
     min_height = blade_bottom_max_y
-    head.init_from_target(TargetManager.current_target)
+    if TargetManager.current_target:
+        head.init_from_target(TargetManager.current_target)
 
 func _physics_process(delta):
     if blade.global_position.y < min_height:
         blade.global_position.y += delta * fall_speed
     if blade.global_position.y >= blade_drop_y:
         head.fall()
+        Signals.success.emit()
         if TargetManager.current_target is Target:
             Signals.target_dead.emit(TargetManager.current_target)
 
@@ -33,7 +35,7 @@ func last_tick():
         min_height = blade_drop_y
         print("success")
     else:
-        print("fail")
+        Signals.failure.emit()
     fall_speed = fall_speed * 10
     enabled = false
 

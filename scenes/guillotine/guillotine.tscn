@@ -1,18 +1,26 @@
 [gd_scene format=3 uid="uid://bs2dm8hjtxnlp"]
 
 [ext_resource type="Script" uid="uid://dsvsht4e018sg" path="res://scenes/guillotine/guillotine.gd" id="1_woxi1"]
-[ext_resource type="Texture2D" uid="uid://byjkuqbe1rdls" path="res://assets/guillotine/blade.png" id="2_rsnbr"]
-[ext_resource type="Texture2D" uid="uid://dl8icn61qx8ts" path="res://assets/guillotine/body.png" id="3_t8lfn"]
-[ext_resource type="Texture2D" uid="uid://cy3y6wq265oql" path="res://assets/guillotine/front_frame.png" id="4_6wx65"]
+[ext_resource type="Texture2D" uid="uid://bu67vh28nf65p" path="res://assets/guillotine/guillotine/background.png" id="2_6wx65"]
+[ext_resource type="Texture2D" uid="uid://bcau4qrki5asq" path="res://assets/guillotine/guillotine/blade.png" id="4_1yfkj"]
 [ext_resource type="Shader" uid="uid://bqfkab32e1jkv" path="res://scenes/guillotine/guillotine-rope.gdshader" id="4_prif8"]
-[ext_resource type="Texture2D" uid="uid://nruu7s0ldr2d" path="res://icon.svg" id="4_t8lfn"]
 [ext_resource type="Script" uid="uid://f76u4najwmf2" path="res://scenes/guillotine/head_2.gd" id="5_rsnbr"]
+[ext_resource type="Texture2D" uid="uid://cqlkv5idv68gk" path="res://assets/guillotine/guillotine/guillotine stand.png" id="6_bqyyw"]
 [ext_resource type="Script" uid="uid://cva2wx5mvwavu" path="res://scenes/guillotine/rope.gd" id="6_prif8"]
+[ext_resource type="Texture2D" uid="uid://b3kxtjkip2b2t" path="res://assets/guillotine/guillotine/rope looped.png" id="8_6wx65"]
+[ext_resource type="Script" uid="uid://nc3x8f054exf" path="res://scenes/guillotine/rope_looped.gd" id="9_10x16"]
+[ext_resource type="Texture2D" uid="uid://cmit4m1dfjuh5" path="res://assets/guillotine/guillotine/hand1.png" id="9_btyta"]
 [ext_resource type="PackedScene" uid="uid://dd5hgml0v4nxi" path="res://scenes/count-head/count_head.tscn" id="9_prif8"]
+[ext_resource type="Texture2D" uid="uid://cq0xeonjtjib0" path="res://assets/guillotine/guillotine/hand2.png" id="10_10x16"]
+[ext_resource type="Texture2D" uid="uid://bs070e6ffdnsh" path="res://assets/guillotine/guillotine/hand3.png" id="11_1yfkj"]
+[ext_resource type="Texture2D" uid="uid://cjunp3x3go4l2" path="res://assets/guillotine/guillotine/gargoyle win.png" id="14_l7mfy"]
+[ext_resource type="Script" uid="uid://dm5l7qkpakfxm" path="res://scenes/guillotine/gargoyle_win.gd" id="15_nxusu"]
+[ext_resource type="Texture2D" uid="uid://b3dnh17wcxalg" path="res://assets/guillotine/guillotine/gargoyle loss.png" id="16_fccpq"]
+[ext_resource type="Script" uid="uid://uktt5smdlmow" path="res://scenes/guillotine/gargoyle_loss.gd" id="17_nxusu"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6wx65"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_10x16"]
 shader = ExtResource("4_prif8")
-shader_parameter/rope_top_cutoff = 0.0
+shader_parameter/rope_top_cutoff = 270.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gxi48"]
 radius = 50.01
@@ -25,42 +33,35 @@ size = Vector2(1925, 20)
 
 [node name="guillotine" type="Node2D" unique_id=959309012 node_paths=PackedStringArray("blade", "head")]
 script = ExtResource("1_woxi1")
-blade_success_height = 578.0
-blade_top_max_y = 533.0
-blade_bottom_max_y = 742.0
-blade_drop_y = 825.0
+blade_success_height = 32.0
+blade_top_max_y = -34.0
+blade_bottom_max_y = 325.0
+blade_drop_y = 496.0
 blade = NodePath("Blade")
 fall_speed = 200.0
 strength = 40.0
 head = NodePath("Head2")
 
-[node name="Body" type="Sprite2D" parent="." unique_id=1469451113]
-position = Vector2(669, 534)
-texture = ExtResource("3_t8lfn")
+[node name="Background" type="Sprite2D" parent="." unique_id=644898017]
+position = Vector2(960, 540)
+texture = ExtResource("2_6wx65")
 
 [node name="RopeCutof" type="Marker2D" parent="." unique_id=1712054979]
-position = Vector2(935, 301)
+position = Vector2(979, 92)
 
-[node name="Blade" type="Sprite2D" parent="." unique_id=913683736]
-position = Vector2(666, 578)
-texture = ExtResource("2_rsnbr")
-
-[node name="Sprite2D" type="Sprite2D" parent="Blade" unique_id=312318397 node_paths=PackedStringArray("cutof_point")]
-modulate = Color(0, 0, 0, 1)
-show_behind_parent = true
-material = SubResource("ShaderMaterial_6wx65")
-position = Vector2(267, -399)
-scale = Vector2(-0.08584001, 3.0453715)
-texture = ExtResource("4_t8lfn")
+[node name="Blade" type="Sprite2D" parent="." unique_id=913683736 node_paths=PackedStringArray("cutof_point")]
+material = SubResource("ShaderMaterial_10x16")
+position = Vector2(978, 496)
+texture = ExtResource("4_1yfkj")
 script = ExtResource("6_prif8")
-cutof_point = NodePath("../../RopeCutof")
+cutof_point = NodePath("../RopeCutof")
 
 [node name="FrontFrame" type="Sprite2D" parent="." unique_id=1146797591]
-position = Vector2(669, 534)
-texture = ExtResource("4_6wx65")
+position = Vector2(960, 540)
+texture = ExtResource("6_bqyyw")
 
 [node name="Head2" type="CharacterBody2D" parent="." unique_id=454538128 node_paths=PackedStringArray("count_head")]
-position = Vector2(937, 680)
+position = Vector2(971, 722)
 floor_stop_on_slope = false
 floor_block_on_wall = false
 script = ExtResource("5_rsnbr")
@@ -68,6 +69,7 @@ count_head = NodePath("CountHead")
 
 [node name="CountHead" parent="Head2" unique_id=1254211295 instance=ExtResource("9_prif8")]
 position = Vector2(1.9999995, -2)
+rotation = -0.74805033
 scale = Vector2(0.3963485, 0.3963485)
 has_neck = false
 
@@ -80,5 +82,142 @@ position = Vector2(390, 204)
 physics_material_override = SubResource("PhysicsMaterial_1k5f7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=41609280]
-position = Vector2(567.5, 590)
+position = Vector2(588, 697)
 shape = SubResource("RectangleShape2D_gxi48")
+
+[node name="RopeLooped" type="Sprite2D" parent="." unique_id=119589441 node_paths=PackedStringArray("blade")]
+position = Vector2(277, 1269)
+texture = ExtResource("8_6wx65")
+script = ExtResource("9_10x16")
+blade = NodePath("../Blade")
+
+[node name="RopeLooped2" type="Sprite2D" parent="RopeLooped" unique_id=1510697446]
+position = Vector2(0, -1080)
+texture = ExtResource("8_6wx65")
+
+[node name="RopeLooped3" type="Sprite2D" parent="RopeLooped" unique_id=1094759214]
+position = Vector2(0, -2160)
+texture = ExtResource("8_6wx65")
+
+[node name="RopeLooped4" type="Sprite2D" parent="RopeLooped" unique_id=1812525029]
+position = Vector2(0, -3240)
+texture = ExtResource("8_6wx65")
+
+[node name="RopeLooped5" type="Sprite2D" parent="RopeLooped" unique_id=1056783484]
+position = Vector2(1, 2160)
+texture = ExtResource("8_6wx65")
+
+[node name="RopeLooped6" type="Sprite2D" parent="RopeLooped" unique_id=412850586]
+position = Vector2(1, 1080)
+texture = ExtResource("8_6wx65")
+
+[node name="Hand1" type="Sprite2D" parent="RopeLooped" unique_id=188545743]
+position = Vector2(-131, -666)
+texture = ExtResource("9_btyta")
+
+[node name="Hand2" type="Sprite2D" parent="RopeLooped" unique_id=1611178289]
+position = Vector2(-130, -853)
+texture = ExtResource("10_10x16")
+
+[node name="Hand3" type="Sprite2D" parent="RopeLooped" unique_id=1430838448]
+position = Vector2(-135, -516)
+texture = ExtResource("11_1yfkj")
+
+[node name="Hand4" type="Sprite2D" parent="RopeLooped" unique_id=1638556269]
+position = Vector2(-138, -336)
+texture = ExtResource("9_btyta")
+
+[node name="Hand6" type="Sprite2D" parent="RopeLooped" unique_id=885053874]
+position = Vector2(-135, -1111)
+texture = ExtResource("11_1yfkj")
+
+[node name="Hand5" type="Sprite2D" parent="RopeLooped" unique_id=305196628]
+position = Vector2(-130, -1308)
+texture = ExtResource("10_10x16")
+
+[node name="Hand7" type="Sprite2D" parent="RopeLooped" unique_id=1316197435]
+position = Vector2(-137, 22)
+texture = ExtResource("9_btyta")
+
+[node name="Hand8" type="Sprite2D" parent="RopeLooped" unique_id=1623066216]
+position = Vector2(-141, -123)
+texture = ExtResource("11_1yfkj")
+
+[node name="Hand9" type="Sprite2D" parent="RopeLooped" unique_id=1221401904]
+position = Vector2(-131, -2228)
+texture = ExtResource("9_btyta")
+
+[node name="Hand10" type="Sprite2D" parent="RopeLooped" unique_id=1086390529]
+position = Vector2(-130, -2415)
+texture = ExtResource("10_10x16")
+
+[node name="Hand11" type="Sprite2D" parent="RopeLooped" unique_id=1577352490]
+position = Vector2(-135, -2078)
+texture = ExtResource("11_1yfkj")
+
+[node name="Hand12" type="Sprite2D" parent="RopeLooped" unique_id=1926981990]
+position = Vector2(-138, -1898)
+texture = ExtResource("9_btyta")
+
+[node name="Hand13" type="Sprite2D" parent="RopeLooped" unique_id=1443262728]
+position = Vector2(-130, -2870)
+texture = ExtResource("10_10x16")
+
+[node name="Hand14" type="Sprite2D" parent="RopeLooped" unique_id=1291580874]
+position = Vector2(-135, -2673)
+texture = ExtResource("11_1yfkj")
+
+[node name="Hand15" type="Sprite2D" parent="RopeLooped" unique_id=1284078640]
+position = Vector2(-137, -1540)
+texture = ExtResource("9_btyta")
+
+[node name="Hand16" type="Sprite2D" parent="RopeLooped" unique_id=2090375437]
+position = Vector2(-141, -1685)
+texture = ExtResource("11_1yfkj")
+
+[node name="Hand17" type="Sprite2D" parent="RopeLooped" unique_id=317541838]
+position = Vector2(-131, 891)
+texture = ExtResource("9_btyta")
+
+[node name="Hand18" type="Sprite2D" parent="RopeLooped" unique_id=26532950]
+position = Vector2(-130, 704)
+texture = ExtResource("10_10x16")
+
+[node name="Hand19" type="Sprite2D" parent="RopeLooped" unique_id=1260667203]
+position = Vector2(-135, 1041)
+texture = ExtResource("11_1yfkj")
+
+[node name="Hand20" type="Sprite2D" parent="RopeLooped" unique_id=1337346243]
+position = Vector2(-138, 1221)
+texture = ExtResource("9_btyta")
+
+[node name="Hand21" type="Sprite2D" parent="RopeLooped" unique_id=1535354206]
+position = Vector2(-130, 249)
+texture = ExtResource("10_10x16")
+
+[node name="Hand22" type="Sprite2D" parent="RopeLooped" unique_id=1695733610]
+position = Vector2(-135, 446)
+texture = ExtResource("11_1yfkj")
+
+[node name="Hand23" type="Sprite2D" parent="RopeLooped" unique_id=1263623323]
+position = Vector2(-137, 1579)
+texture = ExtResource("9_btyta")
+
+[node name="Hand24" type="Sprite2D" parent="RopeLooped" unique_id=652084766]
+position = Vector2(-141, 1434)
+texture = ExtResource("11_1yfkj")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=169943260]
+position = Vector2(1489, 663)
+
+[node name="GargoyleWin" type="Sprite2D" parent="." unique_id=339458956 node_paths=PackedStringArray("target")]
+position = Vector2(2183.5, 1216.5)
+texture = ExtResource("14_l7mfy")
+script = ExtResource("15_nxusu")
+target = NodePath("../Node2D")
+
+[node name="GargoyleLoss" type="Sprite2D" parent="." unique_id=973930243 node_paths=PackedStringArray("target")]
+position = Vector2(2232.5, 1221.5)
+texture = ExtResource("16_fccpq")
+script = ExtResource("17_nxusu")
+target = NodePath("../Node2D")

@@ -10,8 +10,6 @@ func fall():
     velocity.y = -200 + randf() * -200
     velocity.x = 200 * randf() - 200
     
-    
-    
 func init_from_target(target : Target):
     count_head.init_from_target(target)
     

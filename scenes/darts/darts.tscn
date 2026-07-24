@@ -16,34 +16,28 @@ target_positions_root = NodePath("TargetPositions")
 position = Vector2(383, 193)
 
 [node name="TargetPosition2" type="Node2D" parent="TargetPositions" unique_id=1725992997]
-position = Vector2(427, 504)
+position = Vector2(1620, 796)
 
 [node name="TargetPosition3" type="Node2D" parent="TargetPositions" unique_id=1951905453]
-position = Vector2(204, 706)
+position = Vector2(217, 505)
 
 [node name="TargetPosition4" type="Node2D" parent="TargetPositions" unique_id=969970363]
-position = Vector2(477, 851)
+position = Vector2(345, 782)
 
 [node name="TargetPosition5" type="Node2D" parent="TargetPositions" unique_id=558544319]
-position = Vector2(692, 638)
+position = Vector2(614, 484)
 
 [node name="TargetPosition6" type="Node2D" parent="TargetPositions" unique_id=346117102]
-position = Vector2(904, 255)
+position = Vector2(932, 224)
 
 [node name="TargetPosition7" type="Node2D" parent="TargetPositions" unique_id=764518188]
-position = Vector2(1077, 526)
+position = Vector2(1284, 564)
 
 [node name="TargetPosition8" type="Node2D" parent="TargetPositions" unique_id=1542670097]
-position = Vector2(1283, 223)
+position = Vector2(1349, 204)
 
 [node name="TargetPosition9" type="Node2D" parent="TargetPositions" unique_id=1029720446]
-position = Vector2(1680, 325)
-
-[node name="TargetPosition10" type="Node2D" parent="TargetPositions" unique_id=1700194026]
-position = Vector2(1458, 564)
-
-[node name="TargetPosition11" type="Node2D" parent="TargetPositions" unique_id=577431908]
-position = Vector2(1669, 810)
+position = Vector2(1677, 419)
 
 [node name="Sight" parent="." unique_id=1568300132 instance=ExtResource("2_x4xqp")]
 position = Vector2(1017, 843)
