@@ -3,7 +3,7 @@ extends Scene
 @export var armour_good : Sprite2D
 @export var armour_bad : Sprite2D
 @export var score_points_root : Node2D
-@export var click_size : float = 70
+@export var click_size : float = 90
 @export var hammer_icon : Sprite2D
 @export var hammer_rotation_free : float
 @export var hammer_rotation_hit : float
@@ -34,6 +34,7 @@ func _ready():
     starting_scale = armour_good.scale
     
     Signals.tick.connect(hit)
+    hammer_icon.rotation_degrees = hammer_rotation_free
 
 func hit(current_tick : int):
     on_click(sight.global_position)
@@ -43,7 +44,7 @@ func hit(current_tick : int):
         tween = null
     
     tween = create_tween()
-    tween.tween_property(hammer_icon, "rotation_degrees", 0.0, 0.2)
+    tween.tween_property(hammer_icon, "rotation_degrees", hammer_rotation_free, 0.2)
 
 
 func on_click(mouse_pos : Vector2):

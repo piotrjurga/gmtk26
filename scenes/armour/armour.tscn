@@ -1,11 +1,12 @@
 [gd_scene format=3 uid="uid://dooptkbwkfbv5"]
 
 [ext_resource type="Script" uid="uid://cek151lsu5v72" path="res://scenes/armour/armour.gd" id="1_4rhgh"]
-[ext_resource type="Texture2D" uid="uid://du3mvcvyd353f" path="res://assets/armour-good.png" id="2_g7uqp"]
+[ext_resource type="Texture2D" uid="uid://0uhjdwm8lt6n" path="res://assets/armour/bg.png" id="2_amb1a"]
+[ext_resource type="Texture2D" uid="uid://cqljpljb7gg8r" path="res://assets/armour/chestplate.png" id="3_qqsr2"]
 [ext_resource type="Shader" uid="uid://dth8palkphw3q" path="res://scenes/armour/armour.gdshader" id="3_r42f3"]
-[ext_resource type="Texture2D" uid="uid://c2f0fgxirwxw8" path="res://assets/armour-bad.png" id="4_kgeru"]
+[ext_resource type="Texture2D" uid="uid://b0t76hrp7wkho" path="res://assets/armour/chestplate_rusted.png" id="5_b2tkv"]
 [ext_resource type="PackedScene" uid="uid://bohk2ejkjy566" path="res://scenes/darts/sight.tscn" id="5_kgeru"]
-[ext_resource type="Texture2D" uid="uid://cxk5mb1c1cora" path="res://assets/Hammer.png" id="5_r42f3"]
+[ext_resource type="Texture2D" uid="uid://c0v03tqet2qjp" path="res://assets/armour/hammer.png" id="7_5kv3x"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4rhgh"]
 font_size = 36
@@ -20,8 +21,13 @@ armour_good = NodePath("ArmourGood")
 armour_bad = NodePath("ArmourGood/ArmourBad")
 score_points_root = NodePath("Points")
 hammer_icon = NodePath("Sight/Sprite2D")
-hammer_rotation_hit = -90.0
+hammer_rotation_free = -120.0
+hammer_rotation_hit = -16.0
 sight = NodePath("Sight")
+
+[node name="Bg" type="Sprite2D" parent="." unique_id=1460194206]
+position = Vector2(960, 540)
+texture = ExtResource("2_amb1a")
 
 [node name="Label" type="Label" parent="." unique_id=210693204]
 offset_left = 815.0
@@ -34,323 +40,273 @@ label_settings = SubResource("LabelSettings_4rhgh")
 [node name="ArmourGood" type="Sprite2D" parent="." unique_id=1774590243]
 position = Vector2(895, 541)
 scale = Vector2(0.6372081, 0.6372081)
-texture = ExtResource("2_g7uqp")
+texture = ExtResource("3_qqsr2")
 
 [node name="ArmourBad" type="Sprite2D" parent="ArmourGood" unique_id=1852762642]
 material = SubResource("ShaderMaterial_gxi48")
-texture = ExtResource("4_kgeru")
+texture = ExtResource("5_b2tkv")
 
 [node name="Points" type="Node2D" parent="." unique_id=438664028]
 position = Vector2(336, 221)
 
-[node name="point1" type="Node2D" parent="Points" unique_id=1548243751]
-position = Vector2(457, 157)
+[node name="point1" type="Node2D" parent="Points" unique_id=2005268717]
+position = Vector2(457, 197)
 
-[node name="point2" type="Node2D" parent="Points" unique_id=1706225212]
-position = Vector2(416, 187)
+[node name="point22" type="Node2D" parent="Points" unique_id=1878485519]
+position = Vector2(489, 171)
 
-[node name="point3" type="Node2D" parent="Points" unique_id=1909649479]
-position = Vector2(371, 206)
+[node name="point23" type="Node2D" parent="Points" unique_id=971791818]
+position = Vector2(502, 136)
 
-[node name="point4" type="Node2D" parent="Points" unique_id=1695848524]
-position = Vector2(504, 178)
+[node name="point24" type="Node2D" parent="Points" unique_id=1820734489]
+position = Vector2(559, 134)
 
-[node name="point5" type="Node2D" parent="Points" unique_id=1291530254]
-position = Vector2(558, 189)
+[node name="point25" type="Node2D" parent="Points" unique_id=400322039]
+position = Vector2(534, 173)
 
-[node name="point6" type="Node2D" parent="Points" unique_id=1481646900]
-position = Vector2(624, 191)
+[node name="point26" type="Node2D" parent="Points" unique_id=453001065]
+position = Vector2(592, 172)
 
-[node name="point7" type="Node2D" parent="Points" unique_id=409406460]
-position = Vector2(680, 180)
+[node name="point27" type="Node2D" parent="Points" unique_id=852320916]
+position = Vector2(621, 130)
 
-[node name="point8" type="Node2D" parent="Points" unique_id=142610946]
-position = Vector2(723, 191)
+[node name="point28" type="Node2D" parent="Points" unique_id=1867739667]
+position = Vector2(652, 170)
 
-[node name="point9" type="Node2D" parent="Points" unique_id=1867743576]
-position = Vector2(774, 208)
+[node name="point29" type="Node2D" parent="Points" unique_id=1114884506]
+position = Vector2(622, 216)
 
-[node name="point10" type="Node2D" parent="Points" unique_id=1296915739]
-position = Vector2(783, 249)
+[node name="point30" type="Node2D" parent="Points" unique_id=1301265116]
+position = Vector2(564, 219)
 
-[node name="point11" type="Node2D" parent="Points" unique_id=234626210]
-position = Vector2(779, 294)
+[node name="point31" type="Node2D" parent="Points" unique_id=393670967]
+position = Vector2(512, 220)
 
-[node name="point12" type="Node2D" parent="Points" unique_id=1468031175]
-position = Vector2(783, 335)
+[node name="point32" type="Node2D" parent="Points" unique_id=1134941094]
+position = Vector2(450, 249)
 
-[node name="point13" type="Node2D" parent="Points" unique_id=973506663]
-position = Vector2(757, 374)
+[node name="point33" type="Node2D" parent="Points" unique_id=577825631]
+position = Vector2(404, 260)
 
-[node name="point14" type="Node2D" parent="Points" unique_id=1517466387]
-position = Vector2(733, 421)
+[node name="point34" type="Node2D" parent="Points" unique_id=1793445550]
+position = Vector2(415, 312)
 
-[node name="point15" type="Node2D" parent="Points" unique_id=298272564]
-position = Vector2(731, 475)
+[node name="point35" type="Node2D" parent="Points" unique_id=844888181]
+position = Vector2(470, 292)
 
-[node name="point16" type="Node2D" parent="Points" unique_id=1718004779]
-position = Vector2(729, 524)
+[node name="point36" type="Node2D" parent="Points" unique_id=1682973667]
+position = Vector2(524, 265)
 
-[node name="point17" type="Node2D" parent="Points" unique_id=1753353539]
-position = Vector2(675, 524)
+[node name="point37" type="Node2D" parent="Points" unique_id=1660410248]
+position = Vector2(597, 268)
 
-[node name="point18" type="Node2D" parent="Points" unique_id=1177357999]
-position = Vector2(615, 524)
+[node name="point38" type="Node2D" parent="Points" unique_id=772836542]
+position = Vector2(643, 279)
 
-[node name="point19" type="Node2D" parent="Points" unique_id=1586163585]
-position = Vector2(561, 524)
+[node name="point39" type="Node2D" parent="Points" unique_id=251217771]
+position = Vector2(683, 233)
 
-[node name="point20" type="Node2D" parent="Points" unique_id=605998335]
-position = Vector2(505, 524)
+[node name="point40" type="Node2D" parent="Points" unique_id=312742882]
+position = Vector2(695, 300)
 
-[node name="point21" type="Node2D" parent="Points" unique_id=361419400]
-position = Vector2(471, 500)
+[node name="point41" type="Node2D" parent="Points" unique_id=1155656582]
+position = Vector2(687, 350)
 
-[node name="point22" type="Node2D" parent="Points" unique_id=2129238408]
-position = Vector2(469, 457)
+[node name="point42" type="Node2D" parent="Points" unique_id=570148219]
+position = Vector2(631, 339)
 
-[node name="point23" type="Node2D" parent="Points" unique_id=1962332950]
-position = Vector2(454, 406)
+[node name="point43" type="Node2D" parent="Points" unique_id=2123004928]
+position = Vector2(578, 339)
 
-[node name="point24" type="Node2D" parent="Points" unique_id=86766502]
-position = Vector2(437, 374)
+[node name="point44" type="Node2D" parent="Points" unique_id=1091869104]
+position = Vector2(534, 341)
 
-[node name="point25" type="Node2D" parent="Points" unique_id=312634842]
-position = Vector2(409, 346)
+[node name="point45" type="Node2D" parent="Points" unique_id=993791248]
+position = Vector2(482, 343)
 
-[node name="point26" type="Node2D" parent="Points" unique_id=1326234831]
-position = Vector2(392, 312)
+[node name="point46" type="Node2D" parent="Points" unique_id=1821756949]
+position = Vector2(429, 360)
 
-[node name="point27" type="Node2D" parent="Points" unique_id=529088544]
-position = Vector2(394, 261)
+[node name="point47" type="Node2D" parent="Points" unique_id=1375723264]
+position = Vector2(432, 406)
 
-[node name="point28" type="Node2D" parent="Points" unique_id=172665111]
-position = Vector2(418, 225)
+[node name="point48" type="Node2D" parent="Points" unique_id=1747086096]
+position = Vector2(497, 391)
 
-[node name="point29" type="Node2D" parent="Points" unique_id=2006712347]
-position = Vector2(459, 208)
+[node name="point49" type="Node2D" parent="Points" unique_id=1662781108]
+position = Vector2(559, 389)
 
-[node name="point30" type="Node2D" parent="Points" unique_id=1903179530]
-position = Vector2(508, 219)
+[node name="point50" type="Node2D" parent="Points" unique_id=564367063]
+position = Vector2(624, 391)
 
-[node name="point31" type="Node2D" parent="Points" unique_id=1930404761]
-position = Vector2(562, 228)
+[node name="point51" type="Node2D" parent="Points" unique_id=2077523149]
+position = Vector2(681, 403)
 
-[node name="point32" type="Node2D" parent="Points" unique_id=663252321]
-position = Vector2(633, 230)
+[node name="point52" type="Node2D" parent="Points" unique_id=1531857420]
+position = Vector2(650, 438)
 
-[node name="point33" type="Node2D" parent="Points" unique_id=1436933424]
-position = Vector2(695, 221)
+[node name="point53" type="Node2D" parent="Points" unique_id=1309707860]
+position = Vector2(586, 428)
 
-[node name="point34" type="Node2D" parent="Points" unique_id=1450533830]
-position = Vector2(740, 247)
+[node name="point54" type="Node2D" parent="Points" unique_id=816152553]
+position = Vector2(530, 424)
 
-[node name="point35" type="Node2D" parent="Points" unique_id=476322821]
-position = Vector2(744, 294)
+[node name="point55" type="Node2D" parent="Points" unique_id=2146084584]
+position = Vector2(478, 426)
 
-[node name="point36" type="Node2D" parent="Points" unique_id=379658652]
-position = Vector2(742, 335)
+[node name="point56" type="Node2D" parent="Points" unique_id=1075329503]
+position = Vector2(425, 436)
 
-[node name="point37" type="Node2D" parent="Points" unique_id=1424731057]
-position = Vector2(716, 376)
+[node name="point57" type="Node2D" parent="Points" unique_id=1073640258]
+position = Vector2(424, 479)
 
-[node name="point38" type="Node2D" parent="Points" unique_id=1592050352]
-position = Vector2(695, 427)
+[node name="point58" type="Node2D" parent="Points" unique_id=2062319691]
+position = Vector2(481, 472)
 
-[node name="point39" type="Node2D" parent="Points" unique_id=987423100]
-position = Vector2(686, 478)
+[node name="point59" type="Node2D" parent="Points" unique_id=229625460]
+position = Vector2(533, 475)
 
-[node name="point40" type="Node2D" parent="Points" unique_id=410587896]
-position = Vector2(647, 480)
+[node name="point60" type="Node2D" parent="Points" unique_id=293230811]
+position = Vector2(587, 471)
 
-[node name="point41" type="Node2D" parent="Points" unique_id=422514109]
-position = Vector2(604, 482)
+[node name="point61" type="Node2D" parent="Points" unique_id=753028109]
+position = Vector2(649, 479)
 
-[node name="point42" type="Node2D" parent="Points" unique_id=712232956]
-position = Vector2(555, 480)
+[node name="point62" type="Node2D" parent="Points" unique_id=1161533549]
+position = Vector2(692, 481)
 
-[node name="point43" type="Node2D" parent="Points" unique_id=2003852029]
-position = Vector2(510, 480)
+[node name="point63" type="Node2D" parent="Points" unique_id=1889915116]
+position = Vector2(683, 525)
 
-[node name="point44" type="Node2D" parent="Points" unique_id=1158841034]
-position = Vector2(497, 435)
+[node name="point64" type="Node2D" parent="Points" unique_id=1429429797]
+position = Vector2(628, 544)
 
-[node name="point45" type="Node2D" parent="Points" unique_id=195124983]
-position = Vector2(484, 388)
+[node name="point65" type="Node2D" parent="Points" unique_id=397770072]
+position = Vector2(585, 546)
 
-[node name="point46" type="Node2D" parent="Points" unique_id=727974136]
-position = Vector2(463, 349)
+[node name="point66" type="Node2D" parent="Points" unique_id=1655337837]
+position = Vector2(538, 543)
 
-[node name="point47" type="Node2D" parent="Points" unique_id=1574848234]
-position = Vector2(433, 313)
+[node name="point67" type="Node2D" parent="Points" unique_id=1225155272]
+position = Vector2(490, 534)
 
-[node name="point48" type="Node2D" parent="Points" unique_id=278565792]
-position = Vector2(450, 266)
+[node name="point68" type="Node2D" parent="Points" unique_id=969731603]
+position = Vector2(433, 515)
 
-[node name="point49" type="Node2D" parent="Points" unique_id=792470917]
-position = Vector2(508, 266)
+[node name="point69" type="Node2D" parent="Points" unique_id=1283609298]
+position = Vector2(682, 123)
 
-[node name="point50" type="Node2D" parent="Points" unique_id=748080275]
-position = Vector2(562, 275)
+[node name="point70" type="Node2D" parent="Points" unique_id=1942637298]
+position = Vector2(704, 179)
 
-[node name="point51" type="Node2D" parent="Points" unique_id=1228264240]
-position = Vector2(620, 275)
+[node name="point71" type="Node2D" parent="Points" unique_id=1092007742]
+position = Vector2(737, 221)
 
-[node name="point52" type="Node2D" parent="Points" unique_id=567932361]
-position = Vector2(682, 275)
+[node name="point72" type="Node2D" parent="Points" unique_id=1414244825]
+position = Vector2(778, 253)
 
-[node name="point53" type="Node2D" parent="Points" unique_id=495209926]
-position = Vector2(695, 322)
+[node name="point73" type="Node2D" parent="Points" unique_id=233333445]
+position = Vector2(830, 233)
 
-[node name="point54" type="Node2D" parent="Points" unique_id=1274726492]
-position = Vector2(659, 363)
+[node name="point74" type="Node2D" parent="Points" unique_id=1509497573]
+position = Vector2(821, 188)
 
-[node name="point55" type="Node2D" parent="Points" unique_id=1324798944]
-position = Vector2(650, 406)
+[node name="point75" type="Node2D" parent="Points" unique_id=1486041461]
+position = Vector2(787, 213)
 
-[node name="point56" type="Node2D" parent="Points" unique_id=1340896941]
-position = Vector2(635, 440)
+[node name="point76" type="Node2D" parent="Points" unique_id=1593660277]
+position = Vector2(773, 170)
 
-[node name="point57" type="Node2D" parent="Points" unique_id=1249729503]
-position = Vector2(594, 440)
+[node name="point77" type="Node2D" parent="Points" unique_id=1600748534]
+position = Vector2(814, 138)
 
-[node name="point58" type="Node2D" parent="Points" unique_id=813258432]
-position = Vector2(543, 434)
+[node name="point78" type="Node2D" parent="Points" unique_id=2027195480]
+position = Vector2(789, 101)
 
-[node name="point59" type="Node2D" parent="Points" unique_id=1268221641]
-position = Vector2(526, 380)
+[node name="point79" type="Node2D" parent="Points" unique_id=1591321342]
+position = Vector2(752, 137)
 
-[node name="point60" type="Node2D" parent="Points" unique_id=453219157]
-position = Vector2(509, 344)
+[node name="point80" type="Node2D" parent="Points" unique_id=1523176016]
+position = Vector2(726, 108)
 
-[node name="point61" type="Node2D" parent="Points" unique_id=1502063516]
-position = Vector2(479, 301)
+[node name="point81" type="Node2D" parent="Points" unique_id=1176726214]
+position = Vector2(682, 128)
 
-[node name="point62" type="Node2D" parent="Points" unique_id=288717808]
-position = Vector2(528, 303)
+[node name="point82" type="Node2D" parent="Points" unique_id=1834781562]
+position = Vector2(737, 64)
 
-[node name="point63" type="Node2D" parent="Points" unique_id=825523478]
-position = Vector2(586, 303)
+[node name="point83" type="Node2D" parent="Points" unique_id=1148426120]
+position = Vector2(689, 49)
 
-[node name="point64" type="Node2D" parent="Points" unique_id=945432882]
-position = Vector2(650, 309)
+[node name="point84" type="Node2D" parent="Points" unique_id=1300377196]
+position = Vector2(565, 480)
 
-[node name="point65" type="Node2D" parent="Points" unique_id=790645250]
-position = Vector2(667, 245)
+[node name="point2" type="Node2D" parent="Points" unique_id=279600099]
+position = Vector2(344, 244)
 
-[node name="point66" type="Node2D" parent="Points" unique_id=792733486]
-position = Vector2(721, 277)
+[node name="point3" type="Node2D" parent="Points" unique_id=128033865]
+position = Vector2(372, 214)
 
-[node name="point67" type="Node2D" parent="Points" unique_id=417416345]
-position = Vector2(633, 344)
+[node name="point4" type="Node2D" parent="Points" unique_id=1323357381]
+position = Vector2(345, 199)
 
-[node name="point68" type="Node2D" parent="Points" unique_id=1750821899]
-position = Vector2(616, 374)
+[node name="point5" type="Node2D" parent="Points" unique_id=305351026]
+position = Vector2(314, 196)
 
-[node name="point69" type="Node2D" parent="Points" unique_id=1143636999]
-position = Vector2(595, 413)
+[node name="point6" type="Node2D" parent="Points" unique_id=1455813759]
+position = Vector2(317, 160)
 
-[node name="point70" type="Node2D" parent="Points" unique_id=1990013520]
-position = Vector2(567, 392)
+[node name="point7" type="Node2D" parent="Points" unique_id=53032146]
+position = Vector2(349, 158)
 
-[node name="point71" type="Node2D" parent="Points" unique_id=1602903672]
-position = Vector2(548, 349)
+[node name="point8" type="Node2D" parent="Points" unique_id=1963921855]
+position = Vector2(395, 158)
 
-[node name="point72" type="Node2D" parent="Points" unique_id=1579190314]
-position = Vector2(587, 355)
+[node name="point9" type="Node2D" parent="Points" unique_id=2138326140]
+position = Vector2(396, 125)
 
-[node name="point73" type="Node2D" parent="Points" unique_id=1863612641]
-position = Vector2(566, 325)
+[node name="point11" type="Node2D" parent="Points" unique_id=1931655346]
+position = Vector2(348, 123)
 
-[node name="point74" type="Node2D" parent="Points" unique_id=1896851030]
-position = Vector2(598, 248)
+[node name="point12" type="Node2D" parent="Points" unique_id=1943479932]
+position = Vector2(332, 104)
 
-[node name="point75" type="Node2D" parent="Points" unique_id=1155726201]
-position = Vector2(543, 249)
+[node name="point13" type="Node2D" parent="Points" unique_id=1155790006]
+position = Vector2(375, 83)
 
-[node name="point76" type="Node2D" parent="Points" unique_id=1358491887]
-position = Vector2(477, 245)
+[node name="point14" type="Node2D" parent="Points" unique_id=836391849]
+position = Vector2(426, 79)
 
-[node name="point77" type="Node2D" parent="Points" unique_id=1598600813]
-position = Vector2(689, 356)
+[node name="point15" type="Node2D" parent="Points" unique_id=464303050]
+position = Vector2(456, 96)
 
-[node name="point78" type="Node2D" parent="Points" unique_id=1601889637]
-position = Vector2(614, 317)
+[node name="point16" type="Node2D" parent="Points" unique_id=1402077778]
+position = Vector2(466, 129)
 
-[node name="point79" type="Node2D" parent="Points" unique_id=1699754201]
-position = Vector2(526, 409)
+[node name="point17" type="Node2D" parent="Points" unique_id=1350888095]
+position = Vector2(447, 147)
 
-[node name="point80" type="Node2D" parent="Points" unique_id=1226216025]
-position = Vector2(577, 458)
+[node name="point18" type="Node2D" parent="Points" unique_id=1903106064]
+position = Vector2(426, 160)
 
-[node name="point81" type="Node2D" parent="Points" unique_id=39956928]
-position = Vector2(671, 447)
+[node name="point19" type="Node2D" parent="Points" unique_id=7498583]
+position = Vector2(413, 188)
 
-[node name="point82" type="Node2D" parent="Points" unique_id=1811046622]
-position = Vector2(692, 393)
+[node name="point20" type="Node2D" parent="Points" unique_id=1203783780]
+position = Vector2(413, 227)
 
-[node name="point83" type="Node2D" parent="Points" unique_id=1967423443]
-position = Vector2(656, 277)
-
-[node name="point84" type="Node2D" parent="Points" unique_id=273690794]
-position = Vector2(465, 290)
-
-[node name="point85" type="Node2D" parent="Points" unique_id=347490596]
-position = Vector2(448, 236)
-
-[node name="point86" type="Node2D" parent="Points" unique_id=2103783341]
-position = Vector2(525, 461)
-
-[node name="point87" type="Node2D" parent="Points" unique_id=260822718]
-position = Vector2(701, 253)
-
-[node name="point88" type="Node2D" parent="Points" unique_id=1213356260]
-position = Vector2(534, 324)
-
-[node name="point89" type="Node2D" parent="Points" unique_id=1368622654]
-position = Vector2(718, 352)
-
-[node name="point90" type="Node2D" parent="Points" unique_id=1722938152]
-position = Vector2(718, 352)
-
-[node name="point91" type="Node2D" parent="Points" unique_id=402254638]
-position = Vector2(698, 298)
-
-[node name="point92" type="Node2D" parent="Points" unique_id=652026247]
-position = Vector2(589, 275)
-
-[node name="point93" type="Node2D" parent="Points" unique_id=1820454720]
-position = Vector2(591, 383)
-
-[node name="point94" type="Node2D" parent="Points" unique_id=99082416]
-position = Vector2(624, 409)
-
-[node name="point95" type="Node2D" parent="Points" unique_id=663629336]
-position = Vector2(644, 379)
-
-[node name="point96" type="Node2D" parent="Points" unique_id=1329579373]
-position = Vector2(553, 374)
-
-[node name="point97" type="Node2D" parent="Points" unique_id=1322029126]
-position = Vector2(491, 328)
-
-[node name="point98" type="Node2D" parent="Points" unique_id=1958119654]
-position = Vector2(538, 283)
-
-[node name="point99" type="Node2D" parent="Points" unique_id=1313793506]
-position = Vector2(621, 461)
-
-[node name="point100" type="Node2D" parent="Points" unique_id=943970229]
-position = Vector2(596, 218)
+[node name="point21" type="Node2D" parent="Points" unique_id=355284008]
+position = Vector2(413, 227)
 
 [node name="Sight" parent="." unique_id=1568300132 instance=ExtResource("5_kgeru")]
-position = Vector2(1034, 717)
+position = Vector2(628, 448)
 SPEED = 500.0
 
 [node name="Sprite2D" parent="Sight" index="1" unique_id=1055776568]
-position = Vector2(57.00001, -8.999973)
-scale = Vector2(0.20500001, 0.20500001)
-texture = ExtResource("5_r42f3")
-offset = Vector2(-58.53662, -146.34131)
+position = Vector2(-139.00002, -34)
+rotation = -0.28649318
+scale = Vector2(0.6761467, 0.6761467)
+texture = ExtResource("7_5kv3x")
+offset = Vector2(321.55847, -50.208374)
 
 [editable path="Sight"]
