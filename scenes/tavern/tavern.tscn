@@ -4,6 +4,23 @@
 [ext_resource type="Script" uid="uid://6yhk50l24twa" path="res://scenes/tavern/tavern_text_effect.gd" id="2_j7gx7"]
 [ext_resource type="Script" uid="uid://dtikkcn7g8abb" path="res://scenes/tavern/full_text.gd" id="3_5jmso"]
 [ext_resource type="Script" uid="uid://dg504ct80dgrv" path="res://scenes/tavern/success.gd" id="4_nd0ff"]
+[ext_resource type="Script" uid="uid://ijtdjcxixvnf" path="res://scenes/tavern/hand.gd" id="4_uhcg5"]
+[ext_resource type="Texture2D" uid="uid://bfmj6uyi76rhw" path="res://assets/tavern_typing/background.png" id="5_s35y4"]
+[ext_resource type="Texture2D" uid="uid://qdpm4ciqvlli" path="res://assets/tavern_typing/hand1.png" id="6_dlb7h"]
+[ext_resource type="Texture2D" uid="uid://ck7a1ue4qlinr" path="res://assets/tavern_typing/hand2.png" id="7_uhcg5"]
+[ext_resource type="Texture2D" uid="uid://x5rt6rh5quh1" path="res://assets/tavern_typing/hand3.png" id="8_ae3ij"]
+[ext_resource type="Texture2D" uid="uid://bkn6p03krywik" path="res://assets/tavern_typing/hand4.png" id="9_8dkxe"]
+[ext_resource type="Texture2D" uid="uid://bv4x30di2wtoi" path="res://assets/tavern_typing/hand5.png" id="10_enojr"]
+[ext_resource type="Script" uid="uid://c44on4qceba20" path="res://scenes/tavern/patron.gd" id="10_uhcg5"]
+[ext_resource type="Texture2D" uid="uid://bin0xmy2hwenh" path="res://assets/tavern_typing/patron3.png" id="12_lc1qo"]
+[ext_resource type="Texture2D" uid="uid://dcqp3ld8lpj8" path="res://assets/tavern_typing/patron2.png" id="13_b1jo1"]
+[ext_resource type="FontFile" uid="uid://ba3ym60trydwg" path="res://assets/Fonts/Almendra_Display/AlmendraDisplay-Regular.ttf" id="13_dlb7h"]
+[ext_resource type="Texture2D" uid="uid://flmrbaua2qoc" path="res://assets/tavern_typing/patron1.png" id="14_v4sj0"]
+[ext_resource type="Texture2D" uid="uid://ce5iki8cvtqoa" path="res://assets/tavern_typing/scroll.png" id="15_a8mxi"]
+
+[sub_resource type="FontVariation" id="FontVariation_ae3ij"]
+base_font = ExtResource("13_dlb7h")
+variation_embolden = 0.73
 
 [sub_resource type="RichTextEffect" id="RichTextEffect_5jmso"]
 script = ExtResource("3_5jmso")
@@ -19,8 +36,116 @@ metadata/_custom_type_script = "uid://dg504ct80dgrv"
 
 [node name="Tavern" type="Node2D" unique_id=2119835233 node_paths=PackedStringArray("word_label")]
 script = ExtResource("1_inl0q")
-words = Array[String](["revolution", "we can do it", "eat the rich"])
+words = Array[String](["revolution", "we can do it", "eat the rich", "time for change"])
 word_label = NodePath("Control/RichTextLabel")
+stream_idx = 1
+
+[node name="Background" type="Sprite2D" parent="." unique_id=151577045]
+position = Vector2(960, 540)
+texture = ExtResource("5_s35y4")
+
+[node name="Hand1" type="Sprite2D" parent="." unique_id=1814935803 node_paths=PackedStringArray("target")]
+position = Vector2(247, 335)
+texture = ExtResource("6_dlb7h")
+script = ExtResource("4_uhcg5")
+target = NodePath("Target")
+
+[node name="Target" type="Node2D" parent="Hand1" unique_id=1170916034]
+position = Vector2(-136, -131)
+
+[node name="Hand2" type="Sprite2D" parent="." unique_id=1543830875 node_paths=PackedStringArray("target")]
+position = Vector2(367, 340)
+texture = ExtResource("7_uhcg5")
+script = ExtResource("4_uhcg5")
+target = NodePath("Node2D")
+
+[node name="Node2D" type="Node2D" parent="Hand2" unique_id=256549799]
+position = Vector2(21, -151)
+
+[node name="Hand3" type="Sprite2D" parent="." unique_id=1254142820 node_paths=PackedStringArray("target")]
+position = Vector2(576, 409)
+texture = ExtResource("8_ae3ij")
+script = ExtResource("4_uhcg5")
+target = NodePath("Node2D")
+
+[node name="Node2D" type="Node2D" parent="Hand3" unique_id=753604628]
+position = Vector2(28, -140)
+
+[node name="Hand4" type="Sprite2D" parent="." unique_id=522603521 node_paths=PackedStringArray("target")]
+position = Vector2(1342, -148)
+texture = ExtResource("9_8dkxe")
+script = ExtResource("4_uhcg5")
+target = NodePath("Node2D2")
+
+[node name="Node2D2" type="Node2D" parent="Hand4" unique_id=1921953547]
+position = Vector2(-136, 275)
+
+[node name="Hand5" type="Sprite2D" parent="." unique_id=1109190743 node_paths=PackedStringArray("target")]
+position = Vector2(1528, 511)
+scale = Vector2(0.8336817, 0.8336817)
+texture = ExtResource("10_enojr")
+script = ExtResource("4_uhcg5")
+target = NodePath("Node2D")
+
+[node name="Node2D" type="Node2D" parent="Hand5" unique_id=476139514]
+position = Vector2(231.50317, -195.51825)
+scale = Vector2(1.1994985, 1.1994985)
+
+[node name="Patron3" type="Sprite2D" parent="." unique_id=1647336842 node_paths=PackedStringArray("target")]
+position = Vector2(1519, 543)
+texture = ExtResource("12_lc1qo")
+script = ExtResource("10_uhcg5")
+target = NodePath("Node2D")
+
+[node name="Node2D" type="Node2D" parent="Patron3" unique_id=1649751989]
+position = Vector2(1073, 125)
+
+[node name="Patron2" type="Sprite2D" parent="." unique_id=1134824879 node_paths=PackedStringArray("target")]
+position = Vector2(634, 599)
+texture = ExtResource("13_b1jo1")
+script = ExtResource("10_uhcg5")
+target = NodePath("Node2D")
+
+[node name="Node2D" type="Node2D" parent="Patron2" unique_id=1430581659]
+position = Vector2(-1309, -43)
+
+[node name="Patron1" type="Sprite2D" parent="." unique_id=1735197383 node_paths=PackedStringArray("target")]
+position = Vector2(272, 526)
+texture = ExtResource("14_v4sj0")
+script = ExtResource("10_uhcg5")
+target = NodePath("Node2D")
+
+[node name="Node2D" type="Node2D" parent="Patron1" unique_id=838870117]
+position = Vector2(-1488, -13)
+
+[node name="Scroll" type="Sprite2D" parent="." unique_id=36029187]
+position = Vector2(831.00006, 827)
+scale = Vector2(1.3086791, 1.3086791)
+texture = ExtResource("15_a8mxi")
+
+[node name="Hand7" type="Sprite2D" parent="." unique_id=862250706 node_paths=PackedStringArray("target")]
+position = Vector2(1593.0001, 1232)
+rotation = -0.3424245
+scale = Vector2(1.4843689, 1.4843689)
+texture = ExtResource("7_uhcg5")
+script = ExtResource("4_uhcg5")
+target = NodePath("Node2D")
+
+[node name="Node2D" type="Node2D" parent="Hand7" unique_id=1290900110]
+position = Vector2(0.30633545, -169.39545)
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="Hand8" type="Sprite2D" parent="." unique_id=1171979843 node_paths=PackedStringArray("target")]
+position = Vector2(1873, 1257)
+rotation = -0.492395
+scale = Vector2(1.6894761, 1.6894761)
+texture = ExtResource("8_ae3ij")
+script = ExtResource("4_uhcg5")
+target = NodePath("Node2D")
+
+[node name="Node2D" type="Node2D" parent="Hand8" unique_id=260457880]
+position = Vector2(-6.8116455, -205.16254)
+scale = Vector2(0.99999994, 0.99999994)
 
 [node name="Control" type="Control" parent="." unique_id=163089909]
 layout_mode = 3
@@ -39,15 +164,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -87.0
-offset_right = 576.0
-offset_bottom = 89.0
+offset_left = -745.0
+offset_top = 10.0
+offset_right = 178.0
+offset_bottom = 197.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 120
+theme_override_fonts/normal_font = SubResource("FontVariation_ae3ij")
+theme_override_font_sizes/normal_font_size = 109
 bbcode_enabled = true
-text = "[success]success"
+text = "[TAVERN]TIME FOR CHANGE"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1

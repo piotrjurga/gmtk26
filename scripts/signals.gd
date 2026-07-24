@@ -20,3 +20,10 @@ signal target_dead(target : Target)
 
 # gym
 signal player_hit()
+
+# game state
+signal success()
+signal failure()
+
+# music
+signal set_stream()

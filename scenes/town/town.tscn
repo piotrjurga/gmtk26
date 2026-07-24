@@ -77,14 +77,6 @@ texture = ExtResource("6_my0xt")
 [node name="Front" type="Sprite2D" parent="tavern" unique_id=1928099726]
 texture = ExtResource("7_fwvjp")
 
-[node name="Label2" type="Label" parent="tavern" unique_id=2101368127]
-offset_left = -51.0
-offset_top = -115.0
-offset_right = 60.0
-offset_bottom = -65.0
-text = "Tavern"
-label_settings = SubResource("LabelSettings_vaf5k")
-
 [node name="Area2D" type="Area2D" parent="tavern" unique_id=1128558265]
 collision_layer = 0
 collision_mask = 2
@@ -112,14 +104,6 @@ texture = ExtResource("8_xbtnt")
 [node name="Front" type="Sprite2D" parent="boss" unique_id=1949483418]
 texture = ExtResource("9_3sg37")
 
-[node name="Label2" type="Label" parent="boss" unique_id=970659078]
-offset_left = -58.0
-offset_top = 59.0
-offset_right = 62.0
-offset_bottom = 109.0
-text = "BOSS"
-label_settings = SubResource("LabelSettings_vaf5k")
-
 [node name="Area2D" type="Area2D" parent="boss" unique_id=1128077246]
 collision_layer = 0
 collision_mask = 2
@@ -146,14 +130,6 @@ texture = ExtResource("10_vky2r")
 [node name="Front" type="Sprite2D" parent="gym" unique_id=1804830057]
 texture = ExtResource("11_fwdo8")
 
-[node name="Label3" type="Label" parent="gym" unique_id=558705956]
-offset_left = -53.0
-offset_top = -115.0
-offset_right = 58.0
-offset_bottom = -65.0
-text = "Gym"
-label_settings = SubResource("LabelSettings_vaf5k")
-
 [node name="Area2D" type="Area2D" parent="gym" unique_id=2095460045]
 collision_layer = 0
 collision_mask = 2
@@ -173,14 +149,6 @@ texture = ExtResource("12_wacgc")
 
 [node name="Front" type="Sprite2D" parent="swords" unique_id=953940841]
 texture = ExtResource("13_s1uhr")
-
-[node name="Label4" type="Label" parent="swords" unique_id=525164061]
-offset_left = -58.0
-offset_top = -115.0
-offset_right = 53.0
-offset_bottom = -65.0
-text = "Swords"
-label_settings = SubResource("LabelSettings_vaf5k")
 
 [node name="Area2D" type="Area2D" parent="swords" unique_id=2012072364]
 collision_layer = 0
@@ -209,14 +177,6 @@ texture = ExtResource("14_hhop4")
 [node name="Front" type="Sprite2D" parent="armour" unique_id=1509285451]
 position = Vector2(14, -17)
 texture = ExtResource("15_o16h7")
-
-[node name="Label5" type="Label" parent="armour" unique_id=1522845570]
-offset_left = -57.0
-offset_top = -116.0
-offset_right = 54.0
-offset_bottom = -66.0
-text = "Armour"
-label_settings = SubResource("LabelSettings_vaf5k")
 
 [node name="Area2D" type="Area2D" parent="armour" unique_id=1905595097]
 collision_layer = 0

@@ -28,6 +28,16 @@ var was_first_beat_emited = false
 
 func _ready():
     sec_per_beat = 60.0 / bpm
+    Signals.set_stream.connect(set_stream)
+    
+func set_stream(stream_index : int):
+    var stream : AudioStreamSynchronized = music.stream
+    for i in range(stream.stream_count):
+        if stream_index == i:
+            stream.set_sync_stream_volume(i, 0)
+        else:
+            stream.set_sync_stream_volume(i, -60)
+            
     
 func finished():
     song_position = 0.0
@@ -42,11 +52,11 @@ func finished():
     
 
 func _process(_delta):
+    var playback_position = music.get_playback_position()
+    
+    if playback_position < last_playback_position:
+        finished()
     if music.playing:
-        var playback_position = music.get_playback_position()
-        
-        if playback_position < last_playback_position:
-            finished()
         last_playback_position = playback_position
         song_position = last_playback_position + AudioServer.get_time_since_last_mix()
         song_position -= AudioServer.get_output_latency()

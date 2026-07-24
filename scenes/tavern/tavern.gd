@@ -15,7 +15,8 @@ func _ready():
 
 func last_tick():
     block_input = true
-    #is_success
+    if ! is_success:
+        Signals.failure.emit()
     
 func _input(event):
     if block_input:
@@ -40,6 +41,7 @@ func update_current_label_text():
     
     
 func success():
+    Signals.success.emit()
     is_success = true
     StatsManager.add_minion()
     word_label.text = ("[success]" + current_word).to_upper()

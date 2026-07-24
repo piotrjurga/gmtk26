@@ -11,6 +11,7 @@ func _ready():
             "\nForks " + str(StatsManager.fork_count()) + \
             "\nFast soldiers " + str(StatsManager.speed_count())
     
+    
 func place_picked(place : TownPlace.Places):
     picked_place = place
 

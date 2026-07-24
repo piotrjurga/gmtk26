@@ -3,7 +3,15 @@
 [ext_resource type="Script" uid="uid://c4eitllfbg4g8" path="res://managers/RythmManager.gd" id="1_kenwu"]
 [ext_resource type="AudioStream" uid="uid://nlp0pdmw61v7" path="res://sounds/pip.wav" id="2_ueart"]
 [ext_resource type="AudioStream" uid="uid://cvyqj8i5enuvv" path="res://sounds/pop.wav" id="3_7tegy"]
-[ext_resource type="AudioStream" uid="uid://bjkuvec7wusmx" path="res://assets/Music/music-to-test.mp3" id="4_ueart"]
+[ext_resource type="AudioStream" uid="uid://blylnuy5cu5yi" path="res://assets/Music/song town.wav" id="4_7tegy"]
+[ext_resource type="AudioStream" uid="uid://36pr16vidq0t" path="res://assets/Music/song tawern.wav" id="5_7tegy"]
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_kenwu"]
+stream_count = 2
+stream_0/stream = ExtResource("4_7tegy")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("5_7tegy")
+stream_1/volume = 0.0
 
 [node name="RythmManager" type="Node" unique_id=82670960 node_paths=PackedStringArray("pip_sound", "pop_sound", "music", "delay_start_timer")]
 script = ExtResource("1_kenwu")
@@ -19,7 +27,8 @@ stream = ExtResource("2_ueart")
 stream = ExtResource("3_7tegy")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1096025538]
-stream = ExtResource("4_ueart")
+stream = SubResource("AudioStreamSynchronized_kenwu")
+volume_db = -10.0
 mix_target = 2
 playback_type = 1
 
