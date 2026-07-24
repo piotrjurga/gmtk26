@@ -7,6 +7,7 @@ var target: Node2D
 
 var dead = false
 var timer = 0.0
+var id = -1
 
 func die():
     if !dead:
@@ -14,11 +15,11 @@ func die():
         timer = 0.0
         dead = true
         remove_from_group('minions')
-        Signals.minion_died.emit()
+        Signals.minion_died.emit(id)
 
 func get_hit(area: Area2D):
     area.destroy()
-    # TODO(piotr): armor
+    # TODO(piotr): armour
     die()
 
 func attack(area: Area2D):

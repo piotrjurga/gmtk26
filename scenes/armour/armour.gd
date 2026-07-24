@@ -70,3 +70,4 @@ func last_tick():
     
     if is_success:
         armour_bad.visible = false
+        StatsManager.get_armour()

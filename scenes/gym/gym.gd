@@ -26,4 +26,5 @@ func last_tick():
     if gym_character.got_hit:
         print('failed')
     else:
+        StatsManager.get_speed()
         print('success')

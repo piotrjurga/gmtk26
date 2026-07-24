@@ -281,3 +281,9 @@ rotation = 1.5707964
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D4" unique_id=746453954]
 position = Vector2(1594, 410.99994)
 shape = SubResource("RectangleShape2D_0w7qi")
+
+[node name="StatsLabel" type="Label" parent="." unique_id=1307655054]
+offset_left = 55.0
+offset_top = 50.0
+offset_right = 421.0
+offset_bottom = 295.0

@@ -29,7 +29,7 @@ func die():
         timer = 0.0
 
 func get_hit():
-    # TODO: armor
+    # TODO: armour
     die()
 
 func scene_done(success: bool):
