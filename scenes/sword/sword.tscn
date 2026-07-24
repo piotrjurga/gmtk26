@@ -23,7 +23,7 @@ radius = 86.09297
 
 [node name="Sword" type="Node2D" unique_id=2094122229 node_paths=PackedStringArray("prongs")]
 script = ExtResource("1_v80dd")
-prongs = [NodePath("Node2D/Sprite2D"), NodePath("Node2D/Sprite2D2"), NodePath("Node2D/Sprite2D3")]
+prongs = [NodePath("Node2D/Sprite2D"), NodePath("Node2D/Sprite2D4"), NodePath("Node2D/Sprite2D2"), NodePath("Node2D/Sprite2D3")]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1753032980]
 position = Vector2(960, 540)
