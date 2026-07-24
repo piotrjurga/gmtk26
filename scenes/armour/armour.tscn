@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://dooptkbwkfbv5"]
 
 [ext_resource type="Script" uid="uid://cek151lsu5v72" path="res://scenes/armour/armour.gd" id="1_4rhgh"]
-[ext_resource type="Texture2D" uid="uid://0uhjdwm8lt6n" path="res://assets/armour/bg.png" id="2_amb1a"]
-[ext_resource type="Texture2D" uid="uid://cqljpljb7gg8r" path="res://assets/armour/chestplate.png" id="3_qqsr2"]
+[ext_resource type="Texture2D" uid="uid://dxbxid8a67rxb" path="res://assets/smithy_chestplate/chestplate_background.png" id="2_amb1a"]
+[ext_resource type="Texture2D" uid="uid://nruu7s0ldr2d" path="res://icon.svg" id="2_qqsr2"]
+[ext_resource type="Texture2D" uid="uid://vmf7mnxlbt8g" path="res://assets/smithy_chestplate/chestplate_clean.png" id="3_qqsr2"]
 [ext_resource type="Shader" uid="uid://dth8palkphw3q" path="res://scenes/armour/armour.gdshader" id="3_r42f3"]
-[ext_resource type="Texture2D" uid="uid://b0t76hrp7wkho" path="res://assets/armour/chestplate_rusted.png" id="5_b2tkv"]
+[ext_resource type="Texture2D" uid="uid://bsp17n8dvtfje" path="res://assets/smithy_chestplate/chestplate_rusted.png" id="5_b2tkv"]
 [ext_resource type="PackedScene" uid="uid://bohk2ejkjy566" path="res://scenes/darts/sight.tscn" id="5_kgeru"]
-[ext_resource type="Texture2D" uid="uid://c0v03tqet2qjp" path="res://assets/armour/hammer.png" id="7_5kv3x"]
+[ext_resource type="Texture2D" uid="uid://bgjaohygd0s3l" path="res://assets/smithy_chestplate/chestplate_hammer.png" id="7_5kv3x"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4rhgh"]
 font_size = 36
@@ -24,6 +25,7 @@ hammer_icon = NodePath("Sight/Sprite2D")
 hammer_rotation_free = -120.0
 hammer_rotation_hit = -16.0
 sight = NodePath("Sight")
+texture = ExtResource("2_qqsr2")
 
 [node name="Bg" type="Sprite2D" parent="." unique_id=1460194206]
 position = Vector2(960, 540)
@@ -303,10 +305,10 @@ position = Vector2(628, 448)
 SPEED = 500.0
 
 [node name="Sprite2D" parent="Sight" index="1" unique_id=1055776568]
-position = Vector2(-139.00002, -34)
+position = Vector2(-153.37157, -33.596375)
 rotation = -0.28649318
 scale = Vector2(0.6761467, 0.6761467)
 texture = ExtResource("7_5kv3x")
-offset = Vector2(321.55847, -50.208374)
+offset = Vector2(82.35004, 20.545776)
 
 [editable path="Sight"]
