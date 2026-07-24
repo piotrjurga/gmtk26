@@ -29,4 +29,4 @@ func change_scene(new_scene : PackedScene):
 func new_game(current_tick : int):
     if current_scene == null:
         Signals.tick.disconnect(new_game)
-        change_scene(gym)
+        change_scene(darts)
