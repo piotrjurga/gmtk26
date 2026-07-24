@@ -1,6 +1,6 @@
 extends Node2D
 
-const speed = 150.0
+const speed = 300.0
 
 func destroy():
     queue_free()

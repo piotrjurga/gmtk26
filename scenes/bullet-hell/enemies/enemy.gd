@@ -4,15 +4,19 @@ var speed = 300.0
 var projectile : PackedScene = preload('res://scenes/bullet-hell/enemies/projectile.tscn')
 @onready var weapon = $Weapon
 
-enum State { ATTACK, CHEER, DIE }
+enum State { ATTACK, WALK, CHEER, DIE }
 var state = State.ATTACK
 
+const max_walk_time = 3.0
 var shot_delay = 1.0
 var shot_count = 0
-var timer = 0.0
+
 
 var cheer_freq = 1.0
 var cheer_init_pos: Vector2
+var timer = 0.0
+
+var target = Vector2.ZERO
 
 func cheer():
     if state == State.ATTACK:
@@ -41,11 +45,18 @@ func scene_done(success: bool):
 
 func _ready():
     Signals.scene_done.connect(scene_done)
+    timer = randf()
+
+func rand_in_circle():
+    var a = randf() * TAU
+    return sqrt(randf()) * Vector2(cos(a), sin(a))
+
+func select_target():
+    const r = 300.0
+    target = position + r*rand_in_circle()
 
 func shoot():
-    var delay = shot_delay
-    if shot_count % 3 == 0: delay *= 3.0
-    if timer > delay:
+    if timer > shot_delay:
         shot_count += 1
         timer = 0.0
         var p = projectile.instantiate()
@@ -55,6 +66,20 @@ func shoot():
         var t = transform.translated(weapon.position)
         p.transform = t.looking_at(t_pos)
         add_sibling(p)
+        if shot_count == 3:
+            shot_count = 0
+            state = State.WALK
+            select_target()
+
+func walk():
+    if !target: select_target()
+    var delta = target - position
+    if delta.length() < 10.0 or timer > max_walk_time:
+        state = State.ATTACK
+        timer = 0.0
+        return
+    velocity = delta.normalized() * speed
+    move_and_slide()
 
 func cheer_anim():
     var t = max(0.0, timer) # for random initial delay
@@ -70,6 +95,8 @@ func _physics_process(delta: float):
     match state:
         State.ATTACK:
             shoot()
+        State.WALK:
+            walk()
         State.CHEER:
             cheer_anim()
         State.DIE:

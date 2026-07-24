@@ -61,6 +61,10 @@ func grid_layout(n: int) -> Array[Vector2]:
         result[i] -= center
     return result
 
+func rand_in_circle():
+    var a = randf() * TAU
+    return sqrt(randf()) * Vector2(cos(a), sin(a))
+
 func setup(enemy_count_: int):
     enemy_count = enemy_count_
     var p = player.instantiate()
@@ -86,7 +90,9 @@ func setup(enemy_count_: int):
         var e = enemy.instantiate()
         var offset = (i+pos_bias) * pos_delta
         var y = window_size.y*0.5 + offset
+
         e.position = Vector2(window_size.x * 0.7, y)
+        e.position += rand_in_circle() * 100.0
         add_child(e)
 
 func _ready():
