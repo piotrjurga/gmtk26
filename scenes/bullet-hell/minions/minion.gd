@@ -19,7 +19,7 @@ func die():
 
 func get_hit(area: Area2D):
     area.destroy()
-    # TODO(piotr): armor
+    # TODO(piotr): armour
     die()
 
 func attack(area: Area2D):

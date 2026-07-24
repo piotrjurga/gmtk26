@@ -38,7 +38,7 @@ func setup(enemy_count_: int):
         var stats = StatsManager.army[i]
         if stats.fork:
             pass # TODO
-        if stats.armor:
+        if stats.armour:
             pass # TODO
         m.speed *= stats.speed
         m.id = stats.id
