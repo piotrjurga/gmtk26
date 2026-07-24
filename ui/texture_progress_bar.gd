@@ -1,6 +1,5 @@
 extends TextureProgressBar
 
-
 func _ready():
     Signals.progress_bar_set.connect(progress_bar_set)
 

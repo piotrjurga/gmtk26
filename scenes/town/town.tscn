@@ -62,7 +62,7 @@ text = "TOWN"
 label_settings = SubResource("LabelSettings_vaf5k")
 
 [node name="Bg" type="Sprite2D" parent="Label" unique_id=764488474]
-position = Vector2(496, 249)
+position = Vector2(497, 251)
 texture = ExtResource("2_dmgee")
 
 [node name="tavern" type="Node2D" parent="." unique_id=1705705785 node_paths=PackedStringArray("area", "sprite")]

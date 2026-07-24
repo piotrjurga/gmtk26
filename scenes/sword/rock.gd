@@ -5,6 +5,7 @@ extends Node2D
 @export var point_off_camera : Node2D
 var target : Node2D
 var max_distance : float
+@export var attack : AudioStreamPlayer
 
 enum Modes {Swing, Hit}
 var mode : Modes = Modes.Swing
@@ -32,7 +33,6 @@ func swing(delta):
 
     var distance : float = target.global_position.distance_to(global_position)
     var target_pos : Vector2 = target.global_position
-    
     tween = create_tween()
     tween.set_trans(Tween.TRANS_SINE)
     tween.set_ease(Tween.EASE_IN_OUT)
@@ -40,13 +40,14 @@ func swing(delta):
 
 func hit():
     mode = Modes.Hit
+    attack.play()
     if tween:
         tween.kill()
         tween = null
     tween = create_tween()
     tween.set_trans(Tween.TRANS_SINE)
     tween.set_ease(Tween.EASE_IN_OUT)
-    tween.tween_property(self, "global_position", global_position + Vector2(0, -400), 0.05)
+    tween.tween_property(self, "global_position", global_position + Vector2(0, -800), 0.05)
     tween.tween_property(self, "global_position", global_position, 0.1)
     tween.tween_callback(set_swing)
     
