@@ -3,7 +3,7 @@ extends Scene
 @export var armour_good : Sprite2D
 @export var armour_bad : Sprite2D
 @export var score_points_root : Node2D
-@export var click_size : float = 70
+@export var click_size : float = 90
 @export var hammer_icon : Sprite2D
 @export var hammer_rotation_free : float
 @export var hammer_rotation_hit : float
@@ -24,6 +24,9 @@ var starting_scale : Vector2
 
 var tween : Tween
 
+@export var texture : Texture
+@export var hit_sound : AudioStreamPlayer
+
 func _ready():
     super._ready()
     clicked_points = []
@@ -34,6 +37,15 @@ func _ready():
     starting_scale = armour_good.scale
     
     Signals.tick.connect(hit)
+    hammer_icon.rotation_degrees = hammer_rotation_free
+    
+    # debug
+    #for score_point in score_points:
+        #var sprite = Sprite2D.new()
+        #sprite.texture = texture
+        #score_point.add_child(sprite)
+        #sprite.global_position = score_point.global_position
+        #sprite.scale = Vector2(0.2, 0.2)
 
 func hit(current_tick : int):
     on_click(sight.global_position)
@@ -43,26 +55,30 @@ func hit(current_tick : int):
         tween = null
     
     tween = create_tween()
-    tween.tween_property(hammer_icon, "rotation_degrees", 0.0, 0.2)
+    tween.tween_property(hammer_icon, "rotation_degrees", hammer_rotation_free, 0.2)
 
 
-func on_click(mouse_pos : Vector2):
+func on_click(pos : Vector2):
     if block_clicking:
         return
-        
+    hit_sound.pitch_scale = 0.7 + randf() * 0.6
+    hit_sound.play()
     var spot_size : float = ((click_size / 2) * randf()) + click_size
-    clicked_points.append(Vector3(mouse_pos.x, mouse_pos.y, spot_size))
+    clicked_points.append(Vector3(pos.x, pos.y, spot_size))
     armour_bad.material.set("shader_parameter/points", clicked_points)
+    var new_points :Array[Node] = []
+    var points_to_delete :Array[Node2D] = []
     for score_point : Node2D in score_points:
-        if ! is_instance_valid(score_point):
-            continue
-        if score_point.global_position.distance_to(mouse_pos) < spot_size:
-            score_points.erase(score_point)
-            score_point.queue_free()
+        if score_point.global_position.distance_to(pos) <= spot_size:
+            points_to_delete.append(score_point)
+        else:
+            new_points.append(score_point)
+    score_points = new_points
+    for point_to_delete in points_to_delete:
+        point_to_delete.queue_free()
 
 func last_tick():
     block_clicking = true
-    score_points = score_points_root.get_children()
 
     print((float(score_points.size()) / float(max_points_count)))
     if (float(score_points.size()) / float(max_points_count)) < 0.5:
