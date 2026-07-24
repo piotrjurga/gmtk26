@@ -5,6 +5,11 @@ var picked_place : TownPlace.Places = TownPlace.Places.Street
 func _ready():
     super._ready()
     Signals.place_picked.connect(place_picked)
+    $StatsLabel.text = "Gold " + str(StatsManager.gold) + \
+            "\nSoldiers " + str(StatsManager.army.size()) + \
+            "\nArmour " + str(StatsManager.armour_count()) + \
+            "\nForks " + str(StatsManager.fork_count()) + \
+            "\nFast soldiers " + str(StatsManager.speed_count())
     
 func place_picked(place : TownPlace.Places):
     picked_place = place

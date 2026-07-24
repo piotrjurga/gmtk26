@@ -1,24 +1,26 @@
 extends Node
 
-var current_army_id = 1
 var army = []
+var gold = 0
+
+var current_army_id = 1
 
 func army_count():
     return army.size()
 
 func fork_count():
     var result = 0
-    for a in army: result += a.fork
+    for a in army: result += int(a.fork)
     return result
 
 func armour_count():
     var result = 0
-    for a in army: result += a.armour
+    for a in army: result += int(a.armour)
     return result
 
 func speed_count():
     var result = 0
-    for a in army: result += (a.speed > 1)
+    for a in army: result += int(a.speed > 1)
     return result
 
 func add_minion(n = 1):
