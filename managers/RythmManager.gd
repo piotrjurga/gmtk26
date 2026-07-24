@@ -1,4 +1,4 @@
-extends Node
+class_name RythmManager extends Node
 
 @export var pip_sound : AudioStreamPlayer
 @export var pop_sound : AudioStreamPlayer
@@ -24,13 +24,10 @@ var closest = 0
 var time_off_beat = 0.0
 
 var last_playback_position : float = 0.0
-
+var was_first_beat_emited = false
 
 func _ready():
     sec_per_beat = 60.0 / bpm
-    music.finished.connect(finished)
-    delay_start_timer.start()
-    delay_start_timer.timeout.connect(start)
     
 func finished():
     song_position = 0.0
@@ -38,20 +35,13 @@ func finished():
     last_reported_beat = 0
     beats_before_start = 0
     measure = 1
+    if ! was_first_beat_emited:
+        Signals.tick.emit(measure)
+        was_first_beat_emited = true
+        
     
-func tick():
-    current_tick += 1
-    Signals.tick.emit(current_tick)
-    
-    if current_tick == max_ticks:
-        current_tick = 0
-        pop_sound.play()
-        Signals.last_tick.emit()
-        return
-    
-    pip_sound.play()
 
-func _physics_process(_delta):
+func _process(_delta):
     if music.playing:
         var playback_position = music.get_playback_position()
         
@@ -79,13 +69,16 @@ func _report_beat():
     if measure >= measures:
         Signals.tick.emit(measure)
         Signals.last_tick.emit()
-        pop_sound.play()
+        was_first_beat_emited = false
+        #pop_sound.play()
         return
     
-    Signals.tick.emit(measure)
-    pip_sound.play()
+    if !was_first_beat_emited || measure > 1:
+        Signals.tick.emit(measure)
+        was_first_beat_emited = true
+    #pip_sound.play()
             
 func start():
     music.play()
     Signals.tick.emit(measure)
-    pip_sound.play()
+    #pip_sound.play()

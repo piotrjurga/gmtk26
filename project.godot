@@ -19,6 +19,11 @@ run/main_scene="uid://cjrk6ad1uedht"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+general/default_playback_type.web=0
+driver/output_latency.web=90
+
 [autoload]
 
 ScenesManager="*uid://dh6xr2ukme8jq"
@@ -72,6 +77,9 @@ space={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/decals/filter=0
+textures/light_projectors/filter=0

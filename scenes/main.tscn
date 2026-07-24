@@ -4,8 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://d4n4p73nbmwg2" path="res://managers/RythmManager.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://3mowualejyn3" path="res://ui/ui.tscn" id="3_sugp2"]
 
-[node name="Main" type="Node2D" unique_id=878863177]
+[node name="Main" type="Node2D" unique_id=878863177 node_paths=PackedStringArray("rythm_manager")]
 script = ExtResource("1_o5qli")
+rythm_manager = NodePath("RythmManager")
 
 [node name="RythmManager" parent="." unique_id=82670960 instance=ExtResource("2_0wfyh")]
 

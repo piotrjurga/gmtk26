@@ -1,7 +1,7 @@
 class_name Head extends CharacterBody2D
 
 @export var is_fall : bool = false
-@export var sprite : Sprite2D
+@export var count_head : CountHead
 
 func fall():
     if is_fall:
@@ -13,13 +13,13 @@ func fall():
     
     
 func init_from_target(target : Target):
-    sprite.texture = target.head
+    count_head.init_from_target(target)
     
 func _physics_process(delta):
     if !is_fall:
         return
 
-    sprite.rotate(-3 * delta)
+    count_head.rotate(-3 * delta)
     velocity += get_gravity() * delta
 
     move_and_slide()

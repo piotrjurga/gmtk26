@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cy3y6wq265oql" path="res://assets/guillotine/front_frame.png" id="4_6wx65"]
 [ext_resource type="Shader" uid="uid://bqfkab32e1jkv" path="res://scenes/guillotine/guillotine-rope.gdshader" id="4_prif8"]
 [ext_resource type="Texture2D" uid="uid://nruu7s0ldr2d" path="res://icon.svg" id="4_t8lfn"]
-[ext_resource type="Texture2D" uid="uid://dykwt841iq5ot" path="res://assets/guillotine/head.png" id="5_prif8"]
 [ext_resource type="Script" uid="uid://f76u4najwmf2" path="res://scenes/guillotine/head_2.gd" id="5_rsnbr"]
 [ext_resource type="Script" uid="uid://cva2wx5mvwavu" path="res://scenes/guillotine/rope.gd" id="6_prif8"]
+[ext_resource type="PackedScene" uid="uid://dd5hgml0v4nxi" path="res://scenes/count-head/count_head.tscn" id="9_prif8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6wx65"]
 shader = ExtResource("4_prif8")
@@ -59,20 +59,20 @@ cutof_point = NodePath("../../RopeCutof")
 position = Vector2(669, 534)
 texture = ExtResource("4_6wx65")
 
-[node name="Head2" type="CharacterBody2D" parent="." unique_id=454538128 node_paths=PackedStringArray("sprite")]
-position = Vector2(390, 204)
+[node name="Head2" type="CharacterBody2D" parent="." unique_id=454538128 node_paths=PackedStringArray("count_head")]
+position = Vector2(937, 680)
 floor_stop_on_slope = false
 floor_block_on_wall = false
 script = ExtResource("5_rsnbr")
-sprite = NodePath("Head")
+count_head = NodePath("CountHead")
 
-[node name="Head" type="Sprite2D" parent="Head2" unique_id=1532593729]
-position = Vector2(544, 483)
-texture = ExtResource("5_prif8")
-offset = Vector2(-258, -143)
+[node name="CountHead" parent="Head2" unique_id=1254211295 instance=ExtResource("9_prif8")]
+position = Vector2(1.9999995, -2)
+scale = Vector2(0.3963485, 0.3963485)
+has_neck = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Head2" unique_id=1888706761]
-position = Vector2(543, 485)
+position = Vector2(-2, 0)
 shape = SubResource("CircleShape2D_gxi48")
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=1272140800]

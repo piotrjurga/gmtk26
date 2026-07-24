@@ -20,7 +20,9 @@ stream = ExtResource("3_7tegy")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1096025538]
 stream = ExtResource("4_ueart")
+mix_target = 2
+playback_type = 1
 
 [node name="DelayStart" type="Timer" parent="." unique_id=672289796]
-wait_time = 0.5
+wait_time = 10.0
 one_shot = true
