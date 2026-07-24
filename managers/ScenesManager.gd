@@ -32,5 +32,5 @@ func new_game(current_tick : int):
         
         # to delete, should be town
         #change_scene(tavern)
-        change_scene(gym)
+        change_scene(darts)
         

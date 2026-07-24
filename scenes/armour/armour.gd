@@ -27,7 +27,6 @@ func _ready():
     
     score_points = score_points_root.get_children()
     max_points_count = score_points.size()
-    Signals.last_tick.connect(last_tick)
     starting_scale = armour_good.scale
     
 func _input(event):

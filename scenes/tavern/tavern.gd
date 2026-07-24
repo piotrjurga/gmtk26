@@ -12,9 +12,8 @@ func _ready():
     current_word = words.pick_random()
     letter_index = 0
     update_current_label_text()
-    Signals.last_tick.connect(end_level)
 
-func end_level():
+func last_tick():
     block_input = true
     #is_success
     

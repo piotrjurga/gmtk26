@@ -3,17 +3,21 @@
 [ext_resource type="Script" uid="uid://c4eitllfbg4g8" path="res://managers/RythmManager.gd" id="1_kenwu"]
 [ext_resource type="AudioStream" uid="uid://nlp0pdmw61v7" path="res://sounds/pip.wav" id="2_ueart"]
 [ext_resource type="AudioStream" uid="uid://cvyqj8i5enuvv" path="res://sounds/pop.wav" id="3_7tegy"]
+[ext_resource type="AudioStream" uid="uid://bjkuvec7wusmx" path="res://assets/Music/music-to-test.mp3" id="4_ueart"]
 
-[node name="RythmManager" type="Node" unique_id=82670960 node_paths=PackedStringArray("scene_timer", "pip_sound", "pop_sound")]
+[node name="RythmManager" type="Node" unique_id=82670960 node_paths=PackedStringArray("pip_sound", "pop_sound", "music")]
 script = ExtResource("1_kenwu")
-scene_timer = NodePath("Timer")
 pip_sound = NodePath("Pip")
 pop_sound = NodePath("Pop")
-
-[node name="Timer" type="Timer" parent="." unique_id=1373685297]
+music = NodePath("AudioStreamPlayer")
 
 [node name="Pip" type="AudioStreamPlayer" parent="." unique_id=779381649]
 stream = ExtResource("2_ueart")
 
 [node name="Pop" type="AudioStreamPlayer" parent="." unique_id=993034523]
 stream = ExtResource("3_7tegy")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1096025538]
+stream = ExtResource("4_ueart")
+
+[node name="Timer" type="Timer" parent="." unique_id=672289796]
