@@ -6,6 +6,8 @@ extends Node
 @export var bpm : int = 120
 @export var measures : int = 8
 
+@export var delay_start_timer : Timer
+
 var max_ticks : int = 4
 var current_tick : int = 0
 
@@ -27,11 +29,13 @@ var last_playback_position : float = 0.0
 func _ready():
     sec_per_beat = 60.0 / bpm
     music.finished.connect(finished)
+    delay_start_timer.start()
+    delay_start_timer.timeout.connect(start)
+    
     
 func finished():
     song_position = 0.0
     song_position_in_beats = 1
-    sec_per_beat = 60.0 / bpm
     last_reported_beat = 0
     beats_before_start = 0
     measure = 1
@@ -49,9 +53,6 @@ func tick():
     pip_sound.play()
 
 func _physics_process(_delta):
-    if !music.playing:
-        music.play()
-        
     if music.playing:
         var playback_position = music.get_playback_position()
         
@@ -85,4 +86,7 @@ func _report_beat():
     Signals.tick.emit(measure)
     pip_sound.play()
             
-        
+func start():
+    music.play()
+    Signals.tick.emit(measure)
+    pip_sound.play()

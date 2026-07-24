@@ -5,11 +5,12 @@
 [ext_resource type="AudioStream" uid="uid://cvyqj8i5enuvv" path="res://sounds/pop.wav" id="3_7tegy"]
 [ext_resource type="AudioStream" uid="uid://bjkuvec7wusmx" path="res://assets/Music/music-to-test.mp3" id="4_ueart"]
 
-[node name="RythmManager" type="Node" unique_id=82670960 node_paths=PackedStringArray("pip_sound", "pop_sound", "music")]
+[node name="RythmManager" type="Node" unique_id=82670960 node_paths=PackedStringArray("pip_sound", "pop_sound", "music", "delay_start_timer")]
 script = ExtResource("1_kenwu")
 pip_sound = NodePath("Pip")
 pop_sound = NodePath("Pop")
 music = NodePath("AudioStreamPlayer")
+delay_start_timer = NodePath("DelayStart")
 
 [node name="Pip" type="AudioStreamPlayer" parent="." unique_id=779381649]
 stream = ExtResource("2_ueart")
@@ -20,4 +21,6 @@ stream = ExtResource("3_7tegy")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1096025538]
 stream = ExtResource("4_ueart")
 
-[node name="Timer" type="Timer" parent="." unique_id=672289796]
+[node name="DelayStart" type="Timer" parent="." unique_id=672289796]
+wait_time = 0.5
+one_shot = true
