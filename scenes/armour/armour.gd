@@ -25,6 +25,7 @@ var starting_scale : Vector2
 var tween : Tween
 
 @export var texture : Texture
+@export var hit_sound : AudioStreamPlayer
 
 func _ready():
     super._ready()
@@ -60,7 +61,8 @@ func hit(current_tick : int):
 func on_click(pos : Vector2):
     if block_clicking:
         return
-        
+    hit_sound.pitch_scale = 0.7 + randf() * 0.6
+    hit_sound.play()
     var spot_size : float = ((click_size / 2) * randf()) + click_size
     clicked_points.append(Vector3(pos.x, pos.y, spot_size))
     armour_bad.material.set("shader_parameter/points", clicked_points)
