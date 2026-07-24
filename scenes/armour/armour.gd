@@ -3,10 +3,12 @@ extends Scene
 @export var armour_good : Sprite2D
 @export var armour_bad : Sprite2D
 @export var score_points_root : Node2D
-@export var click_size : float = 50
+@export var click_size : float = 70
 @export var hammer_icon : Sprite2D
 @export var hammer_rotation_free : float
 @export var hammer_rotation_hit : float
+
+@export var sight : Sight
 
 # points for shader
 var clicked_points : Array[Vector3]
@@ -20,6 +22,8 @@ var block_clicking : bool = false
 var is_success : bool = false
 var starting_scale : Vector2
 
+var tween : Tween
+
 func _ready():
     super._ready()
     clicked_points = []
@@ -27,19 +31,20 @@ func _ready():
     
     score_points = score_points_root.get_children()
     max_points_count = score_points.size()
-    Signals.last_tick.connect(last_tick)
     starting_scale = armour_good.scale
     
-func _input(event):
-    if event is InputEventMouseMotion:
-        hammer_icon.global_position = event.position + Vector2(50, 0)
-    if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-        if event.is_pressed():
-            hammer_icon.rotation_degrees = hammer_rotation_hit
-            self.on_click(event.position)
-        if event.is_released():
-            hammer_icon.rotation_degrees = hammer_rotation_free
-            
+    Signals.tick.connect(hit)
+
+func hit(current_tick : int):
+    on_click(sight.global_position)
+    hammer_icon.rotation_degrees = hammer_rotation_hit
+    if tween:
+        tween.kill()
+        tween = null
+    
+    tween = create_tween()
+    tween.tween_property(hammer_icon, "rotation_degrees", 0.0, 0.2)
+
 
 func on_click(mouse_pos : Vector2):
     if block_clicking:
@@ -59,6 +64,9 @@ func last_tick():
     block_clicking = true
     score_points = score_points_root.get_children()
 
-    if (float(score_points.size()) / float(max_points_count)) < 0.3:
+    print((float(score_points.size()) / float(max_points_count)))
+    if (float(score_points.size()) / float(max_points_count)) < 0.5:
         is_success = true
-        print(is_success)
+    
+    if is_success:
+        armour_bad.visible = false
