@@ -1,8 +1,11 @@
 class_name Scene extends Node
 
+@export var stream_idx : int = 0
+
 var progress : float = 100.0
 
 func _ready():
+    Signals.set_stream.emit(stream_idx)
     Signals.tick.connect(tick)
     Signals.last_tick.connect(last_tick)
 

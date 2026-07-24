@@ -10,9 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://bgjaohygd0s3l" path="res://assets/smithy_chestplate/chestplate_hammer.png" id="7_5kv3x"]
 [ext_resource type="AudioStream" uid="uid://dalognl1j7nod" path="res://assets/sfx/armour/metal hits metal 10.wav" id="9_b2tkv"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_4rhgh"]
-font_size = 36
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gxi48"]
 shader = ExtResource("3_r42f3")
 shader_parameter/points = PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
@@ -32,14 +29,6 @@ hit_sound = NodePath("hit")
 [node name="Bg" type="Sprite2D" parent="." unique_id=1460194206]
 position = Vector2(960, 540)
 texture = ExtResource("2_amb1a")
-
-[node name="Label" type="Label" parent="." unique_id=210693204]
-offset_left = 815.0
-offset_top = 15.0
-offset_right = 949.0
-offset_bottom = 65.0
-text = "Armour"
-label_settings = SubResource("LabelSettings_4rhgh")
 
 [node name="ArmourGood" type="Sprite2D" parent="." unique_id=1774590243]
 position = Vector2(895, 541)

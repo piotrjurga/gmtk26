@@ -15,10 +15,10 @@ func _ready():
 
     for target : Target in TargetManager.targets:
         var new_target : DartTarget = target_scene.instantiate()
-        new_target.init_from_target(target)
         targets.append(new_target)
         new_target.global_position = target_positions.pop_front().global_position
         target_positions_root.add_child(new_target)
+        new_target.init_from_target(target)
         
 func last_tick():
     var closest_target : Node2D = null

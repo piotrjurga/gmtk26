@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cp3yxwpha84qt"]
+
+[ext_resource type="Shader" uid="uid://3vm4y112ylwo" path="res://assets/count/count_head.gdshader" id="1_08ppk"]
+
+[resource]
+shader = ExtResource("1_08ppk")
+shader_parameter/top_cutoff = 0.0
+shader_parameter/bot_cutoff = 0.0

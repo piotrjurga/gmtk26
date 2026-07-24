@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://d37wpxi6lu24d"]
+
+[ext_resource type="Script" uid="uid://bpewwheogyu8a" path="res://scenes/gym/gym.gd" id="1_ih2u8"]
+[ext_resource type="PackedScene" uid="uid://bupacqm7q0nvn" path="res://scenes/gym/hay.tscn" id="2_a8uch"]
+[ext_resource type="Script" uid="uid://d3bf5q4xdvm12" path="res://scenes/gym/character.gd" id="2_y08fo"]
+[ext_resource type="PackedScene" uid="uid://bhbdvbxmrh35f" path="res://scenes/gym/rock.tscn" id="3_eaum8"]
+[ext_resource type="PackedScene" uid="uid://cbk0yljbj6acr" path="res://scenes/gym/bird.tscn" id="4_j4p3a"]
+[ext_resource type="Script" uid="uid://sn4l357cvnm" path="res://scenes/gym/cloud_loop.gd" id="6_26ipr"]
+[ext_resource type="Texture2D" uid="uid://beqf5ricqk1ye" path="res://assets/gym/hay_jumping/cloud loop.png" id="8_26ipr"]
+[ext_resource type="Script" uid="uid://bn3jdw45ryua" path="res://scenes/gym/field_bottom.gd" id="8_m7sb5"]
+[ext_resource type="Texture2D" uid="uid://u01e22kvlui3" path="res://assets/gym/hay_jumping/field bottom.png" id="9_62vp0"]
+[ext_resource type="Script" uid="uid://cakarykex2cfx" path="res://scenes/gym/field_top.gd" id="9_m7sb5"]
+[ext_resource type="Texture2D" uid="uid://dxxhcyxb4357p" path="res://assets/gym/hay_jumping/run1.png" id="9_th6f5"]
+[ext_resource type="Texture2D" uid="uid://cawe5v62hisc4" path="res://assets/gym/hay_jumping/field top.png" id="10_m7sb5"]
+[ext_resource type="Texture2D" uid="uid://bemtx1hbps3qp" path="res://assets/gym/hay_jumping/jump.png" id="13_js1kk"]
+[ext_resource type="Texture2D" uid="uid://geb762qaner2" path="res://assets/gym/hay_jumping/run2.png" id="14_px4u7"]
+[ext_resource type="Texture2D" uid="uid://fa6yodn02mew" path="res://assets/gym/hay_jumping/slide.png" id="15_7qc44"]
+[ext_resource type="Texture2D" uid="uid://urild4yiqjol" path="res://assets/gym/hay_jumping/win.png" id="16_7qc44"]
+[ext_resource type="Script" uid="uid://6pducb1xgi1h" path="res://scenes/gym/win.gd" id="17_6xu02"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1k5f7"]
+size = Vector2(1895, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gxi48"]
+size = Vector2(38, 118)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j4p3a"]
+size = Vector2(114, 450)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_th6f5"]
+size = Vector2(114, 226)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gxi48"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_js1kk")
+}],
+"loop": 1,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_th6f5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_px4u7")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_7qc44")
+}],
+"loop": 1,
+"name": &"slide",
+"speed": 5.0
+}]
+
+[node name="Gym" type="Node2D" unique_id=1809102907 node_paths=PackedStringArray("timer", "main_spawn_point", "gym_character")]
+script = ExtResource("1_ih2u8")
+timer = NodePath("Timer")
+obstacles = Array[PackedScene]([ExtResource("2_a8uch"), ExtResource("4_j4p3a"), ExtResource("3_eaum8"), ExtResource("2_a8uch")])
+main_spawn_point = NodePath("SpawnPoint")
+gym_character = NodePath("CharacterBody2D")
+stream_idx = null
+
+[node name="Timer" type="Timer" parent="." unique_id=853344176]
+wait_time = 0.8
+autostart = true
+
+[node name="CloudLoop" type="Sprite2D" parent="." unique_id=200404566]
+position = Vector2(960, 540)
+texture = ExtResource("8_26ipr")
+script = ExtResource("6_26ipr")
+
+[node name="CloudLoop2" type="Sprite2D" parent="CloudLoop" unique_id=2066224782]
+position = Vector2(1920, 0)
+texture = ExtResource("8_26ipr")
+
+[node name="FieldBottom" type="Sprite2D" parent="." unique_id=744436524]
+position = Vector2(960, 844)
+texture = ExtResource("9_62vp0")
+script = ExtResource("8_m7sb5")
+
+[node name="FieldBottom2" type="Sprite2D" parent="FieldBottom" unique_id=1062998983]
+position = Vector2(1920, 0)
+texture = ExtResource("9_62vp0")
+
+[node name="FieldBottom3" type="Sprite2D" parent="FieldBottom" unique_id=626400023]
+position = Vector2(3840, 0)
+texture = ExtResource("9_62vp0")
+
+[node name="FieldBottom4" type="Sprite2D" parent="FieldBottom" unique_id=1922823991]
+position = Vector2(5760, 0)
+texture = ExtResource("9_62vp0")
+
+[node name="FieldBottom5" type="Sprite2D" parent="FieldBottom" unique_id=481942617]
+position = Vector2(7680, 0)
+texture = ExtResource("9_62vp0")
+
+[node name="FieldTop" type="Sprite2D" parent="." unique_id=1065643527]
+position = Vector2(960, 384)
+texture = ExtResource("10_m7sb5")
+script = ExtResource("9_m7sb5")
+
+[node name="FieldTop2" type="Sprite2D" parent="FieldTop" unique_id=829363885]
+position = Vector2(1920, 0)
+texture = ExtResource("10_m7sb5")
+
+[node name="FieldTop3" type="Sprite2D" parent="FieldTop" unique_id=1957777576]
+position = Vector2(3840, 0)
+texture = ExtResource("10_m7sb5")
+
+[node name="FieldTop4" type="Sprite2D" parent="FieldTop" unique_id=1338544985]
+position = Vector2(5760, 0)
+texture = ExtResource("10_m7sb5")
+
+[node name="FieldTop5" type="Sprite2D" parent="FieldTop" unique_id=357580089]
+position = Vector2(7680, 0)
+texture = ExtResource("10_m7sb5")
+
+[node name="SpawnPoint" type="Node2D" parent="." unique_id=424610660]
+position = Vector2(2028, 800)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1888255019]
+position = Vector2(11, 842)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1225128070]
+position = Vector2(1086.5, -15)
+shape = SubResource("RectangleShape2D_1k5f7")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1312142427 node_paths=PackedStringArray("area", "area_lower", "sprite")]
+position = Vector2(344, 554)
+script = ExtResource("2_y08fo")
+area = NodePath("Area2D")
+area_lower = NodePath("AreaLower")
+sprite = NodePath("AnimatedSprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1461812408]
+position = Vector2(-18, 186)
+shape = SubResource("RectangleShape2D_gxi48")
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D" unique_id=2057577215]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D" unique_id=865813916]
+position = Vector2(20, 12)
+shape = SubResource("RectangleShape2D_j4p3a")
+
+[node name="AreaLower" type="Area2D" parent="CharacterBody2D" unique_id=12148058]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/AreaLower" unique_id=487808727]
+position = Vector2(20, 124)
+shape = SubResource("RectangleShape2D_th6f5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1637470986]
+sprite_frames = SubResource("SpriteFrames_gxi48")
+animation = &"run"
+autoplay = "run"
+frame = 1
+frame_progress = 0.34940353
+
+[node name="Win" type="Sprite2D" parent="." unique_id=1034770170 node_paths=PackedStringArray("target")]
+position = Vector2(2297, 603)
+texture = ExtResource("16_7qc44")
+script = ExtResource("17_6xu02")
+target = NodePath("Node2D")
+
+[node name="Node2D" type="Node2D" parent="Win" unique_id=795584458]
+position = Vector2(-630, 19)

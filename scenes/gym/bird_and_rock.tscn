@@ -1,10 +1,19 @@
 [gd_scene format=3 uid="uid://ct65ys068a26m"]
 
-[ext_resource type="PackedScene" uid="uid://cbk0yljbj6acr" path="res://scenes/gym/bird.tscn" id="1_q21du"]
-[ext_resource type="PackedScene" uid="uid://bhbdvbxmrh35f" path="res://scenes/gym/rock.tscn" id="2_vca2k"]
+[ext_resource type="Texture2D" uid="uid://ciskxdhd6w2fn" path="res://assets/gym/hay_jumping/crow 2.png" id="1_hk73t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q21du"]
+size = Vector2(48, 48)
 
 [node name="BirdAndRock" type="Node2D" unique_id=451896022]
 
-[node name="Bird" parent="." unique_id=996567956 instance=ExtResource("1_q21du")]
+[node name="Area2D" type="Area2D" parent="." unique_id=244870300]
+position = Vector2(0.41186142, -32.588135)
 
-[node name="Node2D" parent="." unique_id=621158504 instance=ExtResource("2_vca2k")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=769992095]
+position = Vector2(-5.4118614, -272.41187)
+shape = SubResource("RectangleShape2D_q21du")
+
+[node name="Crow2" type="Sprite2D" parent="." unique_id=1347840239]
+position = Vector2(13, -413)
+texture = ExtResource("1_hk73t")

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://3mowualejyn3"]
 
-[ext_resource type="Texture2D" uid="uid://blfw21ghwn33t" path="res://assets/UI/progress_bar.png" id="1_ks8t7"]
+[ext_resource type="Texture2D" uid="uid://pvqkkpu0j4mf" path="res://assets/progress_bar/progress_bar_filled.png" id="1_ks8t7"]
+[ext_resource type="Texture2D" uid="uid://cwxyqepn2d6un" path="res://assets/progress_bar/progress_bar_empty.png" id="1_wl5ax"]
 [ext_resource type="Script" uid="uid://deymo0jeo3fgy" path="res://ui/texture_progress_bar.gd" id="2_wl5ax"]
 
 [node name="UI" type="Control" unique_id=1876686818]
@@ -18,12 +19,12 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -128.0
+offset_top = -123.0
+offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 0
 value = 25.0
-texture_under = ExtResource("1_ks8t7")
+texture_under = ExtResource("1_wl5ax")
 texture_progress = ExtResource("1_ks8t7")
-tint_under = Color(0.9607843, 0.9607843, 0.9607843, 0.2784314)
 tint_progress = Color(0.81389046, 0.95005375, 0.139433, 1)
 script = ExtResource("2_wl5ax")
