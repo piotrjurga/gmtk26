@@ -14,6 +14,7 @@ radius = 81.394104
 
 [node name="Minion" type="CharacterBody2D" unique_id=665359883 groups=["minions"]]
 collision_mask = 3
+motion_mode = 1
 script = ExtResource("1_c2eyd")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1293093790]
