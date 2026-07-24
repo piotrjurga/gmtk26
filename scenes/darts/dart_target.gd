@@ -5,7 +5,6 @@ class_name DartTarget extends Node2D
 @export var gold_label : Label
 var target : Target 
 
-# Called when the node enters the scene tree for the first time.
 func init_from_target(new_target : Target):
     target = new_target
     dart_image.texture = target.texture
