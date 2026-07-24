@@ -15,3 +15,7 @@ signal scene_done(success : bool)
 
 # target
 signal target_dead(target : Target)
+
+
+# gym
+signal player_hit()
