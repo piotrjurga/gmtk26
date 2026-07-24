@@ -6,7 +6,10 @@
 [ext_resource type="Shader" uid="uid://bqfkab32e1jkv" path="res://scenes/guillotine/guillotine-rope.gdshader" id="4_prif8"]
 [ext_resource type="Script" uid="uid://f76u4najwmf2" path="res://scenes/guillotine/head_2.gd" id="5_rsnbr"]
 [ext_resource type="Texture2D" uid="uid://cqlkv5idv68gk" path="res://assets/guillotine/guillotine/guillotine stand.png" id="6_bqyyw"]
+[ext_resource type="Texture2D" uid="uid://5ak5c8xydsbe" path="res://assets/guillotine/guillotine/count hand 1.png" id="6_jqsba"]
 [ext_resource type="Script" uid="uid://cva2wx5mvwavu" path="res://scenes/guillotine/rope.gd" id="6_prif8"]
+[ext_resource type="Texture2D" uid="uid://bjf5yfhslmdm5" path="res://assets/guillotine/guillotine/count hand 2.png" id="7_cj335"]
+[ext_resource type="Script" uid="uid://bljc7be61u775" path="res://scenes/guillotine/count_hand.gd" id="7_vehfg"]
 [ext_resource type="Texture2D" uid="uid://b3kxtjkip2b2t" path="res://assets/guillotine/guillotine/rope looped.png" id="8_6wx65"]
 [ext_resource type="Script" uid="uid://nc3x8f054exf" path="res://scenes/guillotine/rope_looped.gd" id="9_10x16"]
 [ext_resource type="Texture2D" uid="uid://cmit4m1dfjuh5" path="res://assets/guillotine/guillotine/hand1.png" id="9_btyta"]
@@ -51,21 +54,39 @@ position = Vector2(979, 92)
 
 [node name="Blade" type="Sprite2D" parent="." unique_id=913683736 node_paths=PackedStringArray("cutof_point")]
 material = SubResource("ShaderMaterial_10x16")
-position = Vector2(978, 496)
+position = Vector2(978, 306)
 texture = ExtResource("4_1yfkj")
 script = ExtResource("6_prif8")
 cutof_point = NodePath("../RopeCutof")
+
+[node name="CountHand1" type="Sprite2D" parent="." unique_id=989531329]
+position = Vector2(1083, 733)
+texture = ExtResource("6_jqsba")
+offset = Vector2(86, -11)
+script = ExtResource("7_vehfg")
+dead_rotation = 31.2
+lived_rotation = -37.4
+
+[node name="CountHand2" type="Sprite2D" parent="." unique_id=32785407]
+position = Vector2(857, 722)
+texture = ExtResource("7_cj335")
+offset = Vector2(-81, -8)
+script = ExtResource("7_vehfg")
+dead_rotation = -31.1
+lived_rotation = 31.2
 
 [node name="FrontFrame" type="Sprite2D" parent="." unique_id=1146797591]
 position = Vector2(960, 540)
 texture = ExtResource("6_bqyyw")
 
 [node name="Head2" type="CharacterBody2D" parent="." unique_id=454538128 node_paths=PackedStringArray("count_head")]
-position = Vector2(971, 722)
+position = Vector2(979, 731)
+rotation = -0.14660765
 floor_stop_on_slope = false
 floor_block_on_wall = false
 script = ExtResource("5_rsnbr")
 count_head = NodePath("CountHead")
+lived_rotation = 38.6
 
 [node name="CountHead" parent="Head2" unique_id=1254211295 instance=ExtResource("9_prif8")]
 position = Vector2(1.9999995, -2)
@@ -74,6 +95,7 @@ scale = Vector2(0.3963485, 0.3963485)
 has_neck = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Head2" unique_id=1888706761]
+visible = false
 position = Vector2(-2, 0)
 shape = SubResource("CircleShape2D_gxi48")
 

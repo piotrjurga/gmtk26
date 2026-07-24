@@ -26,17 +26,16 @@ func _physics_process(delta):
         blade.global_position.y += delta * fall_speed
     if blade.global_position.y >= blade_drop_y:
         head.fall()
-        Signals.success.emit()
         if TargetManager.current_target is Target:
             Signals.target_dead.emit(TargetManager.current_target)
 
 func last_tick():
     if blade_success_height > blade.global_position.y:
         min_height = blade_drop_y
-        print("success")
+        blade.global_position.y = blade_drop_y
+        Signals.success.emit()
     else:
         Signals.failure.emit()
-    fall_speed = fall_speed * 10
     enabled = false
 
 func _input(event):
