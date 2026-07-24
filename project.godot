@@ -24,6 +24,7 @@ config/icon="res://icon.svg"
 ScenesManager="*uid://dh6xr2ukme8jq"
 Signals="*uid://ba4bplrou1lyk"
 TargetManager="*uid://7dvya17wmg6x"
+StatsManager="*uid://bnfq4ywbws7g4"
 
 [display]
 
