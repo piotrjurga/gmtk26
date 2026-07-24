@@ -2,10 +2,11 @@ extends CharacterBody2D
 
 @export var places : Array[TownPlace]
 
-const SPEED = 300.0
+const SPEED = 500.0
 const JUMP_VELOCITY = -400.0
 var enabled : bool = true
 var target : Vector2
+var tween : Tween 
 
 func _ready():
     Signals.last_tick.connect(last_tick)
@@ -28,6 +29,14 @@ func last_tick():
 func move_to_target():
     if target == Vector2.ZERO:
         return
+        
+    if target.distance_to(global_position) < 60:
+        global_position = target
+        target = Vector2.ZERO
+        tween = create_tween()
+        tween.tween_property(self, "modulate", Color.TRANSPARENT, 0.5)
+        return
+        
     var dir = (target - global_position).normalized()    
     
     velocity = dir * SPEED * 2

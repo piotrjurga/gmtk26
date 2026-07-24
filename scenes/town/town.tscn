@@ -2,21 +2,50 @@
 
 [ext_resource type="Script" uid="uid://dcvm7v6dv2l57" path="res://scenes/town/town.gd" id="1_e21v4"]
 [ext_resource type="Script" uid="uid://d2qes43sejn1o" path="res://scenes/town/character.gd" id="1_n11nm"]
+[ext_resource type="Texture2D" uid="uid://ia1cgnb6h8p1" path="res://assets/main_city/main_city-assets/bg.jpg" id="2_dmgee"]
 [ext_resource type="Texture2D" uid="uid://nruu7s0ldr2d" path="res://icon.svg" id="2_gxugk"]
 [ext_resource type="Script" uid="uid://n3ee5rm47x8g" path="res://scenes/town/place.gd" id="4_8b7wv"]
 [ext_resource type="Script" uid="uid://cbdk1cwnsyyp6" path="res://scenes/town/target_spot.gd" id="5_06row"]
+[ext_resource type="Texture2D" uid="uid://dn13fi8fvhms4" path="res://assets/main_city/main_city-assets/city_bg.png" id="6_my0xt"]
+[ext_resource type="Texture2D" uid="uid://cc8wl0o2rn2kp" path="res://assets/main_city/main_city-assets/city.png" id="7_fwvjp"]
+[ext_resource type="Texture2D" uid="uid://b2dq3w8n6y0js" path="res://assets/main_city/main_city-assets/castle_bg.png" id="8_xbtnt"]
+[ext_resource type="Texture2D" uid="uid://du16ntswmw5gt" path="res://assets/main_city/main_city-assets/castle.png" id="9_3sg37"]
+[ext_resource type="Texture2D" uid="uid://whiggxw47dce" path="res://assets/main_city/main_city-assets/field_bg.png" id="10_vky2r"]
+[ext_resource type="Texture2D" uid="uid://5wmfynu5hh7n" path="res://assets/main_city/main_city-assets/field.png" id="11_fwdo8"]
+[ext_resource type="Texture2D" uid="uid://bhmg2hh5pdwvl" path="res://assets/main_city/main_city-assets/house_bg.png" id="12_wacgc"]
+[ext_resource type="Texture2D" uid="uid://dl426swcfqor8" path="res://assets/main_city/main_city-assets/house.png" id="13_s1uhr"]
+[ext_resource type="Texture2D" uid="uid://djmlxsrxy6j58" path="res://assets/main_city/main_city-assets/smith_bg.png" id="14_hhop4"]
+[ext_resource type="Texture2D" uid="uid://tjr20tpsi7ch" path="res://assets/main_city/main_city-assets/blacksmith.png" id="15_o16h7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vaf5k"]
 font_size = 36
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_gxi48"]
-radius = 18.027756
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iu42p"]
+size = Vector2(677, 296)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gxi48"]
-size = Vector2(194, 188)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wpqog"]
+size = Vector2(518, 195)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4yhmd"]
+size = Vector2(572, 508)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3xbq"]
+size = Vector2(412, 356)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmgee"]
+size = Vector2(790, 430)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_my0xt"]
+size = Vector2(508, 308)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1k5f7"]
-size = Vector2(128, 128)
+size = Vector2(413, 214)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gxi48"]
+size = Vector2(491, 368)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gxi48"]
+radius = 18.027756
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0w7qi"]
 size = Vector2(217, 1729)
@@ -32,27 +61,21 @@ offset_bottom = 339.0
 text = "TOWN"
 label_settings = SubResource("LabelSettings_vaf5k")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1037026528 node_paths=PackedStringArray("places")]
-position = Vector2(983, 726)
-collision_layer = 3
-script = ExtResource("1_n11nm")
-places = [NodePath("../tavern"), NodePath("../boss"), NodePath("../gym"), NodePath("../swords"), NodePath("../armour")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1853602988]
-shape = SubResource("CircleShape2D_gxi48")
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=706238606]
-scale = Vector2(0.234375, 0.234375)
-texture = ExtResource("2_gxugk")
+[node name="Bg" type="Sprite2D" parent="Label" unique_id=764488474]
+position = Vector2(496, 249)
+texture = ExtResource("2_dmgee")
 
 [node name="tavern" type="Node2D" parent="." unique_id=1705705785 node_paths=PackedStringArray("area", "sprite")]
-position = Vector2(586, 468)
+position = Vector2(854, 281)
 script = ExtResource("4_8b7wv")
 area = NodePath("Area2D")
-sprite = NodePath("Sprite2D")
+sprite = NodePath("Back")
 
-[node name="Sprite2D" type="Sprite2D" parent="tavern" unique_id=1928099726]
-texture = ExtResource("2_gxugk")
+[node name="Back" type="Sprite2D" parent="tavern" unique_id=1375544659]
+texture = ExtResource("6_my0xt")
+
+[node name="Front" type="Sprite2D" parent="tavern" unique_id=1928099726]
+texture = ExtResource("7_fwvjp")
 
 [node name="Label2" type="Label" parent="tavern" unique_id=2101368127]
 offset_left = -51.0
@@ -67,22 +90,27 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tavern/Area2D" unique_id=960412971]
-shape = SubResource("RectangleShape2D_gxi48")
+position = Vector2(24.5, 1)
+shape = SubResource("RectangleShape2D_iu42p")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="tavern" unique_id=1230259048]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tavern/StaticBody2D" unique_id=1709260584]
-shape = SubResource("RectangleShape2D_1k5f7")
+position = Vector2(56, 9.5)
+shape = SubResource("RectangleShape2D_wpqog")
 
 [node name="boss" type="Node2D" parent="." unique_id=1654516023 node_paths=PackedStringArray("area", "sprite")]
-position = Vector2(970, 270)
+position = Vector2(1701, 294)
 script = ExtResource("4_8b7wv")
 place = 5
 area = NodePath("Area2D")
-sprite = NodePath("Sprite2D")
+sprite = NodePath("Back")
 
-[node name="Sprite2D" type="Sprite2D" parent="boss" unique_id=796772355]
-texture = ExtResource("2_gxugk")
+[node name="Back" type="Sprite2D" parent="boss" unique_id=1241840778]
+texture = ExtResource("8_xbtnt")
+
+[node name="Front" type="Sprite2D" parent="boss" unique_id=1949483418]
+texture = ExtResource("9_3sg37")
 
 [node name="Label2" type="Label" parent="boss" unique_id=970659078]
 offset_left = -58.0
@@ -97,22 +125,26 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boss/Area2D" unique_id=1090330688]
-shape = SubResource("RectangleShape2D_gxi48")
+position = Vector2(-33, 33)
+shape = SubResource("RectangleShape2D_4yhmd")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="boss" unique_id=869611807]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boss/StaticBody2D" unique_id=840313698]
-shape = SubResource("RectangleShape2D_1k5f7")
+shape = SubResource("RectangleShape2D_b3xbq")
 
 [node name="gym" type="Node2D" parent="." unique_id=480905846 node_paths=PackedStringArray("area", "sprite")]
-position = Vector2(573, 920)
+position = Vector2(384, 931)
 script = ExtResource("4_8b7wv")
 place = 1
 area = NodePath("Area2D")
-sprite = NodePath("Sprite2D")
+sprite = NodePath("Back")
 
-[node name="Sprite2D" type="Sprite2D" parent="gym" unique_id=1826165453]
-texture = ExtResource("2_gxugk")
+[node name="Back" type="Sprite2D" parent="gym" unique_id=394176475]
+texture = ExtResource("10_vky2r")
+
+[node name="Front" type="Sprite2D" parent="gym" unique_id=1804830057]
+texture = ExtResource("11_fwdo8")
 
 [node name="Label3" type="Label" parent="gym" unique_id=558705956]
 offset_left = -53.0
@@ -127,22 +159,20 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="gym/Area2D" unique_id=1276452218]
-shape = SubResource("RectangleShape2D_gxi48")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="gym" unique_id=17488243]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="gym/StaticBody2D" unique_id=529033808]
-shape = SubResource("RectangleShape2D_1k5f7")
+shape = SubResource("RectangleShape2D_dmgee")
 
 [node name="swords" type="Node2D" parent="." unique_id=961192497 node_paths=PackedStringArray("area", "sprite")]
-position = Vector2(1426, 518)
+position = Vector2(281, 467)
 script = ExtResource("4_8b7wv")
 place = 2
 area = NodePath("Area2D")
-sprite = NodePath("Sprite2D")
+sprite = NodePath("Back")
 
-[node name="Sprite2D" type="Sprite2D" parent="swords" unique_id=157792980]
-texture = ExtResource("2_gxugk")
+[node name="Back" type="Sprite2D" parent="swords" unique_id=250187558]
+texture = ExtResource("12_wacgc")
+
+[node name="Front" type="Sprite2D" parent="swords" unique_id=953940841]
+texture = ExtResource("13_s1uhr")
 
 [node name="Label4" type="Label" parent="swords" unique_id=525164061]
 offset_left = -58.0
@@ -157,22 +187,28 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="swords/Area2D" unique_id=1995455874]
-shape = SubResource("RectangleShape2D_gxi48")
+position = Vector2(-4, 22)
+shape = SubResource("RectangleShape2D_my0xt")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="swords" unique_id=27557793]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="swords/StaticBody2D" unique_id=100363682]
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_1k5f7")
 
 [node name="armour" type="Node2D" parent="." unique_id=908161456 node_paths=PackedStringArray("area", "sprite")]
-position = Vector2(1415, 892)
+position = Vector2(1680, 843)
 script = ExtResource("4_8b7wv")
 place = 3
 area = NodePath("Area2D")
-sprite = NodePath("Sprite2D")
+sprite = NodePath("Back")
 
-[node name="Sprite2D" type="Sprite2D" parent="armour" unique_id=359351742]
-texture = ExtResource("2_gxugk")
+[node name="Back" type="Sprite2D" parent="armour" unique_id=1572177292]
+texture = ExtResource("14_hhop4")
+
+[node name="Front" type="Sprite2D" parent="armour" unique_id=1509285451]
+position = Vector2(14, -17)
+texture = ExtResource("15_o16h7")
 
 [node name="Label5" type="Label" parent="armour" unique_id=1522845570]
 offset_left = -57.0
@@ -187,24 +223,41 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="armour/Area2D" unique_id=1338762977]
+position = Vector2(-1.5, 51)
 shape = SubResource("RectangleShape2D_gxi48")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="armour" unique_id=65314991]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="armour/StaticBody2D" unique_id=824137942]
+position = Vector2(26, 54)
 shape = SubResource("RectangleShape2D_1k5f7")
 
 [node name="TargetSpot" type="Node2D" parent="." unique_id=932044718]
-position = Vector2(74, 76)
+position = Vector2(168, 106)
 script = ExtResource("5_06row")
 
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1037026528 node_paths=PackedStringArray("places")]
+position = Vector2(983, 726)
+collision_layer = 3
+script = ExtResource("1_n11nm")
+places = [NodePath("../tavern"), NodePath("../boss"), NodePath("../gym"), NodePath("../swords"), NodePath("../armour")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1853602988]
+shape = SubResource("CircleShape2D_gxi48")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=706238606]
+scale = Vector2(0.234375, 0.234375)
+texture = ExtResource("2_gxugk")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=507702271]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1048083853]
 position = Vector2(98.5, 631)
 shape = SubResource("RectangleShape2D_0w7qi")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=128852466]
+visible = false
 position = Vector2(1837, 3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=47291387]
@@ -212,6 +265,7 @@ position = Vector2(98.5, 631)
 shape = SubResource("RectangleShape2D_0w7qi")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=712781014]
+visible = false
 position = Vector2(1412, -277)
 rotation = 1.5707964
 
@@ -220,7 +274,8 @@ position = Vector2(213.00002, 448)
 shape = SubResource("RectangleShape2D_0w7qi")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1160419933]
-position = Vector2(1412, -277)
+visible = false
+position = Vector2(1406, -414)
 rotation = 1.5707964
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D4" unique_id=746453954]

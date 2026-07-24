@@ -12,7 +12,7 @@ func tick(current_tick : int):
     if current_tick == 1:
         Signals.scene_ended.emit()
     else:
-        progress -= 100.0 / 3 
+        progress -= 100.0 / 7 
         Signals.progress_bar_set.emit(progress)
     
 func last_tick():
