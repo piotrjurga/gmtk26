@@ -2,6 +2,7 @@ extends Scene
 
 var window_size : Vector2
 var enemy : PackedScene = preload("res://scenes/bullet-hell/enemies/enemy.tscn")
+var count : PackedScene = preload("res://scenes/bullet-hell/enemies/count.tscn")
 var minion : PackedScene = preload("res://scenes/bullet-hell/minions/minion.tscn")
 var player : PackedScene = preload("res://scenes/bullet-hell/player.tscn")
 
@@ -23,6 +24,43 @@ func next_scene() -> PackedScene:
         return ScenesManager.town # TODO(piotr): game over
     return ScenesManager.guillotine
 
+func fib_layout(n: int) -> Array[Vector2]:
+    var result: Array[Vector2] = []
+    var radius = 35.0 * sqrt(n)
+    result.resize(n)
+    const golden_angle = 2.399963229728653
+    for i in range(n):
+        var distance = radius * sqrt(float(i + 0.5) / float(n))
+        var angle = i * golden_angle
+        result[i] = Vector2(
+            distance * cos(angle),
+            distance * sin(angle)
+        )
+    return result
+
+# generate a hex grid
+func grid_layout(n: int) -> Array[Vector2]:
+    const radius = 30.0
+    var height = radius * sqrt(3.0)
+    var rows = int(round(sqrt(float(n))))
+    var cols = int(ceil(float(n) / rows))
+    var result: Array[Vector2]
+    for row in range(rows):
+        var odd = row & 1
+        var row_cols = min(cols + odd, n-result.size())
+        var row_offset = -odd*radius
+        var missing = cols+odd - row_cols
+        if missing > 1:
+            row_offset += float(missing / 2)
+        for col in range(row_cols):
+            var p = Vector2(col*2*radius + row_offset, height*row)
+            result.push_back(p)
+    # recenter the distribution
+    var center = result.reduce(func(a,b): return a+b, Vector2.ZERO) / n
+    for i in range(n):
+        result[i] -= center
+    return result
+
 func setup(enemy_count_: int):
     enemy_count = enemy_count_
     var p = player.instantiate()
@@ -32,20 +70,15 @@ func setup(enemy_count_: int):
     var minion_count = StatsManager.army.size()
     var radius = 30.0 * minion_count
     var angle_delta = 2*PI / minion_count
+    #var offsets = grid_layout(minion_count)
+    var offsets = fib_layout(minion_count)
     for i in range(StatsManager.army.size()):
         var m = minion.instantiate()
-
         var stats = StatsManager.army[i]
-        if stats.fork:
-            pass # TODO
-        if stats.armour:
-            pass # TODO
-        m.speed *= stats.speed
-        m.id = stats.id
+        m.set_stats(stats)
 
-        # TODO(piotr): hex grid? triangle?
         var angle = i * angle_delta
-        var offset = radius * Vector2(cos(angle), sin(angle))
+        var offset = offsets[i]
         m.position = p.position + offset
         m.target = p
         add_child(m)

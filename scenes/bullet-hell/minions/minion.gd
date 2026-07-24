@@ -8,6 +8,18 @@ var target: Node2D
 var dead = false
 var timer = 0.0
 var id = -1
+var armour = false
+var fork = false
+
+func set_stats(stats):
+    id = stats.id
+    armour = stats.armour
+    fork = stats.fork
+    speed *= stats.speed
+    if armour:
+        $Armour.visible = true
+    if fork:
+        $Fork.visible = true
 
 func die():
     if !dead:
@@ -17,10 +29,17 @@ func die():
         remove_from_group('minions')
         Signals.minion_died.emit(id)
 
+func drop_armour():
+    armour = false
+    $Armour.visible = false
+    StatsManager.drop_armour(id)
+
 func get_hit(area: Area2D):
     area.destroy()
-    # TODO(piotr): armour
-    die()
+    if armour:
+        drop_armour()
+    else:
+        die()
 
 func attack(area: Area2D):
     var p = area.get_parent()
@@ -31,29 +50,21 @@ func _ready():
     hurtbox.area_entered.connect(get_hit)
     attack_range.area_entered.connect(attack)
 
-func get_minion_distribution():
-    var minions = get_tree().get_nodes_in_group('minions')
-    var centroid = Vector2.ZERO
-    var count = 0
-    for m in minions:
-        #if m.dead: continue
-        centroid += m.position
-        count += 1
-    centroid /= count
-    var variance = 0.0
-    for m in minions:
-        #if m.dead: continue
-        variance += (m.position - centroid).length_squared()
-    var std = sqrt(variance / count)
-    return { 'centroid': centroid, 'std': std }
+func get_minion_centroid(minions) -> Vector2:
+    return minions.reduce(
+        func(a, b): return a+b.position,
+        Vector2.ZERO
+    ) / minions.size()
 
 func follow_target():
-    var dist = get_minion_distribution()
+    var minions = get_tree().get_nodes_in_group('minions')
+    var centroid = get_minion_centroid(minions)
+
     var t_pos = target.global_position
     var delta = t_pos - global_position
 
-    var dest_is_center = (dist.centroid - t_pos).length() < 10.0
-    var close_enough = delta.length() < 60.0
+    var dest_is_center = (centroid - t_pos).length() < 10.0
+    var close_enough = delta.length() < 40.0 * sqrt(minions.size())
     if dest_is_center and close_enough:
         velocity = Vector2.ZERO
     else:

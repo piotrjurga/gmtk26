@@ -40,3 +40,18 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange" unique_id=1904056617]
 position = Vector2(1, -66)
 shape = SubResource("CircleShape2D_p5viw")
+
+[node name="Armour" type="Sprite2D" parent="." unique_id=640997024]
+visible = false
+modulate = Color(0.9269114, 0.55994797, 0, 1)
+position = Vector2(-0.5, -75)
+scale = Vector2(0.47656253, 0.42187494)
+texture = ExtResource("2_dxnyw")
+
+[node name="Fork" type="Sprite2D" parent="." unique_id=248623780]
+visible = false
+modulate = Color(0, 0, 0, 1)
+position = Vector2(17, -65)
+rotation = 0.44678277
+scale = Vector2(0.05682374, 0.96118164)
+texture = ExtResource("2_dxnyw")

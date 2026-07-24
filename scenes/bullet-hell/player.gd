@@ -7,13 +7,10 @@ func _ready():
     window_size = get_window().size
 
 func get_minion_centroid(minions) -> Vector2:
-    var centroid = Vector2.ZERO
-    var count = 0
-    for m in minions:
-        centroid += m.position
-        count += 1
-    centroid /= count
-    return centroid
+    return minions.reduce(
+        func(a, b): return a+b.position,
+        Vector2.ZERO
+    ) / minions.size()
 
 func _physics_process(delta: float) -> void:
     var minions = get_tree().get_nodes_in_group('minions')

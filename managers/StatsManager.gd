@@ -46,11 +46,17 @@ func get_speed():
         var m = slow_minions.pick_random()
         m.speed = 2
 
+func find(id):
+    return army.find_custom(func(a): return a.id == id)
+
 func remove_minion(id):
-    var idx = army.find_custom(func(a): return a.id == id)
+    var idx = find(id)
     if idx >= 0:
         army.pop_at(idx)
 
+func drop_armour(id):
+    army[find(id)].armour = false
+
 func _ready():
-    add_minion(3)
+    add_minion(16)
     Signals.minion_died.connect(remove_minion)
