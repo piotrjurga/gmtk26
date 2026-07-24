@@ -32,7 +32,6 @@ func _ready():
     delay_start_timer.start()
     delay_start_timer.timeout.connect(start)
     
-    
 func finished():
     song_position = 0.0
     song_position_in_beats = 1

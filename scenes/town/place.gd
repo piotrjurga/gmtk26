@@ -10,6 +10,7 @@ var is_picked : bool = false
 func _ready():
     area.body_entered.connect(pick_place)
     Signals.place_picked.connect(place_picked)
+    sprite.visible = false
     
 func pick_place(body : Node2D):
     Signals.place_picked.emit(place)
@@ -19,9 +20,7 @@ func place_picked(new_place : TownPlace.Places):
     
 func _physics_process(delta):
     if !is_picked:
-        sprite.scale = Vector2.ONE
+        sprite.visible = false
         return
     
-    var t = Time.get_ticks_msec()
-    sprite.scale.x = 1 + sin(t * 4e-3 * PI) / 4
-    sprite.scale.y = 1 + cos(t * 3e-3 * PI) / 4
+    sprite.visible = true
