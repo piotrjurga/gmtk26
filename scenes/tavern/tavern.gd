@@ -42,5 +42,6 @@ func update_current_label_text():
     
 func success():
     is_success = true
+    StatsManager.add_minion()
     word_label.text = ("[success]" + current_word).to_upper()
     

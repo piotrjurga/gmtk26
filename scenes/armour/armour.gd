@@ -61,4 +61,7 @@ func last_tick():
 
     if (float(score_points.size()) / float(max_points_count)) < 0.3:
         is_success = true
-        print(is_success)
+    
+    if is_success:
+        armour_bad.visible = false
+        StatsManager.get_armour()

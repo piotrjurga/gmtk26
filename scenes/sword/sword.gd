@@ -7,4 +7,5 @@ func last_tick():
         if !prong.is_sharp():
             return
             
+    StatsManager.get_fork()
     print("success")
