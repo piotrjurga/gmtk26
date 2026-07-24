@@ -64,32 +64,29 @@ func grid_layout(n: int) -> Array[Vector2]:
 func setup(enemy_count_: int):
     enemy_count = enemy_count_
     var p = player.instantiate()
-    p.position = Vector2(window_size.x*0.5, window_size.y*0.8)
+    p.position = Vector2(window_size.x*0.1, window_size.y*0.6)
     add_child(p)
 
-    var minion_count = StatsManager.army.size()
-    var radius = 30.0 * minion_count
-    var angle_delta = 2*PI / minion_count
-    #var offsets = grid_layout(minion_count)
-    var offsets = fib_layout(minion_count)
+    var c = count.instantiate()
+    c.position = Vector2(window_size.x*0.9, window_size.y*0.6)
+    add_child(c)
+
+    var offsets = fib_layout(StatsManager.army.size())
     for i in range(StatsManager.army.size()):
         var m = minion.instantiate()
         var stats = StatsManager.army[i]
         m.set_stats(stats)
-
-        var angle = i * angle_delta
-        var offset = offsets[i]
-        m.position = p.position + offset
+        m.position = p.position + offsets[i]
         m.target = p
         add_child(m)
 
-    var pos_delta = window_size.x / (enemy_count+1.0)
+    var pos_delta = window_size.y / (enemy_count+1)
     var pos_bias = -0.5*enemy_count + 0.5
     for i in range(enemy_count):
         var e = enemy.instantiate()
         var offset = (i+pos_bias) * pos_delta
-        var x = window_size.x*0.5 + offset
-        e.position = Vector2(x, window_size.y*0.1)
+        var y = window_size.y*0.5 + offset
+        e.position = Vector2(window_size.x * 0.7, y)
         add_child(e)
 
 func _ready():

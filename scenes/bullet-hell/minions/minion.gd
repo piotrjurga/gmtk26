@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 200.0
+var speed = 400.0
 var target: Node2D
 @onready var hurtbox: Area2D = $Hurtbox
 @onready var attack_range: Area2D = $AttackRange

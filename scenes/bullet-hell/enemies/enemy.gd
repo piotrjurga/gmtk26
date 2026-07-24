@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 100.0
+var speed = 300.0
 var projectile : PackedScene = preload('res://scenes/bullet-hell/enemies/projectile.tscn')
 @onready var weapon = $Weapon
 
@@ -27,6 +27,9 @@ func die():
         Signals.enemy_died.emit()
         state = State.DIE
         timer = 0.0
+
+func flee():
+    pass # TODO(piotr)
 
 func get_hit():
     # TODO: armour
