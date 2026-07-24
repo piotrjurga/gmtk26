@@ -80,7 +80,6 @@ func on_click(pos : Vector2):
 func last_tick():
     block_clicking = true
 
-    print((float(score_points.size()) / float(max_points_count)))
     if (float(score_points.size()) / float(max_points_count)) < 0.5:
         is_success = true
     

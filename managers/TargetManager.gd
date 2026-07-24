@@ -11,9 +11,9 @@ var noses : Array[Texture]
 var torsos  : Array[Texture]
 var wigs : Array[Texture]
 var title : Array[String] = [
-    "Count",
     "Sir",
     "Lord",
+    "Count",
 ]
 var names : Array[String] = [
     "Baguette",
@@ -24,6 +24,7 @@ var names : Array[String] = [
     "Jaques",
     "Rafaael",
     "Johan",
+    "Gregory",
 ]
 
 func fill_in_assets(folder : String, variable_to_fill : Array[Texture]):
@@ -42,10 +43,11 @@ func _ready():
     
     var temp_names : Array[String] = names
     temp_names.shuffle()
-    for i in range(6):
+    for i in range(9):
         var new_target : Target = Target.new()
         new_target.gold = 1 + int(randf() * 10)
-        new_target.name = title.pick_random() + ' ' + temp_names.pop_front()
+        new_target.title = title[i % 3]
+        new_target.name = temp_names.pop_front()
         new_target.eyes = randi_range(0, 2)
         new_target.mouth = randi_range(0, 2)
         new_target.neck = randi_range(0, 3)

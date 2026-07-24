@@ -11,12 +11,17 @@ var target_scene : PackedScene = preload("res://scenes/darts/dart_target.tscn")
 func _ready():
     super._ready()
     target_positions = target_positions_root.get_children()
-    target_positions.shuffle()
+    var targets_temp = TargetManager.targets
+    targets_temp.shuffle()
 
-    for target : Target in TargetManager.targets:
+    var i : int = 0
+    for target : Target in targets_temp:
+        if target.spot == -1:
+            target.spot = i
+            i += 1
         var new_target : DartTarget = target_scene.instantiate()
         targets.append(new_target)
-        new_target.global_position = target_positions.pop_front().global_position
+        new_target.global_position = target_positions[target.spot].global_position
         target_positions_root.add_child(new_target)
         new_target.init_from_target(target)
         
