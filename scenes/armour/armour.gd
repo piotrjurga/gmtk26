@@ -43,14 +43,16 @@ func _ready():
     hammer_icon.rotation_degrees = hammer_rotation_free
     
      #debug
-    for score_point in score_points:
-        var sprite = Sprite2D.new()
-        sprite.texture = texture
-        score_point.add_child(sprite)
-        sprite.global_position = score_point.global_position
-        sprite.scale = Vector2(0.2, 0.2)
+    #for score_point in score_points:
+        #var sprite = Sprite2D.new()
+        #sprite.texture = texture
+        #score_point.add_child(sprite)
+        #sprite.global_position = score_point.global_position
+        #sprite.scale = Vector2(0.2, 0.2)
 
 func hit(current_tick : int):
+    if block_clicking:
+        return
     on_click(sight.global_position)
     hammer_icon.rotation_degrees = hammer_rotation_hit
     if tween:

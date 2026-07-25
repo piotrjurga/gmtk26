@@ -172,6 +172,7 @@ area = NodePath("Area2D")
 sprite = NodePath("Back")
 
 [node name="Back" type="Sprite2D" parent="armour" unique_id=1572177292]
+position = Vector2(64, -53)
 texture = ExtResource("14_hhop4")
 
 [node name="Front" type="Sprite2D" parent="armour" unique_id=1509285451]
