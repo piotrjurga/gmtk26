@@ -1,7 +1,8 @@
 extends Node
 
 var army = []
-var gold = 0
+var gold = 5
+var day = 1
 
 var current_army_id = 1
 
