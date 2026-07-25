@@ -8,7 +8,7 @@ var min_height : float
 
 @export var blade : Sprite2D
 @export var fall_speed : float
-@export var strength : float = 30
+@export var strength : float = 100
 
 @export var head : Head
 
@@ -51,4 +51,8 @@ func _input(event):
 
 func next_scene() -> PackedScene:
     TargetManager.current_target = null
+    
+    if TargetManager.king_target == null:
+        return ScenesManager.town
+        
     return ScenesManager.town

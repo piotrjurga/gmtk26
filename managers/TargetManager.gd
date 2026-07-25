@@ -67,7 +67,7 @@ func _ready():
     new_target.nose = randi_range(0, 2)
     new_target.torso = 0
     new_target.wig = randi_range(0, 3)
-    new_target.gold = 9999
+    new_target.gold = 99
     king_target = new_target
     
     Signals.target_dead.connect(dead_target)
@@ -81,8 +81,10 @@ func set_target(new_target : Target):
     
 func dead_target(dead_target : Target):
     StatsManager.gold += dead_target.gold
-
-    targets.erase(dead_target)
+    if dead_target.title == "King":
+        king_target = null
+    else:
+        targets.erase(dead_target)
 
     current_target = null
 

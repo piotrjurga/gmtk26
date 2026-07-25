@@ -3,6 +3,8 @@ extends Scene
 @export var sight : Sight
 @export var dart : DartThrow
 @export var target_positions_root : Node2D
+@export var king_position : Node2D
+@export var king_appears_when_others_left : int = 9
 var target_positions : Array[Node]
 var targets : Array[Node2D]
 var min_distance : float = 150
@@ -16,6 +18,12 @@ func _ready():
     var targets_temp = TargetManager.targets
     targets_temp.shuffle()
 
+    if targets_temp.size() <= king_appears_when_others_left:
+        var new_target : DartTarget = target_scene.instantiate()
+        targets.append(new_target)
+        new_target.global_position = king_position.global_position
+        target_positions_root.add_child(new_target)
+        new_target.init_from_target(TargetManager.king_target)
     var i : int = 0
     for target : Target in targets_temp:
         if target.spot == -1:
@@ -58,8 +66,7 @@ func throw_target(force : bool = false):
                 closest_target = target
             elif closest_target.target.gold > target.target.gold:
                 closest_target = target
-                
-        
+
     if closest_target == null:
         return
     dart.set_target(closest_target.global_position)

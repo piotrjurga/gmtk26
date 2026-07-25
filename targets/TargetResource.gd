@@ -11,3 +11,9 @@ class_name Target extends Resource
 @export var nose : int
 @export var torso  : int
 @export var wig : int
+
+func full_name():
+    if title == "King":
+        return 'Emperor ' + name
+        
+    return title + ' ' + name

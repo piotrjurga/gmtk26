@@ -38,7 +38,7 @@ right = NodePath("RightCutoff")
 color_sir = Color(0.7764706, 1, 1, 0.5058824)
 color_lord = Color(1, 1, 1, 0.5058824)
 color_count = Color(1, 0.42745098, 0, 0.5058824)
-color_king = Color(0.78179395, 0.3860437, 1, 0.5058824)
+color_king = Color(0.71167696, 0.001724621, 0.8762112, 0.5058824)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1423420068]
 position = Vector2(-3, 8)
@@ -85,7 +85,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1795939242]
-modulate = Color(0.78179395, 0.3860437, 1, 0.5058824)
+modulate = Color(0.71167696, 0.001724621, 0.8762112, 0.5058824)
 position = Vector2(-3, 8)
 scale = Vector2(0.35279945, 0.35279945)
 texture = ExtResource("2_7dkjv")

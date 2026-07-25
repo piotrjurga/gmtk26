@@ -42,7 +42,7 @@ blade_bottom_max_y = 325.0
 blade_drop_y = 496.0
 blade = NodePath("Blade")
 fall_speed = 200.0
-strength = 40.0
+strength = 75.0
 head = NodePath("Head2")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=644898017]
