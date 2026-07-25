@@ -64,6 +64,12 @@ scale = Vector2(0.14166072, -0.22939962)
 position = Vector2(59, 15.000008)
 scale = Vector2(0.14166072, -0.22939962)
 
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1795939242]
+modulate = Color(0.71167696, 0.001724621, 0.8762112, 0.5058824)
+position = Vector2(-3, 8)
+scale = Vector2(0.35279945, 0.35279945)
+texture = ExtResource("2_7dkjv")
+
 [node name="Name" type="Label" parent="." unique_id=2044214208]
 offset_left = -86.0
 offset_top = -115.0
@@ -83,9 +89,3 @@ text = "100g"
 label_settings = SubResource("LabelSettings_ep5d0")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1795939242]
-modulate = Color(0.71167696, 0.001724621, 0.8762112, 0.5058824)
-position = Vector2(-3, 8)
-scale = Vector2(0.35279945, 0.35279945)
-texture = ExtResource("2_7dkjv")
