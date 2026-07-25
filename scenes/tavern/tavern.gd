@@ -18,6 +18,7 @@ func _ready():
     update_current_label_text()
 
 func last_tick():
+    super.last_tick()
     block_input = true
     if ! is_success:
         Signals.failure.emit()

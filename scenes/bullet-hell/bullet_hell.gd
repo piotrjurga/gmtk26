@@ -118,5 +118,5 @@ func tick(current_tick : int):
     if last_tick_count == max_last_tick_count:
         Signals.scene_ended.emit()
     else:
-        progress -= 100.0 / 15
+        progress -= 100.0 / 14
         Signals.progress_bar_set.emit(progress)

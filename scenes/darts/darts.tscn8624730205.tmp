@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://d2ym6jnmfkq1u"]
+
+[ext_resource type="Script" uid="uid://djx3tepqy4bmx" path="res://scenes/darts/darts.gd" id="1_x4xqp"]
+[ext_resource type="Texture2D" uid="uid://blp4gn6f8fxj" path="res://assets/darts/background.png" id="2_lhdhh"]
+[ext_resource type="PackedScene" uid="uid://e6iw8vpxpnn3" path="res://scenes/darts/dart_throw.tscn" id="2_somb7"]
+[ext_resource type="PackedScene" uid="uid://bohk2ejkjy566" path="res://scenes/darts/sight.tscn" id="2_x4xqp"]
+
+[node name="darts" type="Node2D" unique_id=1772197419 node_paths=PackedStringArray("sight", "dart", "target_positions_root")]
+script = ExtResource("1_x4xqp")
+sight = NodePath("Sight")
+dart = NodePath("dart")
+target_positions_root = NodePath("TargetPositions")
+
+[node name="TargetPositions" type="Node2D" parent="." unique_id=1493673657]
+
+[node name="TargetPosition" type="Node2D" parent="TargetPositions" unique_id=1807159907]
+position = Vector2(383, 193)
+
+[node name="TargetPosition2" type="Node2D" parent="TargetPositions" unique_id=1725992997]
+position = Vector2(1620, 796)
+
+[node name="TargetPosition3" type="Node2D" parent="TargetPositions" unique_id=1951905453]
+position = Vector2(217, 505)
+
+[node name="TargetPosition4" type="Node2D" parent="TargetPositions" unique_id=969970363]
+position = Vector2(345, 782)
+
+[node name="TargetPosition5" type="Node2D" parent="TargetPositions" unique_id=558544319]
+position = Vector2(614, 484)
+
+[node name="TargetPosition6" type="Node2D" parent="TargetPositions" unique_id=346117102]
+position = Vector2(932, 224)
+
+[node name="TargetPosition7" type="Node2D" parent="TargetPositions" unique_id=764518188]
+position = Vector2(1284, 564)
+
+[node name="TargetPosition8" type="Node2D" parent="TargetPositions" unique_id=1542670097]
+position = Vector2(1349, 204)
+
+[node name="TargetPosition9" type="Node2D" parent="TargetPositions" unique_id=1029720446]
+position = Vector2(1677, 419)
+
+[node name="Background" type="Sprite2D" parent="TargetPositions" unique_id=861280664]
+position = Vector2(960, 540)
+texture = ExtResource("2_lhdhh")
+
+[node name="Sight" parent="." unique_id=1568300132 instance=ExtResource("2_x4xqp")]
+position = Vector2(1017, 843)
+
+[node name="dart" parent="." unique_id=1523667051 instance=ExtResource("2_somb7")]
+z_index = 100
+position = Vector2(963, 1240)

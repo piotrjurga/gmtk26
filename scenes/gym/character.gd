@@ -5,6 +5,9 @@ class_name GymCharacter extends CharacterBody2D
 @export var sprite : AnimatedSprite2D
 @export var jump_hold_force : float = 4
 @export var jump_release_force : float = 8
+@export var step : AudioStreamPlayer
+@export var jump : AudioStreamPlayer
+@export var slide : AudioStreamPlayer
 const SPEED = 300.0
 const JUMP_VELOCITY = -2000.0
 
@@ -19,6 +22,21 @@ func _ready():
     start_position = global_position
     area.area_entered.connect(hit)
     area_lower.area_entered.connect(hit)
+    sprite.frame_changed.connect(frame_changed)
+    sprite.animation_changed.connect(animation_changed)
+
+func animation_changed():
+    if sprite.animation != "slide" && slide.playing:
+        slide.stop()
+    if sprite.animation == "run":
+        step.pitch_scale = 0.7 + randf() * 0.6
+        step.play()
+    
+func frame_changed():
+    if sprite.animation != "run":
+        return
+    step.pitch_scale = 0.7 + randf() * 0.6
+    step.play()
 
 func _physics_process(delta):
     if got_hit:
@@ -26,27 +44,31 @@ func _physics_process(delta):
         return
     
     sprite.offset.y = 0
-    if sprite.animation != "run":
-        sprite.animation = "run"
     if not is_on_floor():
         sprite.animation = "jump"
         var strength : float = jump_hold_force if jump_intent else jump_release_force
         velocity += get_gravity() * strength * delta
-
-    if is_on_floor() && crouch_intent:
-        area.monitoring = false
-        sprite.animation = "slide"
-        sprite.offset.y = 100
     else:
-        area.monitoring = true
+        if crouch_intent:
+            area.monitoring = false
+            sprite.animation = "slide"
+            sprite.offset.y = 100
+            if !slide.playing:
+                slide.play()
+        else:
+            area.monitoring = true
+            sprite.animation = "run"
         
     
     if enabled and jump_intent and is_on_floor():
         velocity.y = JUMP_VELOCITY
-
+        jump.pitch_scale = 1 + randf() * 0.3
+        jump.play()
+#
     if !enabled && is_on_floor():
         sprite.animation = "slide"
         sprite.offset.y = 100
+        slide.stop()
         
     move_and_slide()
 

@@ -6,11 +6,18 @@ extends Scene
 @export var gym_character : GymCharacter
 @export var obstacles_count : int = 3
 
+@export var success : AudioStreamPlayer
+@export var fail : AudioStreamPlayer
+
 
 func _ready():
     super._ready()
     timer.timeout.connect(spawn.bind(main_spawn_point.global_position))
     spawn(main_spawn_point.global_position)
+    Signals.player_hit.connect(player_hit)
+
+func player_hit():
+    fail.play()
 
 func spawn(pos : Vector2):
     if obstacles_count <= 0:
@@ -25,9 +32,11 @@ func spawn(pos : Vector2):
     obstacle.global_position = pos
     
 func last_tick():
+    super.last_tick()
     gym_character.enabled = false
     if gym_character.got_hit:
         Signals.failure.emit()
     else:
         StatsManager.get_speed()
         Signals.success.emit()
+        success.play()

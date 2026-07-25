@@ -9,10 +9,10 @@ var target : Vector2
 var tween : Tween 
 
 func _ready():
-    Signals.last_tick.connect(last_tick)
-
-func last_tick():
-    var picked_place : TownPlace.Places = get_parent().picked_place
+    Signals.place_picked.connect(place_picked)
+    
+func place_picked(new_place : TownPlace.Places):
+    var picked_place : TownPlace.Places = new_place
     
     if picked_place == TownPlace.Places.Street:
         return
@@ -26,7 +26,11 @@ func last_tick():
             target = place.global_position
             return
     target = Vector2.ZERO
-
+    
+func end():
+    if ScenesManager.current_scene.name == "Town":
+        Signals.scene_ended.emit()
+    
 func move_to_target():
     if target == Vector2.ZERO:
         return
@@ -36,6 +40,7 @@ func move_to_target():
         target = Vector2.ZERO
         tween = create_tween()
         tween.tween_property(self, "modulate", Color.TRANSPARENT, 0.5)
+        tween.tween_callback(end).set_delay(0.2)
         return
         
     var dir = (target - global_position).normalized()    

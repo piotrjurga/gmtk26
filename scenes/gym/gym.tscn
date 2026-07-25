@@ -17,6 +17,13 @@
 [ext_resource type="Texture2D" uid="uid://fa6yodn02mew" path="res://assets/gym/hay_jumping/slide.png" id="15_7qc44"]
 [ext_resource type="Texture2D" uid="uid://urild4yiqjol" path="res://assets/gym/hay_jumping/win.png" id="16_7qc44"]
 [ext_resource type="Script" uid="uid://6pducb1xgi1h" path="res://scenes/gym/win.gd" id="17_6xu02"]
+[ext_resource type="AudioStream" uid="uid://dg6vabdscbs11" path="res://assets/sfx/gym/oof 10.wav" id="17_l8map"]
+[ext_resource type="Texture2D" uid="uid://ddniidctgwbbh" path="res://assets/Random assets-assets/speed_up.png" id="18_80kse"]
+[ext_resource type="AudioStream" uid="uid://dt1dtb7lbon47" path="res://assets/sfx/gym/slide.wav" id="18_dk2vg"]
+[ext_resource type="Script" uid="uid://g66ht0pwvhfb" path="res://scenes/armour/armor_up.gd" id="19_trtr2"]
+[ext_resource type="AudioStream" uid="uid://ckka78aoeg20j" path="res://assets/sfx/gym/woosh 23.wav" id="20_8kom0"]
+[ext_resource type="AudioStream" uid="uid://bbmyofmsqb1lk" path="res://assets/sfx/gym/slide whistle 15.wav" id="21_l8map"]
+[ext_resource type="AudioStream" uid="uid://41i1jycn0g40" path="res://assets/sfx/gym/party blowers multiple 3.wav" id="22_dk2vg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1k5f7"]
 size = Vector2(1895, 50)
@@ -65,12 +72,14 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Gym" type="Node2D" unique_id=1809102907 node_paths=PackedStringArray("timer", "main_spawn_point", "gym_character")]
+[node name="Gym" type="Node2D" unique_id=1809102907 node_paths=PackedStringArray("timer", "main_spawn_point", "gym_character", "success", "fail")]
 script = ExtResource("1_ih2u8")
 timer = NodePath("Timer")
 obstacles = Array[PackedScene]([ExtResource("2_a8uch"), ExtResource("4_j4p3a"), ExtResource("3_eaum8"), ExtResource("2_a8uch")])
 main_spawn_point = NodePath("SpawnPoint")
 gym_character = NodePath("CharacterBody2D")
+success = NodePath("Success")
+fail = NodePath("Fail")
 stream_idx = 4
 
 [node name="Timer" type="Timer" parent="." unique_id=853344176]
@@ -138,12 +147,15 @@ position = Vector2(11, 842)
 position = Vector2(1086.5, -15)
 shape = SubResource("RectangleShape2D_1k5f7")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1312142427 node_paths=PackedStringArray("area", "area_lower", "sprite")]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1312142427 node_paths=PackedStringArray("area", "area_lower", "sprite", "step", "jump", "slide")]
 position = Vector2(344, 554)
 script = ExtResource("2_y08fo")
 area = NodePath("Area2D")
 area_lower = NodePath("AreaLower")
 sprite = NodePath("AnimatedSprite2D")
+step = NodePath("Step")
+jump = NodePath("Jump")
+slide = NodePath("Slide")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1461812408]
 position = Vector2(-18, 186)
@@ -167,6 +179,16 @@ animation = &"run"
 autoplay = "run"
 frame_progress = 0.34940353
 
+[node name="Step" type="AudioStreamPlayer" parent="CharacterBody2D" unique_id=1969878679]
+stream = ExtResource("20_8kom0")
+volume_db = 3.511
+
+[node name="Jump" type="AudioStreamPlayer" parent="CharacterBody2D" unique_id=173175979]
+stream = ExtResource("17_l8map")
+
+[node name="Slide" type="AudioStreamPlayer" parent="CharacterBody2D" unique_id=1207695621]
+stream = ExtResource("18_dk2vg")
+
 [node name="Win" type="Sprite2D" parent="." unique_id=1034770170 node_paths=PackedStringArray("target")]
 position = Vector2(2297, 603)
 texture = ExtResource("16_7qc44")
@@ -175,3 +197,15 @@ target = NodePath("Node2D")
 
 [node name="Node2D" type="Node2D" parent="Win" unique_id=795584458]
 position = Vector2(-630, 19)
+
+[node name="ArmorUp" type="Sprite2D" parent="." unique_id=1191646815]
+position = Vector2(1070, 349)
+scale = Vector2(0.7173345, 0.7173345)
+texture = ExtResource("18_80kse")
+script = ExtResource("19_trtr2")
+
+[node name="Fail" type="AudioStreamPlayer" parent="." unique_id=608156350]
+stream = ExtResource("21_l8map")
+
+[node name="Success" type="AudioStreamPlayer" parent="." unique_id=1154482469]
+stream = ExtResource("22_dk2vg")

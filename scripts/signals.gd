@@ -5,6 +5,7 @@ signal tick(current_tick : int)
 signal last_tick()
 signal scene_ended()
 signal progress_bar_set(value : float)
+signal progress_bar_set_visibility(value : bool)
 
 # town
 signal place_picked(place : TownPlace.Places)
@@ -16,7 +17,6 @@ signal scene_done(success : bool)
 
 # target
 signal target_dead(target : Target)
-
 
 # gym
 signal player_hit()
