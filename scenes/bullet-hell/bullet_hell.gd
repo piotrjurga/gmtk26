@@ -1,6 +1,6 @@
 extends Scene
 
-var window_size : Vector2
+var window_size = Vector2(1920, 1080)
 var enemy : PackedScene = preload("res://scenes/bullet-hell/enemies/enemy.tscn")
 var count : PackedScene = preload("res://scenes/bullet-hell/enemies/count.tscn")
 var minion : PackedScene = preload("res://scenes/bullet-hell/minions/minion.tscn")
@@ -9,6 +9,10 @@ var player : PackedScene = preload("res://scenes/bullet-hell/player.tscn")
 var enemy_count: int
 var last_tick_count : int = 0
 var max_last_tick_count : int = 2
+var count_down = false
+
+func scene_end(success: bool):
+    count_down = success
 
 func minion_down(_id):
     if StatsManager.army.is_empty():
@@ -16,13 +20,13 @@ func minion_down(_id):
 
 func enemy_down():
     enemy_count -= 1
-    if enemy_count == 0:
-        Signals.scene_done.emit(true)
 
 func next_scene() -> PackedScene:
     if StatsManager.army.is_empty():
         return ScenesManager.town # TODO(piotr): game over
-    return ScenesManager.guillotine
+    if count_down:
+        return ScenesManager.guillotine
+    return ScenesManager.town
 
 func fib_layout(n: int) -> Array[Vector2]:
     var result: Array[Vector2] = []
@@ -98,10 +102,10 @@ func setup(enemy_count_: int):
 func _ready():
     super._ready()
     Signals.set_stream.emit(2)
-    window_size = get_window().size
     setup(5)
     Signals.minion_died.connect(minion_down)
     Signals.enemy_died.connect(enemy_down)
+    Signals.scene_done.connect(scene_end)
 
 func clear():
     for c in get_children():

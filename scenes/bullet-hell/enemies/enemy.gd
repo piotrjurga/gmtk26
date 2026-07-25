@@ -32,11 +32,7 @@ func die():
         state = State.DIE
         timer = 0.0
 
-func flee():
-    pass # TODO(piotr)
-
 func get_hit():
-    # TODO: armour
     die()
 
 func scene_done(success: bool):

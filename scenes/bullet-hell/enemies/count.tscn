@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dcvas3qaj8dbv"]
 
 [ext_resource type="Texture2D" uid="uid://nruu7s0ldr2d" path="res://icon.svg" id="1_6d1v2"]
+[ext_resource type="Script" uid="uid://dskp8bdwmdkrk" path="res://scenes/bullet-hell/enemies/count.gd" id="1_lnby1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6d1v2"]
 size = Vector2(34, 121)
@@ -9,7 +10,9 @@ size = Vector2(34, 121)
 radius = 19.0
 
 [node name="Count" type="CharacterBody2D" unique_id=1963144886]
+collision_layer = 2
 motion_mode = 1
+script = ExtResource("1_lnby1")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=283751588]
 modulate = Color(1, 0, 1, 1)

@@ -1,10 +1,11 @@
 extends Node2D
 
 const SPEED = 300.0
-var window_size: Vector2
+var window_size = Vector2(1920, 1080)
 
 func _ready():
-    window_size = get_window().size
+    #window_size = get_window().size
+    pass
 
 func get_minion_centroid(minions) -> Vector2:
     return minions.reduce(

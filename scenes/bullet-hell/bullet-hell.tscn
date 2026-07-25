@@ -2,6 +2,35 @@
 
 [ext_resource type="Script" uid="uid://c3v2f1xc0pvnw" path="res://scenes/bullet-hell/bullet_hell.gd" id="1_eywxy"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uj04i"]
+
 [node name="BulletHell" type="Node2D" unique_id=1230109447]
 y_sort_enabled = true
 script = ExtResource("1_eywxy")
+
+[node name="EdgeDown" type="StaticBody2D" parent="." unique_id=1661952829]
+position = Vector2(0, 1040)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EdgeDown" unique_id=1193173698]
+shape = SubResource("WorldBoundaryShape2D_uj04i")
+
+[node name="EdgeUp" type="StaticBody2D" parent="." unique_id=9969283]
+position = Vector2(0, 40)
+rotation = 3.1415927
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EdgeUp" unique_id=1296468200]
+shape = SubResource("WorldBoundaryShape2D_uj04i")
+
+[node name="EdgeLeft" type="StaticBody2D" parent="." unique_id=3834076]
+position = Vector2(40, 0)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EdgeLeft" unique_id=2012870084]
+shape = SubResource("WorldBoundaryShape2D_uj04i")
+
+[node name="EdgeRight" type="StaticBody2D" parent="." unique_id=656599969]
+position = Vector2(1880, 0)
+rotation = -1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EdgeRight" unique_id=1517909103]
+shape = SubResource("WorldBoundaryShape2D_uj04i")
