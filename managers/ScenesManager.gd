@@ -8,12 +8,13 @@ var gym : PackedScene = preload("res://scenes/gym/gym.tscn")
 var boss : PackedScene = preload("res://scenes/bullet-hell/bullet-hell.tscn")
 var darts : PackedScene = preload("res://scenes/darts/darts.tscn")
 var guillotine : PackedScene = preload("res://scenes/guillotine/guillotine.tscn")
+var title_screen : PackedScene = preload("res://scenes/title-screen/title_screen.tscn")
 
 var current_scene : Scene
 
 func _ready():
     Signals.scene_ended.connect(pick_new_scene)
-    Signals.tick.connect(new_game)
+    Signals.start_new_game.connect(new_game)
     
 func pick_new_scene():
     change_scene(current_scene.next_scene())
@@ -31,7 +32,6 @@ func change_scene(new_scene : PackedScene):
     
     get_tree().root.add_child(current_scene)
 
-func new_game(current_tick : int):
-    if current_scene == null:
-        Signals.tick.disconnect(new_game)
-        change_scene(town)
+func new_game():
+    Signals.start_rythm_manager.emit()
+    change_scene(town)

@@ -42,10 +42,10 @@ outline_size = 12
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iu42p"]
-size = Vector2(677, 296)
+size = Vector2(548, 256)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wpqog"]
-size = Vector2(518, 195)
+size = Vector2(593, 154)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4yhmd"]
 size = Vector2(500, 508)
@@ -54,7 +54,7 @@ size = Vector2(500, 508)
 size = Vector2(412, 356)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dmgee"]
-size = Vector2(790, 430)
+size = Vector2(676, 385)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_my0xt"]
 size = Vector2(508, 308)
@@ -70,6 +70,13 @@ radius = 18.027756
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0w7qi"]
 size = Vector2(217, 1729)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4yhmd"]
+font = SubResource("FontVariation_5jysw")
+font_size = 66
+font_color = Color(1, 0.8901961, 0.81960785, 1)
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Town" type="Node2D" unique_id=726534725]
 script = ExtResource("1_e21v4")
@@ -104,13 +111,13 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tavern/Area2D" unique_id=960412971]
-position = Vector2(24.5, 1)
+position = Vector2(60, -19)
 shape = SubResource("RectangleShape2D_iu42p")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="tavern" unique_id=1230259048]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tavern/StaticBody2D" unique_id=1709260584]
-position = Vector2(56, 9.5)
+position = Vector2(-30.5, -11)
 shape = SubResource("RectangleShape2D_wpqog")
 
 [node name="boss" type="Node2D" parent="." unique_id=1654516023 node_paths=PackedStringArray("area", "sprite")]
@@ -167,6 +174,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="gym/Area2D" unique_id=1276452218]
+position = Vector2(-57, 22.5)
 shape = SubResource("RectangleShape2D_dmgee")
 
 [node name="swords" type="Node2D" parent="." unique_id=961192497 node_paths=PackedStringArray("label", "area", "sprite")]
@@ -319,7 +327,12 @@ offset_bottom = 106.56748
 text = "Day"
 label_settings = SubResource("LabelSettings_oj5b0")
 
-[node name="Gold" type="Label" parent="Node2D" unique_id=75478735]
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=256355520]
+position = Vector2(311.57346, 45.840694)
+scale = Vector2(0.168705, 0.168705)
+texture = ExtResource("21_4yhmd")
+
+[node name="Gold" type="Label" parent="Node2D" unique_id=75478735 node_paths=PackedStringArray("timer")]
 offset_left = 375.32068
 offset_top = -1.4325217
 offset_right = 753.32074
@@ -327,11 +340,11 @@ offset_bottom = 106.56748
 text = "1"
 label_settings = SubResource("LabelSettings_oj5b0")
 script = ExtResource("20_hhop4")
+timer = NodePath("Timer")
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D/Gold" unique_id=256355520]
-position = Vector2(-63.74723, 47.273216)
-scale = Vector2(0.168705, 0.168705)
-texture = ExtResource("21_4yhmd")
+[node name="Timer" type="Timer" parent="Node2D/Gold" unique_id=1926654633]
+wait_time = 0.3
+one_shot = true
 
 [node name="Army" type="Label" parent="Node2D" unique_id=1477323806]
 offset_left = 580.8876
@@ -397,3 +410,43 @@ script = ExtResource("27_wpqog")
 position = Vector2(-67, 47)
 scale = Vector2(0.13226669, 0.13226669)
 texture = ExtResource("28_bjm3s")
+
+[node name="Tutorial" type="Label" parent="." unique_id=431950945]
+offset_left = 1305.0
+offset_top = 177.0
+offset_right = 1758.0
+offset_bottom = 285.0
+text = "Storm the Castle"
+label_settings = SubResource("LabelSettings_4yhmd")
+
+[node name="Tutorial2" type="Label" parent="." unique_id=1181917452]
+offset_left = 779.0
+offset_top = 246.0
+offset_right = 1232.0
+offset_bottom = 354.0
+text = "Recruit"
+label_settings = SubResource("LabelSettings_4yhmd")
+
+[node name="Tutorial3" type="Label" parent="." unique_id=1291494736]
+offset_left = 145.0
+offset_top = 423.0
+offset_right = 598.0
+offset_bottom = 531.0
+text = "Weaponize"
+label_settings = SubResource("LabelSettings_4yhmd")
+
+[node name="Tutorial4" type="Label" parent="." unique_id=912111410]
+offset_left = 202.0
+offset_top = 852.0
+offset_right = 655.0
+offset_bottom = 960.0
+text = "Train"
+label_settings = SubResource("LabelSettings_4yhmd")
+
+[node name="Tutorial5" type="Label" parent="." unique_id=1203486029]
+offset_left = 1570.0
+offset_top = 765.0
+offset_right = 2023.0
+offset_bottom = 873.0
+text = "Armour up"
+label_settings = SubResource("LabelSettings_4yhmd")

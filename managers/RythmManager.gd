@@ -30,6 +30,8 @@ func _ready():
     sec_per_beat = 60.0 / bpm
     Signals.set_stream.connect(set_stream)
     Signals.scene_ended.connect(restart)
+    Signals.start_rythm_manager.connect(start)
+    Signals.title_screen.connect(stop)
 
 func restart():
     music.seek(0.0)
@@ -81,7 +83,7 @@ func _report_beat():
     if measure >= measures:
         Signals.tick.emit(measure)
         was_first_beat_emited = false
-        #pop_sound.play()
+
         return
     
     if !was_first_beat_emited || measure > 1:
@@ -90,9 +92,12 @@ func _report_beat():
         
     if measure == measures - 1:
         Signals.last_tick.emit()
-    #pip_sound.play()
-            
+
+         
+func stop():
+    restart()
+    music.stop()
+
 func start():
     music.play()
     Signals.tick.emit(measure)
-    #pip_sound.play()

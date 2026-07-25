@@ -18,6 +18,7 @@ func _ready():
     
 func pick_place(body : Node2D):
     if StatsManager.gold < cost:
+        Signals.missing_gold.emit()
         return
     Signals.place_picked.emit(place)
     StatsManager.gold -= cost

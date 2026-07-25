@@ -12,6 +12,8 @@ var target_scene : PackedScene = preload("res://scenes/darts/dart_target.tscn")
 var last_tick_count : int = 0
 var max_last_tick_count : int = 2
 
+var locked : bool = true
+
 func _ready():
     super._ready()
     target_positions = target_positions_root.get_children()
@@ -34,6 +36,10 @@ func _ready():
         new_target.global_position = target_positions[target.spot].global_position
         target_positions_root.add_child(new_target)
         new_target.init_from_target(target)
+    Signals.unlock_scene_change.connect(unlock)
+    
+func unlock():
+    locked = false
         
 func _input(event):
     if Input.is_action_just_pressed("space"):
@@ -45,6 +51,7 @@ func last_tick():
         return
     if last_tick_count != max_last_tick_count - 1:
         return
+    locked = false
     throw_target(true)
 
 func throw_target(force : bool = false):
@@ -79,12 +86,12 @@ func tick(current_tick : int):
         return
     if current_tick == 1:
         last_tick_count += 1
-        if TargetManager.current_target != null:
+        if !locked && TargetManager.current_target != null:
             Signals.scene_ended.emit()
             return
     
     
-    if current_tick % 4 == 1 && TargetManager.current_target != null:
+    if !locked && current_tick % 4 == 1 && TargetManager.current_target != null:
         Signals.scene_ended.emit()
         return
             

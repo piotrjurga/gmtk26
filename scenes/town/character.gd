@@ -40,7 +40,7 @@ func move_to_target():
     if target == Vector2.ZERO:
         return
         
-    if target.distance_to(global_position) < 60:
+    if target.distance_to(global_position) < 90:
         global_position = target
         target = Vector2.ZERO
         tween = create_tween()

@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://c3jgcpsvkgosc"]
+
+[ext_resource type="Script" uid="uid://cr1ome12382ln" path="res://scenes/title-screen/title_screen.gd" id="1_4x23d"]
+[ext_resource type="AudioStream" uid="uid://bodj1ek1ady5s" path="res://assets/Music/menuambient.wav" id="2_ir78n"]
+[ext_resource type="Texture2D" uid="uid://df0p5bxkkvs12" path="res://assets/title-screen/title_screen_assets/clouds.png" id="3_r6myx"]
+[ext_resource type="Texture2D" uid="uid://dkd2d7lxm7220" path="res://assets/title-screen/title_screen_assets/castle.png" id="4_7b7la"]
+[ext_resource type="VideoStream" uid="uid://dteoe2vkeye0q" path="res://assets/Video/title screen converted to godot.ogv" id="5_7b7la"]
+
+[node name="TitleScreen" type="Node2D" unique_id=294450116 node_paths=PackedStringArray("videos")]
+script = ExtResource("1_4x23d")
+videos = [NodePath("VideoStreamPlayer"), NodePath("VideoStreamPlayer2")]
+stream_idx = 99
+
+[node name="Clouds" type="Sprite2D" parent="." unique_id=1897907973]
+position = Vector2(960, 540)
+texture = ExtResource("3_r6myx")
+
+[node name="Castle" type="Sprite2D" parent="." unique_id=162449045]
+position = Vector2(960, 541)
+texture = ExtResource("4_7b7la")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1654703926]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("5_7b7la")
+volume_db = -80.0
+
+[node name="VideoStreamPlayer2" type="VideoStreamPlayer" parent="." unique_id=832598615]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("5_7b7la")
+volume_db = -80.0
+loop = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1213426288]
+stream = ExtResource("2_ir78n")
+autoplay = true

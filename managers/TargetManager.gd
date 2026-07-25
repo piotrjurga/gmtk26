@@ -42,8 +42,15 @@ func _ready():
     fill_in_assets('noses', noses)
     fill_in_assets('torsos', torsos)
     fill_in_assets('wigs', wigs)
+
+    Signals.target_dead.connect(dead_target)
+    Signals.title_screen.connect(generate_targets)
     
-    var temp_names : Array[String] = names
+func generate_targets():
+    targets = []
+    current_target = null
+    king_target = null
+    var temp_names : Array[String] = names.duplicate()
     temp_names.shuffle()
     for i in range(9):
         var new_target : Target = Target.new()
@@ -69,8 +76,6 @@ func _ready():
     new_target.wig = randi_range(0, 3)
     new_target.gold = 99
     king_target = new_target
-    
-    Signals.target_dead.connect(dead_target)
     
 func has_target() -> bool:
     return current_target is Target

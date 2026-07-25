@@ -13,6 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1559931399]
+visible = false
 z_index = 999
 layout_mode = 1
 anchors_preset = 12
