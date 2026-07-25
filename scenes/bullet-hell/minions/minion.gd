@@ -42,6 +42,8 @@ func die():
         dead = true
         remove_from_group('minions')
         Signals.minion_died.emit(id)
+        $Anim/Animation/Outline.stop()
+        $Anim/Animation/Infill.stop()
 
 func drop_armour():
     armour = false
