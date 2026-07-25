@@ -14,8 +14,19 @@
 [ext_resource type="Texture2D" uid="uid://c3d3j3wfichp8" path="res://assets/pitchfork_sharpening/pitchfork_unsharpened.png" id="10_f6nuc"]
 [ext_resource type="Texture2D" uid="uid://c514k1efrn1yo" path="res://assets/pitchfork_sharpening/pitchfork_sharp3.png" id="10_r2d45"]
 [ext_resource type="Texture2D" uid="uid://c88y7tdi8ena2" path="res://assets/pitchfork_sharpening/pitchfork_sharp4.png" id="11_f6nuc"]
+[ext_resource type="Script" uid="uid://dpk1a5n8vns0b" path="res://scenes/sword/pitchfork.gd" id="11_qpha8"]
 [ext_resource type="Texture2D" uid="uid://dcqnt331iklim" path="res://assets/Random assets-assets/dmg_up.png" id="15_ilfns"]
 [ext_resource type="Script" uid="uid://g66ht0pwvhfb" path="res://scenes/armour/armor_up.gd" id="16_qpha8"]
+[ext_resource type="Texture2D" uid="uid://dt4xw37mqqhdx" path="res://assets/pitchfork_sharpening/peasant.png" id="18_4qh5g"]
+[ext_resource type="Script" uid="uid://ckj80tlexxk6o" path="res://scenes/sword/peasant.gd" id="19_6408y"]
+[ext_resource type="AudioStream" uid="uid://c1dcgp5cqqv5y" path="res://assets/sfx/sword/voice - hmm 1.wav" id="20_mdnt6"]
+[ext_resource type="Script" uid="uid://bdr5dgf3dwpqf" path="res://scenes/sword/success.gd" id="21_pugtq"]
+[ext_resource type="AudioStream" uid="uid://bekq5tjhc47jt" path="res://assets/sfx/sword/oof 17.wav" id="22_iy0ti"]
+[ext_resource type="Script" uid="uid://bqupowjijf3kf" path="res://scenes/sword/fail.gd" id="23_ikc7y"]
+[ext_resource type="Texture2D" uid="uid://r04jdxn8qn4d" path="res://assets/pitchfork_sharpening/loss_hand.png" id="24_ikc7y"]
+[ext_resource type="Script" uid="uid://b3wgblsk0n5rh" path="res://scenes/sword/loss_hand.gd" id="25_ag00p"]
+[ext_resource type="Texture2D" uid="uid://2v66u83s2q5x" path="res://assets/pitchfork_sharpening/loss_stone.png" id="25_rm084"]
+[ext_resource type="Script" uid="uid://dlr6lhd315x3p" path="res://scenes/sword/rock_lost.gd" id="27_3xn5w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gxi48"]
 size = Vector2(133.33344, 128.8235)
@@ -98,50 +109,22 @@ position = Vector2(1258.3335, -29.999998)
 scale = Vector2(1.0000005, 1.0000002)
 shape = SubResource("RectangleShape2D_gxi48")
 
-[node name="Rock2" type="Node2D" parent="." unique_id=1667365588 node_paths=PackedStringArray("point_a", "point_b", "point_off_camera", "attack")]
-position = Vector2(181, 918)
-script = ExtResource("4_8bg4s")
-point_a = NodePath("../PointA")
-point_b = NodePath("../PointB")
-point_off_camera = NodePath("../PointOffCamera")
-attack = NodePath("../attack")
+[node name="Peasant" type="Sprite2D" parent="." unique_id=651281412 node_paths=PackedStringArray("target")]
+position = Vector2(940, 1635)
+texture = ExtResource("18_4qh5g")
+script = ExtResource("19_6408y")
+target = NodePath("../Node2D3")
 
-[node name="Area2D" type="Area2D" parent="Rock2" unique_id=1283738955]
-position = Vector2(1, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rock2/Area2D" unique_id=114156878]
-position = Vector2(0, -71)
-shape = SubResource("CircleShape2D_gxi48")
-
-[node name="Hand" type="Sprite2D" parent="Rock2" unique_id=649713584]
-position = Vector2(37, 170)
-texture = ExtResource("5_f6nuc")
-
-[node name="PointA" type="Node2D" parent="." unique_id=728439861]
-position = Vector2(150, 922)
-
-[node name="PointB" type="Node2D" parent="." unique_id=53851130]
-position = Vector2(1691, 929)
-
-[node name="PointOffCamera" type="Node2D" parent="." unique_id=329466397]
-position = Vector2(-175, 1594)
-
-[node name="attack" type="AudioStreamPlayer" parent="." unique_id=1511239215]
-stream = ExtResource("5_6p7sl")
-
-[node name="hit" type="AudioStreamPlayer" parent="." unique_id=1818291168]
-stream = ExtResource("6_blxf3")
-
-[node name="hit2" type="AudioStreamPlayer" parent="." unique_id=1401193843]
-stream = ExtResource("7_mg2e1")
-
-[node name="hit3" type="AudioStreamPlayer" parent="." unique_id=1089846285]
-stream = ExtResource("8_tysr5")
-
-[node name="Pitchfork" type="Sprite2D" parent="." unique_id=1977359529]
+[node name="Pitchfork" type="Sprite2D" parent="." unique_id=1977359529 node_paths=PackedStringArray("target")]
 position = Vector2(937, 589.00006)
 scale = Vector2(1.041044, 1.041044)
 texture = ExtResource("10_f6nuc")
+script = ExtResource("11_qpha8")
+target = NodePath("Node2D2")
+
+[node name="Node2D2" type="Node2D" parent="Pitchfork" unique_id=758276244]
+position = Vector2(116.22949, 1386.1084)
+scale = Vector2(0.96057415, 0.96057415)
 
 [node name="PitchforkSharp1" type="Sprite2D" parent="Pitchfork" unique_id=569455125]
 visible = false
@@ -167,8 +150,78 @@ position = Vector2(221.31421, 1.3156128)
 scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("11_f6nuc")
 
+[node name="Rock2" type="Node2D" parent="." unique_id=1667365588 node_paths=PackedStringArray("point_a", "point_b", "point_off_camera", "attack")]
+position = Vector2(181, 918)
+script = ExtResource("4_8bg4s")
+point_a = NodePath("../PointA")
+point_b = NodePath("../PointB")
+point_off_camera = NodePath("../PointOffCamera")
+attack = NodePath("../attack")
+
+[node name="Node2D" type="Node2D" parent="Rock2" unique_id=1070720426]
+position = Vector2(7, -181)
+
+[node name="Area2D" type="Area2D" parent="Rock2" unique_id=1283738955]
+position = Vector2(1, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rock2/Area2D" unique_id=114156878]
+position = Vector2(0, -71)
+shape = SubResource("CircleShape2D_gxi48")
+
+[node name="Hand" type="Sprite2D" parent="Rock2" unique_id=649713584]
+position = Vector2(37, 170)
+texture = ExtResource("5_f6nuc")
+
+[node name="PointA" type="Node2D" parent="." unique_id=728439861]
+position = Vector2(150, 922)
+
+[node name="PointB" type="Node2D" parent="." unique_id=53851130]
+position = Vector2(1691, 929)
+
+[node name="PointOffCamera" type="Node2D" parent="." unique_id=329466397]
+position = Vector2(989, 1645)
+
+[node name="attack" type="AudioStreamPlayer" parent="." unique_id=1511239215]
+stream = ExtResource("5_6p7sl")
+
+[node name="hit" type="AudioStreamPlayer" parent="." unique_id=1818291168]
+stream = ExtResource("6_blxf3")
+
+[node name="hit2" type="AudioStreamPlayer" parent="." unique_id=1401193843]
+stream = ExtResource("7_mg2e1")
+
+[node name="hit3" type="AudioStreamPlayer" parent="." unique_id=1089846285]
+stream = ExtResource("8_tysr5")
+
 [node name="ArmorUp" type="Sprite2D" parent="." unique_id=1405728658]
 position = Vector2(1621, 313)
 texture = ExtResource("15_ilfns")
 script = ExtResource("16_qpha8")
 new_scale = 0.7
+
+[node name="Node2D3" type="Node2D" parent="." unique_id=186137783]
+position = Vector2(948, 679)
+
+[node name="success" type="AudioStreamPlayer" parent="." unique_id=828667273]
+stream = ExtResource("20_mdnt6")
+volume_db = -1.045
+script = ExtResource("21_pugtq")
+
+[node name="fail" type="AudioStreamPlayer" parent="." unique_id=1371510541]
+stream = ExtResource("22_iy0ti")
+volume_db = -2.613
+script = ExtResource("23_ikc7y")
+
+[node name="LossHand" type="Sprite2D" parent="." unique_id=1539740597 node_paths=PackedStringArray("rock")]
+position = Vector2(176, 918)
+texture = ExtResource("24_ikc7y")
+offset = Vector2(77, 93)
+script = ExtResource("25_ag00p")
+rock = NodePath("../Rock2")
+
+[node name="Rock" type="Sprite2D" parent="." unique_id=295386161 node_paths=PackedStringArray("rock")]
+position = Vector2(174, 727)
+texture = ExtResource("25_rm084")
+offset = Vector2(28, 13)
+script = ExtResource("27_3xn5w")
+rock = NodePath("../Rock2/Node2D")

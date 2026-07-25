@@ -11,6 +11,7 @@ sight = NodePath("Sight")
 dart = NodePath("dart")
 target_positions_root = NodePath("TargetPositions")
 king_position = NodePath("KingPossition")
+stream_idx = 6
 
 [node name="TargetPositions" type="Node2D" parent="." unique_id=1493673657]
 

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c1dcgp5cqqv5y"
+path="res://.godot/imported/voice - hmm 1.wav-64f55fd7277f7d7007e8e5dc365a7245.sample"
+
+[deps]
+
+source_file="res://assets/sfx/sword/voice - hmm 1.wav"
+dest_files=["res://.godot/imported/voice - hmm 1.wav-64f55fd7277f7d7007e8e5dc365a7245.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

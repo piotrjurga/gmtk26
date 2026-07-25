@@ -9,6 +9,7 @@ signal progress_bar_set_visibility(value : bool)
 
 # town
 signal place_picked(place : TownPlace.Places)
+signal missing_gold()
 
 # bullet hell
 signal minion_died(id: int)
@@ -27,3 +28,12 @@ signal failure()
 
 # music
 signal set_stream()
+
+
+# title screen
+signal start_new_game()
+signal title_screen()
+signal start_rythm_manager()
+
+# darts
+signal unlock_scene_change()

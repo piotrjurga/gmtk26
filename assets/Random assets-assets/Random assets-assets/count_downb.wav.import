@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b2g41grntl2pn"
+path="res://.godot/imported/count_downb.wav-b32af96620cf279e9430c7348bb23259.sample"
+
+[deps]
+
+source_file="res://assets/Random assets-assets/Random assets-assets/count_downb.wav"
+dest_files=["res://.godot/imported/count_downb.wav-b32af96620cf279e9430c7348bb23259.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -18,3 +18,7 @@ func set_target(new_target : Vector2):
 
 func target_hit():
     hit.play()
+    hit.finished.connect(unlock)
+    
+func unlock():
+    Signals.unlock_scene_change.emit()
