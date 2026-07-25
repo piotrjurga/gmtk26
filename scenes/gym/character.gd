@@ -3,8 +3,10 @@ class_name GymCharacter extends CharacterBody2D
 @export var area : Area2D
 @export var area_lower : Area2D
 @export var sprite : AnimatedSprite2D
+@export var jump_hold_force : float = 4
+@export var jump_release_force : float = 8
 const SPEED = 300.0
-const JUMP_VELOCITY = -1600.0
+const JUMP_VELOCITY = -2000.0
 
 var start_position : Vector2
 var jump_intent : bool
@@ -28,7 +30,7 @@ func _physics_process(delta):
         sprite.animation = "run"
     if not is_on_floor():
         sprite.animation = "jump"
-        var strength : float = 3 if jump_intent else 6
+        var strength : float = jump_hold_force if jump_intent else jump_release_force
         velocity += get_gravity() * strength * delta
 
     if is_on_floor() && crouch_intent:

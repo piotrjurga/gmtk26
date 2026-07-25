@@ -20,13 +20,18 @@ func pick_new_scene():
 
 func change_scene(new_scene : PackedScene):
     Signals.progress_bar_set.emit(100.0)
+    var new_scene_instance = new_scene.instantiate()
+
+    if current_scene != null && new_scene_instance.name == current_scene.name:
+        new_scene_instance.queue_free()
+        return
     if current_scene:
         current_scene.queue_free()
-    current_scene = new_scene.instantiate()
+    current_scene = new_scene_instance
     
     get_tree().root.add_child(current_scene)
 
 func new_game(current_tick : int):
     if current_scene == null:
         Signals.tick.disconnect(new_game)
-        change_scene(guillotine)
+        change_scene(darts)

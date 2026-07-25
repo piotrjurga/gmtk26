@@ -17,6 +17,10 @@
 [ext_resource type="FontFile" uid="uid://ba3ym60trydwg" path="res://assets/Fonts/Almendra_Display/AlmendraDisplay-Regular.ttf" id="13_dlb7h"]
 [ext_resource type="Texture2D" uid="uid://flmrbaua2qoc" path="res://assets/tavern_typing/patron1.png" id="14_v4sj0"]
 [ext_resource type="Texture2D" uid="uid://ce5iki8cvtqoa" path="res://assets/tavern_typing/scroll.png" id="15_a8mxi"]
+[ext_resource type="AudioStream" uid="uid://dov51aal2y47a" path="res://assets/sfx/tavern/cough 2.wav" id="18_eq8gq"]
+[ext_resource type="AudioStream" uid="uid://b5dbtavl2kdo7" path="res://assets/sfx/tavern/keyboard mechanical single key 6.wav" id="19_lc1qo"]
+[ext_resource type="AudioStream" uid="uid://tpsahl0e0geg" path="res://assets/sfx/tavern/169233__mlteenie__crowd-yay.wav" id="20_eq8gq"]
+[ext_resource type="AudioStream" uid="uid://cd6v43olfbhlo" path="res://assets/sfx/tavern/403057__vesperia94__hooray.wav" id="21_v4sj0"]
 
 [sub_resource type="FontVariation" id="FontVariation_ae3ij"]
 base_font = ExtResource("13_dlb7h")
@@ -34,10 +38,21 @@ metadata/_custom_type_script = "uid://6yhk50l24twa"
 script = ExtResource("4_nd0ff")
 metadata/_custom_type_script = "uid://dg504ct80dgrv"
 
-[node name="Tavern" type="Node2D" unique_id=2119835233 node_paths=PackedStringArray("word_label")]
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_gxi48"]
+stream_count = 2
+stream_0/stream = ExtResource("20_eq8gq")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("21_v4sj0")
+stream_1/volume = 0.0
+
+[node name="Tavern" type="Node2D" unique_id=2119835233 node_paths=PackedStringArray("word_label", "cough", "type", "type_fail", "cheer")]
 script = ExtResource("1_inl0q")
 words = Array[String](["revolution", "we can do it", "eat the rich", "time for change"])
 word_label = NodePath("Control/RichTextLabel")
+cough = NodePath("Cough")
+type = NodePath("Type")
+type_fail = NodePath("TypeFail")
+cheer = NodePath("Cheer")
 stream_idx = 1
 
 [node name="Background" type="Sprite2D" parent="." unique_id=151577045]
@@ -178,3 +193,19 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 custom_effects = [SubResource("RichTextEffect_5jmso"), SubResource("RichTextEffect_inl0q"), SubResource("RichTextEffect_nnv1s")]
+
+[node name="Cough" type="AudioStreamPlayer" parent="." unique_id=229960639]
+stream = ExtResource("18_eq8gq")
+volume_db = -10.0
+
+[node name="Type" type="AudioStreamPlayer" parent="." unique_id=1914785470]
+stream = ExtResource("19_lc1qo")
+
+[node name="TypeFail" type="AudioStreamPlayer" parent="." unique_id=1948991263]
+stream = ExtResource("19_lc1qo")
+volume_db = -10.0
+pitch_scale = 0.63
+
+[node name="Cheer" type="AudioStreamPlayer" parent="." unique_id=387574703]
+stream = SubResource("AudioStreamSynchronized_gxi48")
+volume_db = -10.0

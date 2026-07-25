@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b5dbtavl2kdo7"
+path="res://.godot/imported/keyboard mechanical single key 6.wav-dca5499f5375ae73946b2bb8bab050bc.sample"
+
+[deps]
+
+source_file="res://assets/sfx/tavern/keyboard mechanical single key 6.wav"
+dest_files=["res://.godot/imported/keyboard mechanical single key 6.wav-dca5499f5375ae73946b2bb8bab050bc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

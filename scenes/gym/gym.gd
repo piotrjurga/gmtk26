@@ -4,7 +4,7 @@ extends Scene
 @export var obstacles : Array[PackedScene]
 @export var main_spawn_point : Node2D
 @export var gym_character : GymCharacter
-@export var obstacles_count : int = 4
+@export var obstacles_count : int = 3
 
 
 func _ready():
@@ -19,6 +19,7 @@ func spawn(pos : Vector2):
         return
     obstacles_count -= 1
     var obstacle_scene : PackedScene = obstacles.pick_random()
+    #var obstacle_scene : PackedScene = obstacles[0]
     var obstacle : Node2D = obstacle_scene.instantiate()
     main_spawn_point.add_child(obstacle)
     obstacle.global_position = pos

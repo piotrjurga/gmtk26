@@ -9,12 +9,18 @@
 [ext_resource type="PackedScene" uid="uid://bohk2ejkjy566" path="res://scenes/darts/sight.tscn" id="5_kgeru"]
 [ext_resource type="Texture2D" uid="uid://bgjaohygd0s3l" path="res://assets/smithy_chestplate/chestplate_hammer.png" id="7_5kv3x"]
 [ext_resource type="AudioStream" uid="uid://dalognl1j7nod" path="res://assets/sfx/armour/metal hits metal 10.wav" id="9_b2tkv"]
+[ext_resource type="AudioStream" uid="uid://c17f5fisn2dpv" path="res://assets/sfx/armour/oven ding 2.wav" id="10_bk00s"]
+[ext_resource type="AudioStream" uid="uid://fjinew57ebj2" path="res://assets/sfx/armour/voice - hmm 3.wav" id="11_4r3pj"]
+[ext_resource type="Texture2D" uid="uid://ds6u6j0p8onhi" path="res://assets/Random assets-assets/armor_up.png" id="12_wg6au"]
+[ext_resource type="Script" uid="uid://g66ht0pwvhfb" path="res://scenes/armour/armor_up.gd" id="13_b4mhm"]
+[ext_resource type="Texture2D" uid="uid://b0c7m5fegr85e" path="res://assets/armour/star.png" id="14_x21kr"]
+[ext_resource type="Script" uid="uid://cd03lhrwp1fri" path="res://scenes/armour/star.gd" id="15_ssg56"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gxi48"]
 shader = ExtResource("3_r42f3")
 shader_parameter/points = PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
-[node name="Armour" type="Node2D" unique_id=441942228 node_paths=PackedStringArray("armour_good", "armour_bad", "score_points_root", "hammer_icon", "sight", "hit_sound")]
+[node name="Armour" type="Node2D" unique_id=441942228 node_paths=PackedStringArray("armour_good", "armour_bad", "score_points_root", "hammer_icon", "sight", "success", "fail", "hit_sound")]
 script = ExtResource("1_4rhgh")
 armour_good = NodePath("ArmourGood")
 armour_bad = NodePath("ArmourGood/ArmourBad")
@@ -24,7 +30,10 @@ hammer_rotation_free = -120.0
 hammer_rotation_hit = -16.0
 sight = NodePath("Sight")
 texture = ExtResource("2_qqsr2")
+success = NodePath("success")
+fail = NodePath("fail")
 hit_sound = NodePath("hit")
+stream_idx = 5
 
 [node name="Bg" type="Sprite2D" parent="." unique_id=1460194206]
 position = Vector2(960, 540)
@@ -305,5 +314,31 @@ offset = Vector2(82.35004, 20.545776)
 [node name="hit" type="AudioStreamPlayer" parent="." unique_id=285074746]
 stream = ExtResource("9_b2tkv")
 volume_db = -4.875
+
+[node name="success" type="AudioStreamPlayer" parent="." unique_id=1497533912]
+stream = ExtResource("10_bk00s")
+volume_db = -4.875
+pitch_scale = 1.22
+
+[node name="fail" type="AudioStreamPlayer" parent="." unique_id=2136993351]
+stream = ExtResource("11_4r3pj")
+volume_db = -4.875
+pitch_scale = 1.72
+
+[node name="Node2D" type="Node2D" parent="." unique_id=888885292]
+position = Vector2(1576, 372)
+
+[node name="ArmorUp" type="Sprite2D" parent="." unique_id=851480429 node_paths=PackedStringArray("target")]
+position = Vector2(2240, 365)
+scale = Vector2(0.7173345, 0.7173345)
+texture = ExtResource("12_wg6au")
+script = ExtResource("13_b4mhm")
+target = NodePath("../Node2D")
+
+[node name="Star" type="Sprite2D" parent="." unique_id=1310616414]
+position = Vector2(1062, 328)
+texture = ExtResource("14_x21kr")
+offset = Vector2(307, 317)
+script = ExtResource("15_ssg56")
 
 [editable path="Sight"]

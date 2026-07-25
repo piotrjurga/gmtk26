@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d2ym6jnmfkq1u"]
 
 [ext_resource type="Script" uid="uid://djx3tepqy4bmx" path="res://scenes/darts/darts.gd" id="1_x4xqp"]
+[ext_resource type="Texture2D" uid="uid://blp4gn6f8fxj" path="res://assets/darts/background.png" id="2_lhdhh"]
 [ext_resource type="PackedScene" uid="uid://e6iw8vpxpnn3" path="res://scenes/darts/dart_throw.tscn" id="2_somb7"]
 [ext_resource type="PackedScene" uid="uid://bohk2ejkjy566" path="res://scenes/darts/sight.tscn" id="2_x4xqp"]
 
@@ -38,6 +39,10 @@ position = Vector2(1349, 204)
 
 [node name="TargetPosition9" type="Node2D" parent="TargetPositions" unique_id=1029720446]
 position = Vector2(1677, 419)
+
+[node name="Background" type="Sprite2D" parent="TargetPositions" unique_id=861280664]
+position = Vector2(960, 540)
+texture = ExtResource("2_lhdhh")
 
 [node name="Sight" parent="." unique_id=1568300132 instance=ExtResource("2_x4xqp")]
 position = Vector2(1017, 843)

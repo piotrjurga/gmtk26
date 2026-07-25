@@ -1,21 +1,31 @@
 [gd_scene format=3 uid="uid://e6iw8vpxpnn3"]
 
-[ext_resource type="Texture2D" uid="uid://dbo4c75oc2th0" path="res://assets/dart.png" id="1_crvcy"]
 [ext_resource type="Script" uid="uid://blwrunxwudupj" path="res://scenes/darts/dart_throw.gd" id="1_q67yp"]
+[ext_resource type="Texture2D" uid="uid://h16frvkjti12" path="res://assets/darts/dagger.png" id="2_q67yp"]
+[ext_resource type="AudioStream" uid="uid://bph28g2pxjwxi" path="res://assets/sfx/sword/dash.wav" id="3_iqb20"]
+[ext_resource type="AudioStream" uid="uid://bxwvlmkhah1cu" path="res://assets/sfx/darts/book hit 1.wav" id="4_iqb20"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gxi48"]
 size = Vector2(20, 103)
 
-[node name="dart" type="CharacterBody2D" unique_id=656937881]
+[node name="dart" type="CharacterBody2D" unique_id=656937881 node_paths=PackedStringArray("throw", "hit")]
 script = ExtResource("1_q67yp")
+throw = NodePath("Throw")
+hit = NodePath("Hit")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1382180909]
-position = Vector2(-76.99998, -0.4999771)
-rotation = 1.5707964
+position = Vector2(-109, 4.000001)
+rotation = 1.7310423
 scale = Vector2(0.2975, 0.2975)
-texture = ExtResource("1_crvcy")
+texture = ExtResource("2_q67yp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1617701150]
 position = Vector2(-76.999985, -3.999977)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_gxi48")
+
+[node name="Throw" type="AudioStreamPlayer" parent="." unique_id=1332926346]
+stream = ExtResource("3_iqb20")
+
+[node name="Hit" type="AudioStreamPlayer" parent="." unique_id=1886065626]
+stream = ExtResource("4_iqb20")

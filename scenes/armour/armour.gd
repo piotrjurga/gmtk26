@@ -8,6 +8,7 @@ extends Scene
 @export var hammer_rotation_free : float
 @export var hammer_rotation_hit : float
 
+
 @export var sight : Sight
 
 # points for shader
@@ -25,6 +26,8 @@ var starting_scale : Vector2
 var tween : Tween
 
 @export var texture : Texture
+@export var success : AudioStreamPlayer
+@export var fail : AudioStreamPlayer
 @export var hit_sound : AudioStreamPlayer
 
 func _ready():
@@ -84,5 +87,10 @@ func last_tick():
         is_success = true
     
     if is_success:
+        success.play()
         armour_bad.visible = false
         StatsManager.get_armour()
+        Signals.success.emit()
+    else:
+        fail.play()
+        Signals.failure.emit()

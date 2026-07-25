@@ -47,10 +47,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_th6f5")
+"texture": ExtResource("14_px4u7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_px4u7")
+"texture": ExtResource("9_th6f5")
 }],
 "loop": 1,
 "name": &"run",
@@ -71,6 +71,7 @@ timer = NodePath("Timer")
 obstacles = Array[PackedScene]([ExtResource("2_a8uch"), ExtResource("4_j4p3a"), ExtResource("3_eaum8"), ExtResource("2_a8uch")])
 main_spawn_point = NodePath("SpawnPoint")
 gym_character = NodePath("CharacterBody2D")
+stream_idx = 4
 
 [node name="Timer" type="Timer" parent="." unique_id=853344176]
 wait_time = 0.8
@@ -164,7 +165,6 @@ shape = SubResource("RectangleShape2D_th6f5")
 sprite_frames = SubResource("SpriteFrames_gxi48")
 animation = &"run"
 autoplay = "run"
-frame = 1
 frame_progress = 0.34940353
 
 [node name="Win" type="Sprite2D" parent="." unique_id=1034770170 node_paths=PackedStringArray("target")]

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c17f5fisn2dpv"
+path="res://.godot/imported/oven ding 2.wav-360f5a668f90031c677dfe673ad98fb9.sample"
+
+[deps]
+
+source_file="res://assets/sfx/armour/oven ding 2.wav"
+dest_files=["res://.godot/imported/oven ding 2.wav-360f5a668f90031c677dfe673ad98fb9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
