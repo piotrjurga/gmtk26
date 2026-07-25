@@ -23,9 +23,11 @@ func enemy_down():
 
 func next_scene() -> PackedScene:
     if StatsManager.army.is_empty():
+        TargetManager.current_target = null
         return ScenesManager.town # TODO(piotr): game over
     if count_down:
         return ScenesManager.guillotine
+    TargetManager.current_target = null
     return ScenesManager.town
 
 func fib_layout(n: int) -> Array[Vector2]:
