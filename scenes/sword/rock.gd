@@ -11,17 +11,27 @@ enum Modes {Swing, Hit}
 var mode : Modes = Modes.Swing
 
 var tween : Tween
+var is_success : bool = false
 
 func _ready():
     target = point_b
     max_distance = point_a.global_position.distance_to(point_b.global_position)
     Signals.last_tick.connect(last_tick)
-
+    Signals.success.connect(last_tick)
+    Signals.failure.connect(failure)
+    
+func failure():
+    visible = false
+        
 func _physics_process(delta):
+    if is_success:
+        return
     if mode == Modes.Swing:
         swing(delta)
 
 func swing(delta):
+    if is_success:
+        return
     if target.global_position.distance_to(global_position) < 20 && target != point_off_camera:
         target = point_a if target == point_b else point_b
         if tween:
@@ -39,6 +49,8 @@ func swing(delta):
     tween.tween_property(self, "global_position", target_pos, distance / max_distance * 1.0)
 
 func hit():
+    if is_success:
+        return
     mode = Modes.Hit
     attack.play()
     if tween:
@@ -67,5 +79,14 @@ func set_swing():
         tween = null
 
 func last_tick():
-    set_swing()
-    target = point_off_camera
+    Signals.last_tick.disconnect(last_tick)
+    Signals.success.disconnect(last_tick)
+    
+    if tween:
+        tween.kill()
+        tween = null
+    tween = create_tween()
+    tween.set_trans(Tween.TRANS_SINE)
+    tween.set_ease(Tween.EASE_IN_OUT)
+    tween.tween_property(self, "global_position", point_off_camera.global_position, 0.5)
+    

@@ -19,15 +19,16 @@
 [ext_resource type="FontFile" uid="uid://ba3ym60trydwg" path="res://assets/Fonts/Almendra_Display/AlmendraDisplay-Regular.ttf" id="17_my0xt"]
 [ext_resource type="Texture2D" uid="uid://c74rlaufmmve5" path="res://assets/Random assets-assets/scroll.png" id="18_fwdo8"]
 [ext_resource type="Script" uid="uid://b0k8sfefoal5a" path="res://scenes/town/day_count.gd" id="19_s1uhr"]
-[ext_resource type="Texture2D" uid="uid://coemg8xis8c81" path="res://assets/Random assets-assets/pesant_up.png" id="19_wacgc"]
 [ext_resource type="Script" uid="uid://dhohpuoa27rv1" path="res://scenes/town/gold.gd" id="20_hhop4"]
-[ext_resource type="Texture2D" uid="uid://dcqnt331iklim" path="res://assets/Random assets-assets/dmg_up.png" id="20_s1uhr"]
-[ext_resource type="Texture2D" uid="uid://ds6u6j0p8onhi" path="res://assets/Random assets-assets/armor_up.png" id="21_hhop4"]
+[ext_resource type="Texture2D" uid="uid://dd5gbtiisr7fx" path="res://assets/Random assets-assets/Random assets-assets/coin.png" id="21_4yhmd"]
 [ext_resource type="Script" uid="uid://cvi356gtvv7u6" path="res://scenes/town/army.gd" id="21_o16h7"]
-[ext_resource type="Texture2D" uid="uid://ddniidctgwbbh" path="res://assets/Random assets-assets/speed_up.png" id="22_o16h7"]
+[ext_resource type="Texture2D" uid="uid://connmcvr7w0td" path="res://assets/Random assets-assets/Random assets-assets/pesant_upnoarrow.png" id="22_wpqog"]
 [ext_resource type="Script" uid="uid://chkht2kscjijr" path="res://scenes/town/damage.gd" id="23_o16h7"]
+[ext_resource type="Texture2D" uid="uid://c3ekvcphx621r" path="res://assets/Random assets-assets/Random assets-assets/dmg_upnoarrow.png" id="24_4yhmd"]
 [ext_resource type="Script" uid="uid://b384vlll1p0jf" path="res://scenes/town/armour.gd" id="25_iu42p"]
+[ext_resource type="Texture2D" uid="uid://c0bb80svjrtb3" path="res://assets/Random assets-assets/Random assets-assets/armor_upnoarrow.png" id="26_b3xbq"]
 [ext_resource type="Script" uid="uid://b1p57lqg7cvni" path="res://scenes/town/speed.gd" id="27_wpqog"]
+[ext_resource type="Texture2D" uid="uid://cltadtci2deqf" path="res://assets/Random assets-assets/Random assets-assets/speed_upnoarrow.png" id="28_bjm3s"]
 
 [sub_resource type="FontVariation" id="FontVariation_5jysw"]
 base_font = ExtResource("17_my0xt")
@@ -328,9 +329,9 @@ label_settings = SubResource("LabelSettings_oj5b0")
 script = ExtResource("20_hhop4")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D/Gold" unique_id=256355520]
-position = Vector2(-67, 47)
-scale = Vector2(0.07383376, 0.07383376)
-texture = ExtResource("18_fwdo8")
+position = Vector2(-63.74723, 47.273216)
+scale = Vector2(0.168705, 0.168705)
+texture = ExtResource("21_4yhmd")
 
 [node name="Army" type="Label" parent="Node2D" unique_id=1477323806]
 offset_left = 580.8876
@@ -341,10 +342,20 @@ text = "1"
 label_settings = SubResource("LabelSettings_oj5b0")
 script = ExtResource("21_o16h7")
 
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D/Army" unique_id=1004422299]
+position = Vector2(-55.1521, 38.678085)
+scale = Vector2(0.12404097, 0.12404097)
+texture = ExtResource("22_wpqog")
+
 [node name="Sprite2D" type="Sprite2D" parent="Node2D/Army" unique_id=1877011107]
 position = Vector2(-67, 47)
-scale = Vector2(0.07383376, 0.07383376)
-texture = ExtResource("19_wacgc")
+scale = Vector2(0.12404096, 0.12404096)
+texture = ExtResource("22_wpqog")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Node2D/Army" unique_id=1450718205]
+position = Vector2(-43.691925, 45.124435)
+scale = Vector2(0.12404097, 0.12404097)
+texture = ExtResource("22_wpqog")
 
 [node name="Damage" type="Label" parent="Node2D" unique_id=1539871453]
 offset_left = 802.9284
@@ -357,8 +368,8 @@ script = ExtResource("23_o16h7")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D/Damage" unique_id=1779961730]
 position = Vector2(-67, 47)
-scale = Vector2(0.07383376, 0.07383376)
-texture = ExtResource("20_s1uhr")
+scale = Vector2(0.13495742, 0.13495742)
+texture = ExtResource("24_4yhmd")
 
 [node name="Armour" type="Label" parent="Node2D" unique_id=957461750]
 offset_left = 1244.1451
@@ -370,8 +381,8 @@ script = ExtResource("25_iu42p")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D/Armour" unique_id=1991780637]
 position = Vector2(-67, 47)
-scale = Vector2(0.07383376, 0.07383376)
-texture = ExtResource("21_hhop4")
+scale = Vector2(0.1309893, 0.1309893)
+texture = ExtResource("26_b3xbq")
 
 [node name="Speed" type="Label" parent="Node2D" unique_id=1142000793]
 offset_left = 1028.5505
@@ -384,5 +395,5 @@ script = ExtResource("27_wpqog")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D/Speed" unique_id=168891304]
 position = Vector2(-67, 47)
-scale = Vector2(0.07383376, 0.07383376)
-texture = ExtResource("22_o16h7")
+scale = Vector2(0.13226669, 0.13226669)
+texture = ExtResource("28_bjm3s")
