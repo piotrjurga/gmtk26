@@ -82,6 +82,11 @@ func setup(enemy_count_: int):
     add_child(c)
 
     var offsets = fib_layout(StatsManager.army.size())
+    var minx = offsets.reduce(func(a,b): return min(a, b.x), 1e3)
+    if minx+p.position.x < 50.0:
+        for i in range(offsets.size()):
+            offsets[i].x += 50.0 - (minx + p.position.x)
+
     for i in range(StatsManager.army.size()):
         var m = minion.instantiate()
         var stats = StatsManager.army[i]

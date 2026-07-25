@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnt3ep4jql1v5"
-path="res://.godot/imported/pitchfork2.png-8626a4bac7ab19b3d46a183b24113d9d.ctex"
+uid="uid://cirjo2cwbik20"
+path="res://.godot/imported/crowd_map_big.png-2c46ad53c186155852329d05a574a31a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/chlop/pitchfork2.png"
-dest_files=["res://.godot/imported/pitchfork2.png-8626a4bac7ab19b3d46a183b24113d9d.ctex"]
+source_file="res://assets/main_city/crowd_map_big.png"
+dest_files=["res://.godot/imported/crowd_map_big.png-2c46ad53c186155852329d05a574a31a.ctex"]
 
 [params]
 

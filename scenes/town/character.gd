@@ -9,7 +9,22 @@ var target : Vector2
 var tween : Tween 
 var picked_place : TownPlace.Places = TownPlace.Places.Street
 
+@onready var sprite = $Sprite2D
+var crowd_one = load('res://assets/main_city/crowd_map_alone.png')
+var crowd_small = load('res://assets/main_city/crowd_map_small.png')
+var crowd_medium = load('res://assets/main_city/crowd_map_medium.png')
+var crowd_big = load('res://assets/main_city/crowd_map_big.png')
+
 func _ready():
+    var n = StatsManager.army.size()
+    if n < 2:
+        sprite.texture = crowd_one
+    elif n < 8:
+        sprite.texture = crowd_small
+    elif n < 20:
+        sprite.texture = crowd_medium
+    else:
+        sprite.texture = crowd_big
     Signals.place_picked.connect(place_picked)
     Signals.tick.connect(tick)
     

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2yrm8ry43gsn"
-path="res://.godot/imported/fill1.png-fd466bab312b72f00d55c2760c0b7a32.ctex"
+uid="uid://b31tbhod204fm"
+path="res://.godot/imported/crowd_map_medium.png-e68d008d5c6e6c9087b005632edc9329.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/chlop/fill1.png"
-dest_files=["res://.godot/imported/fill1.png-fd466bab312b72f00d55c2760c0b7a32.ctex"]
+source_file="res://assets/main_city/crowd_map_medium.png"
+dest_files=["res://.godot/imported/crowd_map_medium.png-e68d008d5c6e6c9087b005632edc9329.ctex"]
 
 [params]
 
