@@ -42,13 +42,13 @@ func _ready():
     Signals.tick.connect(hit)
     hammer_icon.rotation_degrees = hammer_rotation_free
     
-    # debug
-    #for score_point in score_points:
-        #var sprite = Sprite2D.new()
-        #sprite.texture = texture
-        #score_point.add_child(sprite)
-        #sprite.global_position = score_point.global_position
-        #sprite.scale = Vector2(0.2, 0.2)
+     #debug
+    for score_point in score_points:
+        var sprite = Sprite2D.new()
+        sprite.texture = texture
+        score_point.add_child(sprite)
+        sprite.global_position = score_point.global_position
+        sprite.scale = Vector2(0.2, 0.2)
 
 func hit(current_tick : int):
     on_click(sight.global_position)
@@ -81,6 +81,7 @@ func on_click(pos : Vector2):
         point_to_delete.queue_free()
 
 func last_tick():
+    super.last_tick()
     block_clicking = true
 
     if (float(score_points.size()) / float(max_points_count)) < 0.5:

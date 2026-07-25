@@ -26,6 +26,7 @@ func _ready():
         new_target.init_from_target(target)
         
 func last_tick():
+    super.last_tick()
     var closest_target : Node2D = null
     var distance_to_target : float
     var current_distance : float
@@ -45,4 +46,7 @@ func last_tick():
     TargetManager.set_target(closest_target.target)
     
     sight.enabled = false
-    
+
+
+func next_scene() -> PackedScene:
+    return ScenesManager.boss

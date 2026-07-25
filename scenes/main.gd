@@ -9,4 +9,3 @@ func _input(event):
     if !is_started && Input.is_action_just_pressed("space"):
         rythm_manager.start()
         is_started = true
-        
