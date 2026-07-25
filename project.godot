@@ -17,6 +17,8 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="GMTK26"
 run/main_scene="uid://cjrk6ad1uedht"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="uid://dpxtmaaaewima"
 config/icon="res://icon.svg"
 
 [audio]

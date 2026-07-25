@@ -4,7 +4,7 @@ extends Scene
 @export var dart : DartThrow
 @export var target_positions_root : Node2D
 @export var king_position : Node2D
-@export var king_appears_when_others_left : int = 9
+@export var king_appears_when_others_left : int = 4
 var target_positions : Array[Node]
 var targets : Array[Node2D]
 var min_distance : float = 150
