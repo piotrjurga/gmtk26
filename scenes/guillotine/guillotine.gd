@@ -30,6 +30,7 @@ func _physics_process(delta):
             Signals.target_dead.emit(TargetManager.current_target)
 
 func last_tick():
+    super.last_tick()
     if blade_success_height > blade.global_position.y:
         min_height = blade_drop_y
         blade.global_position.y = blade_drop_y
@@ -49,7 +50,5 @@ func _input(event):
         blade.global_position.y = blade_top_max_y
 
 func next_scene() -> PackedScene:
-    if TargetManager.current_target is Target:
-        return ScenesManager.town
-    else:
-        return ScenesManager.darts
+    TargetManager.current_target = null
+    return ScenesManager.town

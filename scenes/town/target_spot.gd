@@ -3,6 +3,8 @@ extends Node2D
 var target_scene : PackedScene = preload("res://scenes/darts/dart_target.tscn")
 
 func _ready():
+    if TargetManager.current_target == null:
+        return
     var new_target : DartTarget = target_scene.instantiate()
     new_target.global_position = global_position
     add_child(new_target)

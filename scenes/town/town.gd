@@ -11,7 +11,14 @@ func _ready():
             "\nForks " + str(StatsManager.fork_count()) + \
             "\nFast soldiers " + str(StatsManager.speed_count())
     Signals.progress_bar_set.connect(restart)
+    Signals.progress_bar_set_visibility.emit(false)
     
+func tick(current_tick : int):
+    return
+    
+func last_tick():
+    return
+
 func restart(value : float):
     if value == 100.0:
         progress = 100.0

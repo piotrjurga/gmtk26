@@ -23,9 +23,11 @@ func enemy_down():
 
 func next_scene() -> PackedScene:
     if StatsManager.army.is_empty():
+        TargetManager.current_target = null
         return ScenesManager.town # TODO(piotr): game over
     if count_down:
         return ScenesManager.guillotine
+    TargetManager.current_target = null
     return ScenesManager.town
 
 func fib_layout(n: int) -> Array[Vector2]:
@@ -123,5 +125,5 @@ func tick(current_tick : int):
     if last_tick_count == max_last_tick_count:
         Signals.scene_ended.emit()
     else:
-        progress -= 100.0 / 15
+        progress -= 100.0 / 14
         Signals.progress_bar_set.emit(progress)

@@ -19,6 +19,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gxi48"]
 shader = ExtResource("3_r42f3")
 shader_parameter/points = PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/screen_size = Vector2(1920, 1080)
 
 [node name="Armour" type="Node2D" unique_id=441942228 node_paths=PackedStringArray("armour_good", "armour_bad", "score_points_root", "hammer_icon", "sight", "success", "fail", "hit_sound")]
 script = ExtResource("1_4rhgh")
@@ -325,15 +326,11 @@ stream = ExtResource("11_4r3pj")
 volume_db = -4.875
 pitch_scale = 1.72
 
-[node name="Node2D" type="Node2D" parent="." unique_id=888885292]
-position = Vector2(1576, 372)
-
-[node name="ArmorUp" type="Sprite2D" parent="." unique_id=851480429 node_paths=PackedStringArray("target")]
-position = Vector2(2240, 365)
+[node name="ArmorUp" type="Sprite2D" parent="." unique_id=851480429]
+position = Vector2(1509, 355)
 scale = Vector2(0.7173345, 0.7173345)
 texture = ExtResource("12_wg6au")
 script = ExtResource("13_b4mhm")
-target = NodePath("../Node2D")
 
 [node name="Star" type="Sprite2D" parent="." unique_id=1310616414]
 position = Vector2(1062, 328)

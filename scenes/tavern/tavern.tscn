@@ -21,6 +21,8 @@
 [ext_resource type="AudioStream" uid="uid://b5dbtavl2kdo7" path="res://assets/sfx/tavern/keyboard mechanical single key 6.wav" id="19_lc1qo"]
 [ext_resource type="AudioStream" uid="uid://tpsahl0e0geg" path="res://assets/sfx/tavern/169233__mlteenie__crowd-yay.wav" id="20_eq8gq"]
 [ext_resource type="AudioStream" uid="uid://cd6v43olfbhlo" path="res://assets/sfx/tavern/403057__vesperia94__hooray.wav" id="21_v4sj0"]
+[ext_resource type="Texture2D" uid="uid://coemg8xis8c81" path="res://assets/Random assets-assets/pesant_up.png" id="22_b1jo1"]
+[ext_resource type="Script" uid="uid://g66ht0pwvhfb" path="res://scenes/armour/armor_up.gd" id="23_v4sj0"]
 
 [sub_resource type="FontVariation" id="FontVariation_ae3ij"]
 base_font = ExtResource("13_dlb7h")
@@ -111,6 +113,7 @@ position = Vector2(1519, 543)
 texture = ExtResource("12_lc1qo")
 script = ExtResource("10_uhcg5")
 target = NodePath("Node2D")
+delay = 0.3
 
 [node name="Node2D" type="Node2D" parent="Patron3" unique_id=1649751989]
 position = Vector2(1073, 125)
@@ -120,6 +123,7 @@ position = Vector2(634, 599)
 texture = ExtResource("13_b1jo1")
 script = ExtResource("10_uhcg5")
 target = NodePath("Node2D")
+delay = 0.3
 
 [node name="Node2D" type="Node2D" parent="Patron2" unique_id=1430581659]
 position = Vector2(-1309, -43)
@@ -129,6 +133,7 @@ position = Vector2(272, 526)
 texture = ExtResource("14_v4sj0")
 script = ExtResource("10_uhcg5")
 target = NodePath("Node2D")
+delay = 0.2
 
 [node name="Node2D" type="Node2D" parent="Patron1" unique_id=838870117]
 position = Vector2(-1488, -13)
@@ -209,3 +214,10 @@ pitch_scale = 0.63
 [node name="Cheer" type="AudioStreamPlayer" parent="." unique_id=387574703]
 stream = SubResource("AudioStreamSynchronized_gxi48")
 volume_db = -10.0
+
+[node name="ArmorUp" type="Sprite2D" parent="." unique_id=1506781836]
+position = Vector2(1120, 269)
+scale = Vector2(0.7173345, 0.7173345)
+texture = ExtResource("22_b1jo1")
+script = ExtResource("23_v4sj0")
+new_scale = 0.72

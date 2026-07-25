@@ -1,31 +1,27 @@
 [gd_scene format=3 uid="uid://dxanvgyx2iumk"]
 
 [ext_resource type="Script" uid="uid://by0nagtl04oiq" path="res://scenes/sword/sword.gd" id="1_v80dd"]
+[ext_resource type="Texture2D" uid="uid://dld5q3bh0j0lr" path="res://assets/pitchfork_sharpening/background.png" id="2_r2d45"]
 [ext_resource type="Script" uid="uid://cdmo213bse43b" path="res://scenes/sword/prong.gd" id="3_ikpse"]
 [ext_resource type="Script" uid="uid://3rx1w1odru14" path="res://scenes/sword/rock.gd" id="4_8bg4s"]
 [ext_resource type="AudioStream" uid="uid://bph28g2pxjwxi" path="res://assets/sfx/sword/dash.wav" id="5_6p7sl"]
+[ext_resource type="Texture2D" uid="uid://d26hvttc826fx" path="res://assets/pitchfork_sharpening/hand_stone.png" id="5_f6nuc"]
 [ext_resource type="AudioStream" uid="uid://cupmh4l7ekc8r" path="res://assets/sfx/sword/knife 7.wav" id="6_blxf3"]
 [ext_resource type="AudioStream" uid="uid://cj5xnq1qwk8rn" path="res://assets/sfx/sword/knife 8.wav" id="7_mg2e1"]
 [ext_resource type="Texture2D" uid="uid://bshtahid3tytv" path="res://assets/pitchfork_sharpening/pitchfork_sharp1.png" id="8_mg2e1"]
 [ext_resource type="AudioStream" uid="uid://csg5p80j5xqx1" path="res://assets/sfx/sword/knife 9.wav" id="8_tysr5"]
 [ext_resource type="Texture2D" uid="uid://di72wb4wd1hkh" path="res://assets/pitchfork_sharpening/pitchfork_sharp2.png" id="9_tysr5"]
+[ext_resource type="Texture2D" uid="uid://c3d3j3wfichp8" path="res://assets/pitchfork_sharpening/pitchfork_unsharpened.png" id="10_f6nuc"]
 [ext_resource type="Texture2D" uid="uid://c514k1efrn1yo" path="res://assets/pitchfork_sharpening/pitchfork_sharp3.png" id="10_r2d45"]
 [ext_resource type="Texture2D" uid="uid://c88y7tdi8ena2" path="res://assets/pitchfork_sharpening/pitchfork_sharp4.png" id="11_f6nuc"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_25rg1"]
-load_path = "res://.godot/imported/background.png-03ffc6e3b8343fa32c3be93ef350f0f2.ctex"
+[ext_resource type="Texture2D" uid="uid://dcqnt331iklim" path="res://assets/Random assets-assets/dmg_up.png" id="15_ilfns"]
+[ext_resource type="Script" uid="uid://g66ht0pwvhfb" path="res://scenes/armour/armor_up.gd" id="16_qpha8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gxi48"]
 size = Vector2(133.33344, 128.8235)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gxi48"]
 radius = 101.31634
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ilfns"]
-load_path = "res://.godot/imported/Hand.png-d8a7754d0fdc2fdf30ec7281fd66ab2e.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qpha8"]
-load_path = "res://.godot/imported/Pitchfork.png-36388fd87880f8a95fffa3c3cc45a878.ctex"
 
 [node name="Sword" type="Node2D" unique_id=2094122229 node_paths=PackedStringArray("prongs")]
 script = ExtResource("1_v80dd")
@@ -34,7 +30,7 @@ stream_idx = 1
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1753032980]
 position = Vector2(960, 540)
-texture = SubResource("CompressedTexture2D_25rg1")
+texture = ExtResource("2_r2d45")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1978324562]
 
@@ -118,8 +114,8 @@ position = Vector2(0, -71)
 shape = SubResource("CircleShape2D_gxi48")
 
 [node name="Hand" type="Sprite2D" parent="Rock2" unique_id=649713584]
-position = Vector2(11, 261)
-texture = SubResource("CompressedTexture2D_ilfns")
+position = Vector2(37, 170)
+texture = ExtResource("5_f6nuc")
 
 [node name="PointA" type="Node2D" parent="." unique_id=728439861]
 position = Vector2(150, 922)
@@ -143,26 +139,36 @@ stream = ExtResource("7_mg2e1")
 stream = ExtResource("8_tysr5")
 
 [node name="Pitchfork" type="Sprite2D" parent="." unique_id=1977359529]
-position = Vector2(1257.0001, 574.00006)
+position = Vector2(937, 589.00006)
 scale = Vector2(1.041044, 1.041044)
-texture = SubResource("CompressedTexture2D_qpha8")
+texture = ExtResource("10_f6nuc")
 
 [node name="PitchforkSharp1" type="Sprite2D" parent="Pitchfork" unique_id=569455125]
 visible = false
-position = Vector2(-476.69336, 30.620934)
+position = Vector2(-169.30951, 16.21228)
+scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("8_mg2e1")
 
 [node name="PitchforkSharp2" type="Sprite2D" parent="Pitchfork" unique_id=1106405642]
 visible = false
-position = Vector2(-292.96783, 18.20707)
+position = Vector2(14.416016, 3.7984009)
+scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("9_tysr5")
 
 [node name="PitchforkSharp3" type="Sprite2D" parent="Pitchfork" unique_id=1788071289]
 visible = false
-position = Vector2(-161.38055, -81.10408)
+position = Vector2(146.0033, -95.512726)
+scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("10_r2d45")
 
 [node name="PitchforkSharp4" type="Sprite2D" parent="Pitchfork" unique_id=1423485796]
 visible = false
-position = Vector2(-86.06966, 15.72427)
+position = Vector2(221.31421, 1.3156128)
+scale = Vector2(0.99999994, 0.99999994)
 texture = ExtResource("11_f6nuc")
+
+[node name="ArmorUp" type="Sprite2D" parent="." unique_id=1405728658]
+position = Vector2(1621, 313)
+texture = ExtResource("15_ilfns")
+script = ExtResource("16_qpha8")
+new_scale = 0.7
