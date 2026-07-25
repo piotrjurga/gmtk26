@@ -15,6 +15,7 @@ func _physics_process(_delta: float) -> void:
     if captured: return
     # TODO(piotr): captured anim
     var minions = get_tree().get_nodes_in_group('minions')
+    if minions.is_empty(): return
     var p = minions.reduce(func(a, b):
         var da = (a-position).length_squared()
         var db = (b.position-position).length_squared()

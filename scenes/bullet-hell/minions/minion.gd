@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
+var fork_projectile = preload('res://scenes/bullet-hell/minions/fork_projectile.tscn')
 var speed = 400.0
 var target: Node2D
 @onready var hurtbox: Area2D = $Hurtbox
 @onready var attack_range: Area2D = $AttackRange
+var count: Node2D
 
 var dead = false
 var timer = 0.0
@@ -11,15 +13,27 @@ var id = -1
 var armour = false
 var fork = false
 
+func throw_fork():
+    if !fork: return
+    $Anim/Animation/Pitchfork.visible = false
+    var p = fork_projectile.instantiate()
+    var t_pos = count.find_child('Hurtbox').global_position
+    var throw_offset = $Anim/ThrowMarker.global_position - global_position
+    var t = transform.translated(throw_offset)
+    p.transform = t.looking_at(t_pos)
+    add_sibling(p)
+
 func set_stats(stats):
     id = stats.id
     armour = stats.armour
     fork = stats.fork
     speed *= stats.speed
     if armour:
-        $Armour.visible = true
+        #$Armour.visible = true
+        $Anim/Animation/Armour.visible = true
     if fork:
-        $Fork.visible = true
+        #$Fork.visible = true
+        $Anim/Animation/Pitchfork.visible = true
 
 func die():
     if !dead:
@@ -31,7 +45,8 @@ func die():
 
 func drop_armour():
     armour = false
-    $Armour.visible = false
+    #$Armour.visible = false
+    $Anim/Animation/Armour.visible = true
     StatsManager.drop_armour(id)
 
 func get_hit(area: Area2D):
@@ -69,6 +84,16 @@ func follow_target():
         velocity = Vector2.ZERO
     else:
         velocity = delta.normalized() * speed
+
+    if velocity.x < 0: $Anim.scale.x = -1
+    else: $Anim.scale.x = 1
+
+    if velocity.length() > 1e-3:
+        $Anim/Animation/Outline.play('default')
+        $Anim/Animation/Infill.play('default')
+    else:
+        $Anim/Animation/Outline.stop()
+        $Anim/Animation/Infill.stop()
 
     move_and_slide()
 

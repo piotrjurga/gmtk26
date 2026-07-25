@@ -2,6 +2,13 @@
 
 [ext_resource type="Script" uid="uid://g2pwwab6oqin" path="res://scenes/bullet-hell/minions/minion.gd" id="1_c2eyd"]
 [ext_resource type="Texture2D" uid="uid://nruu7s0ldr2d" path="res://icon.svg" id="2_dxnyw"]
+[ext_resource type="Texture2D" uid="uid://by0qul1o4xx1c" path="res://assets/chlop/body1.png" id="3_2hr1g"]
+[ext_resource type="Texture2D" uid="uid://0fplk6i0bag1" path="res://assets/chlop/body2.png" id="4_du7hq"]
+[ext_resource type="Texture2D" uid="uid://d2yrm8ry43gsn" path="res://assets/chlop/fill1.png" id="5_wqag3"]
+[ext_resource type="Texture2D" uid="uid://t1wdcx7rn10p" path="res://assets/chlop/fill.png" id="6_jngml"]
+[ext_resource type="Texture2D" uid="uid://cs6d5wvinuap2" path="res://assets/chlop/skin1.png" id="7_sxd6w"]
+[ext_resource type="Texture2D" uid="uid://bfciaqe0t0b5v" path="res://assets/chlop/pitchfork1.png" id="8_sxd6w"]
+[ext_resource type="Texture2D" uid="uid://cgypsrbbqywf6" path="res://assets/chlop/armor1.png" id="9_i81sa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uj04i"]
 radius = 26.076809
@@ -12,15 +19,38 @@ size = Vector2(34, 121)
 [sub_resource type="CircleShape2D" id="CircleShape2D_p5viw"]
 radius = 81.394104
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_uj04i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2hr1g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_du7hq")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_krgny"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_wqag3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jngml")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 7.0
+}]
+
 [node name="Minion" type="CharacterBody2D" unique_id=665359883 groups=["minions"]]
 collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_c2eyd")
-
-[node name="Icon" type="Sprite2D" parent="." unique_id=1293093790]
-position = Vector2(0, -64.86)
-scale = Vector2(0.33, 1)
-texture = ExtResource("2_dxnyw")
 
 [node name="Feet" type="CollisionShape2D" parent="." unique_id=718312711]
 position = Vector2(0, -15)
@@ -55,3 +85,33 @@ position = Vector2(17, -65)
 rotation = 0.44678277
 scale = Vector2(0.05682374, 0.96118164)
 texture = ExtResource("2_dxnyw")
+
+[node name="Anim" type="Node2D" parent="." unique_id=318603617]
+position = Vector2(1, -66)
+
+[node name="Animation" type="Node2D" parent="Anim" unique_id=1231892741]
+scale = Vector2(-0.53, 0.53)
+
+[node name="Outline" type="AnimatedSprite2D" parent="Anim/Animation" unique_id=2075778565]
+sprite_frames = SubResource("SpriteFrames_uj04i")
+
+[node name="Infill" type="AnimatedSprite2D" parent="Anim/Animation" unique_id=971508261]
+position = Vector2(-4.5, 7)
+sprite_frames = SubResource("SpriteFrames_krgny")
+
+[node name="Skin" type="Sprite2D" parent="Anim/Animation" unique_id=1928364977]
+position = Vector2(-26.5, -59.5)
+texture = ExtResource("7_sxd6w")
+
+[node name="Pitchfork" type="Sprite2D" parent="Anim/Animation" unique_id=1764707949]
+visible = false
+position = Vector2(-52.830193, -41.509438)
+texture = ExtResource("8_sxd6w")
+
+[node name="Armour" type="Sprite2D" parent="Anim/Animation" unique_id=2074445370]
+visible = false
+position = Vector2(-5.5, -27.5)
+texture = ExtResource("9_i81sa")
+
+[node name="ThrowMarker" type="Marker2D" parent="Anim" unique_id=41803151]
+position = Vector2(41, -31)

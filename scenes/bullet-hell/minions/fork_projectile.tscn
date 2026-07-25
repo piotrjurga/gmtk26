@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://pbibja4am73s"]
+
+[ext_resource type="Script" uid="uid://covw5arntsq3u" path="res://scenes/bullet-hell/minions/fork_projectile.gd" id="1_34yls"]
+[ext_resource type="Texture2D" uid="uid://bfciaqe0t0b5v" path="res://assets/chlop/pitchfork1.png" id="1_b1na8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uj04i"]
+size = Vector2(66, 39)
+
+[node name="Fork" type="Area2D" unique_id=54148250]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_34yls")
+
+[node name="Pitchfork1" type="Sprite2D" parent="." unique_id=53221120]
+position = Vector2(-1, 0)
+rotation = 2.3435366
+texture = ExtResource("1_b1na8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1364310107]
+position = Vector2(109, 0.5)
+shape = SubResource("RectangleShape2D_uj04i")

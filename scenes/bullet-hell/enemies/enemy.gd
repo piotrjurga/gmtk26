@@ -19,7 +19,7 @@ var timer = 0.0
 var target = Vector2.ZERO
 
 func cheer():
-    if state == State.ATTACK:
+    if state != State.DIE and state != State.CHEER:
         state = State.CHEER
         timer = -randf()
         cheer_init_pos = position
@@ -57,11 +57,12 @@ func shoot():
         timer = 0.0
         var p = projectile.instantiate()
         var targets = get_tree().get_nodes_in_group('minions')
-        var target = targets.pick_random()
-        var t_pos = target.find_child('Hurtbox').global_position
-        var t = transform.translated(weapon.position)
-        p.transform = t.looking_at(t_pos)
-        add_sibling(p)
+        if !targets.is_empty():
+            var target = targets.pick_random()
+            var t_pos = target.find_child('Hurtbox').global_position
+            var t = transform.translated(weapon.position)
+            p.transform = t.looking_at(t_pos)
+            add_sibling(p)
         if shot_count == 3:
             shot_count = 0
             state = State.WALK

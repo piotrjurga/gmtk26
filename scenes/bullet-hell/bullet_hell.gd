@@ -86,6 +86,7 @@ func setup(enemy_count_: int):
         m.set_stats(stats)
         m.position = p.position + offsets[i]
         m.target = p
+        m.count = c
         add_child(m)
 
     var pos_delta = window_size.y / (enemy_count+1)
@@ -102,7 +103,7 @@ func setup(enemy_count_: int):
 func _ready():
     super._ready()
     Signals.set_stream.emit(2)
-    setup(5)
+    setup(TargetManager.current_target.gold)
     Signals.minion_died.connect(minion_down)
     Signals.enemy_died.connect(enemy_down)
     Signals.scene_done.connect(scene_end)
