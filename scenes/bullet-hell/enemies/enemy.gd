@@ -11,7 +11,6 @@ const max_walk_time = 3.0
 var shot_delay = 1.0
 var shot_count = 0
 
-
 var cheer_freq = 1.0
 var cheer_init_pos: Vector2
 var timer = 0.0
@@ -20,6 +19,7 @@ var target = Vector2.ZERO
 
 func cheer():
     if state != State.DIE and state != State.CHEER:
+        $Animation.stop()
         state = State.CHEER
         timer = -randf()
         cheer_init_pos = position
@@ -27,6 +27,7 @@ func cheer():
 
 func die():
     if state != State.DIE:
+        $Animation.stop()
         $Feet.set_deferred('disabled', true)
         Signals.enemy_died.emit()
         state = State.DIE
@@ -67,6 +68,7 @@ func shoot():
             shot_count = 0
             state = State.WALK
             select_target()
+            $Animation.play('walk')
 
 func walk():
     if !target: select_target()
@@ -74,8 +76,13 @@ func walk():
     if delta.length() < 10.0 or timer > max_walk_time:
         state = State.ATTACK
         timer = 0.0
+        $Animation.stop()
         return
     velocity = delta.normalized() * speed
+    if velocity.x < 0.0:
+        $Sprites.scale.x = -1.0
+    else:
+        $Sprites.scale.x = 1.0
     move_and_slide()
 
 func cheer_anim():

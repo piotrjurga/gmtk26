@@ -15,10 +15,12 @@ var fork = false
 
 func throw_fork():
     if !fork: return
-    $Anim/Animation/Pitchfork.visible = false
+    fork = false
+    StatsManager.drop_fork(id)
+    $Sprites/Animation/Pitchfork.visible = false
     var p = fork_projectile.instantiate()
     var t_pos = count.find_child('Hurtbox').global_position
-    var throw_offset = $Anim/ThrowMarker.global_position - global_position
+    var throw_offset = $Sprites/ThrowMarker.global_position - global_position
     var t = transform.translated(throw_offset)
     p.transform = t.looking_at(t_pos)
     add_sibling(p)
@@ -29,11 +31,9 @@ func set_stats(stats):
     fork = stats.fork
     speed *= stats.speed
     if armour:
-        #$Armour.visible = true
-        $Anim/Animation/Armour.visible = true
+        $Sprites/Animation/Armour.visible = true
     if fork:
-        #$Fork.visible = true
-        $Anim/Animation/Pitchfork.visible = true
+        $Sprites/Animation/Pitchfork.visible = true
 
 func die():
     if !dead:
@@ -42,13 +42,11 @@ func die():
         dead = true
         remove_from_group('minions')
         Signals.minion_died.emit(id)
-        $Anim/Animation/Outline.stop()
-        $Anim/Animation/Infill.stop()
+        $Animation.stop()
 
 func drop_armour():
     armour = false
-    #$Armour.visible = false
-    $Anim/Animation/Armour.visible = true
+    $Sprites/Animation/Armour.visible = true
     StatsManager.drop_armour(id)
 
 func get_hit(area: Area2D):
@@ -87,15 +85,13 @@ func follow_target():
     else:
         velocity = delta.normalized() * speed
 
-    if velocity.x < 0: $Anim.scale.x = -1
-    else: $Anim.scale.x = 1
+    if velocity.x < 0: $Sprites.scale.x = -1
+    else: $Sprites.scale.x = 1
 
     if velocity.length() > 1e-3:
-        $Anim/Animation/Outline.play('default')
-        $Anim/Animation/Infill.play('default')
+        $Animation.play('walk')
     else:
-        $Anim/Animation/Outline.stop()
-        $Anim/Animation/Infill.stop()
+        $Animation.stop()
 
     move_and_slide()
 

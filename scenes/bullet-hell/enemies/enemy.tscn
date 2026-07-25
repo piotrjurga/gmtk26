@@ -1,25 +1,82 @@
 [gd_scene format=3 uid="uid://ddrb343mv43b5"]
 
 [ext_resource type="Script" uid="uid://dh7avmvej2t0u" path="res://scenes/bullet-hell/enemies/enemy.gd" id="1_x6wcx"]
-[ext_resource type="Texture2D" uid="uid://nruu7s0ldr2d" path="res://icon.svg" id="2_72uv0"]
+[ext_resource type="Texture2D" uid="uid://d28xm2lrfpkjh" path="res://assets/bullet-hell/Knight.png" id="3_10fme"]
+[ext_resource type="Texture2D" uid="uid://dbav3dwj4kqq4" path="res://assets/bullet-hell/Knight2.png" id="4_26qte"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uj04i"]
 radius = 19.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_72uv0"]
-size = Vector2(34, 121)
+size = Vector2(34, 82)
+
+[sub_resource type="Animation" id="Animation_dtjge"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_10fme")]
+}
+
+[sub_resource type="Animation" id="Animation_626as"]
+resource_name = "walk"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(0.5, 0), Vector2(8, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("4_26qte"), ExtResource("3_10fme")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dh7da"]
+_data = {
+&"RESET": SubResource("Animation_dtjge"),
+&"walk": SubResource("Animation_626as")
+}
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1386190873]
 collision_layer = 2
 collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_x6wcx")
-
-[node name="Icon" type="Sprite2D" parent="." unique_id=899273029]
-modulate = Color(1, 0.14901961, 0.007843138, 1)
-position = Vector2(0, -64.985)
-scale = Vector2(0.33, 1)
-texture = ExtResource("2_72uv0")
 
 [node name="Feet" type="CollisionShape2D" parent="." unique_id=230723493]
 position = Vector2(0, -15)
@@ -30,8 +87,22 @@ position = Vector2(0, -15)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=526362314]
-position = Vector2(0, -50.5)
+position = Vector2(-2, -31)
 shape = SubResource("RectangleShape2D_72uv0")
 
 [node name="Weapon" type="Marker2D" parent="." unique_id=1375152488]
-position = Vector2(20, -70)
+position = Vector2(0, -70)
+
+[node name="Animation" type="AnimationPlayer" parent="." unique_id=828237491]
+root_node = NodePath("../Sprites/Scale/Body")
+libraries/ = SubResource("AnimationLibrary_dh7da")
+
+[node name="Sprites" type="Node2D" parent="." unique_id=448226721]
+scale = Vector2(-1, 1)
+
+[node name="Scale" type="Node2D" parent="Sprites" unique_id=938618843]
+position = Vector2(8, -56)
+scale = Vector2(-0.52, 0.52)
+
+[node name="Body" type="Sprite2D" parent="Sprites/Scale" unique_id=1390106720]
+texture = ExtResource("3_10fme")

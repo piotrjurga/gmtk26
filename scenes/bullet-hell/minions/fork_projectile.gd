@@ -1,6 +1,6 @@
 extends Area2D
 
-const speed = 500.0
+const speed = 1000.0
 
 func hit(area: Area2D):
     var p = area.get_parent()
