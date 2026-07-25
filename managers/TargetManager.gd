@@ -25,7 +25,9 @@ var names : Array[String] = [
     "Rafaael",
     "Johan",
     "Gregory",
+    "Polnareff",
 ]
+var king_target : Target
 
 func fill_in_assets(folder : String, variable_to_fill : Array[Texture]):
     for file_name in DirAccess.get_files_at("res://assets/count/" + folder):
@@ -45,7 +47,6 @@ func _ready():
     temp_names.shuffle()
     for i in range(9):
         var new_target : Target = Target.new()
-        new_target.gold = 1 + int(randf() * 10)
         new_target.title = title[i % 3]
         new_target.name = temp_names.pop_front()
         new_target.eyes = randi_range(0, 2)
@@ -54,7 +55,21 @@ func _ready():
         new_target.nose = randi_range(0, 2)
         new_target.torso = 0
         new_target.wig = randi_range(0, 3)
+        set_gold(new_target)
         targets.append(new_target)
+        
+    var new_target : Target = Target.new()
+    new_target.title = "King"
+    new_target.name = temp_names.pop_front()
+    new_target.eyes = randi_range(0, 2)
+    new_target.mouth = randi_range(0, 2)
+    new_target.neck = randi_range(0, 3)
+    new_target.nose = randi_range(0, 2)
+    new_target.torso = 0
+    new_target.wig = randi_range(0, 3)
+    new_target.gold = 9999
+    king_target = new_target
+    
     Signals.target_dead.connect(dead_target)
     
 func has_target() -> bool:
@@ -65,6 +80,14 @@ func set_target(new_target : Target):
 
     
 func dead_target(dead_target : Target):
+    StatsManager.gold += dead_target.gold
+
     targets.erase(dead_target)
 
     current_target = null
+
+func set_gold(new_target : Target):
+    var idx : int = title.find(new_target.title)
+
+    new_target.gold = 5 * idx + int(randf() * 3) + 2
+    

@@ -7,12 +7,14 @@ const JUMP_VELOCITY = -400.0
 var enabled : bool = true
 var target : Vector2
 var tween : Tween 
+var picked_place : TownPlace.Places = TownPlace.Places.Street
 
 func _ready():
     Signals.place_picked.connect(place_picked)
+    Signals.tick.connect(tick)
     
 func place_picked(new_place : TownPlace.Places):
-    var picked_place : TownPlace.Places = new_place
+    picked_place = new_place
     
     if picked_place == TownPlace.Places.Street:
         return
@@ -27,8 +29,11 @@ func place_picked(new_place : TownPlace.Places):
             return
     target = Vector2.ZERO
     
-func end():
-    if ScenesManager.current_scene.name == "Town":
+func tick(current_tick : int):
+    if picked_place == TownPlace.Places.Street:
+        return
+        
+    if current_tick % 4 == 1:
         Signals.scene_ended.emit()
     
 func move_to_target():
@@ -40,7 +45,6 @@ func move_to_target():
         target = Vector2.ZERO
         tween = create_tween()
         tween.tween_property(self, "modulate", Color.TRANSPARENT, 0.5)
-        tween.tween_callback(end).set_delay(0.2)
         return
         
     var dir = (target - global_position).normalized()    
