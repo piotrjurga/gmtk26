@@ -5,13 +5,9 @@ var picked_place : TownPlace.Places = TownPlace.Places.Street
 func _ready():
     super._ready()
     Signals.place_picked.connect(place_picked)
-    $StatsLabel.text = "Gold " + str(StatsManager.gold) + \
-            "\nSoldiers " + str(StatsManager.army.size()) + \
-            "\nArmour " + str(StatsManager.armour_count()) + \
-            "\nForks " + str(StatsManager.fork_count()) + \
-            "\nFast soldiers " + str(StatsManager.speed_count())
     Signals.progress_bar_set.connect(restart)
     Signals.progress_bar_set_visibility.emit(false)
+    StatsManager.day += 1
     
 func tick(current_tick : int):
     return

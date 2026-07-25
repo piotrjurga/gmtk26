@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ql0cs4d8v434"]
 
 [ext_resource type="Script" uid="uid://b37p6d8i3e4oh" path="res://scenes/darts/dart_target.gd" id="1_ep5d0"]
-[ext_resource type="Texture2D" uid="uid://dj0b7d3udll4o" path="res://assets/Random assets-assets/scroll_nail.png" id="2_iegto"]
+[ext_resource type="Texture2D" uid="uid://c74rlaufmmve5" path="res://assets/Random assets-assets/scroll.png" id="2_7dkjv"]
 [ext_resource type="PackedScene" uid="uid://dd5hgml0v4nxi" path="res://scenes/count-head/count_head.tscn" id="3_iegto"]
 [ext_resource type="FontFile" uid="uid://ba3ym60trydwg" path="res://assets/Fonts/Almendra_Display/AlmendraDisplay-Regular.ttf" id="4_7dkjv"]
 
@@ -11,7 +11,6 @@ variation_embolden = 1.61
 
 [sub_resource type="LabelSettings" id="LabelSettings_gxi48"]
 font = SubResource("FontVariation_iegto")
-font_size = 14
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="FontVariation" id="FontVariation_7dkjv"]
@@ -20,13 +19,14 @@ variation_embolden = 0.82
 
 [sub_resource type="LabelSettings" id="LabelSettings_ep5d0"]
 font = SubResource("FontVariation_7dkjv")
-font_size = 34
+font_size = 51
 font_color = Color(0.8941013, 0.7670424, 0, 1)
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Target" type="Node2D" unique_id=139521801 node_paths=PackedStringArray("dart_image", "name_label", "gold_label", "count_head", "top", "bot", "left", "right")]
+[node name="Target" type="Node2D" unique_id=139521801 node_paths=PackedStringArray("overlay", "dart_image", "name_label", "gold_label", "count_head", "top", "bot", "left", "right")]
 script = ExtResource("1_ep5d0")
+overlay = NodePath("Sprite2D2")
 dart_image = NodePath("Sprite2D")
 name_label = NodePath("Name")
 gold_label = NodePath("Gold")
@@ -35,11 +35,15 @@ top = NodePath("TopCutoff")
 bot = NodePath("BotCutoff")
 left = NodePath("LeftCutoff")
 right = NodePath("RightCutoff")
+color_sir = Color(0.7764706, 1, 1, 0.5058824)
+color_lord = Color(1, 1, 1, 0.5058824)
+color_count = Color(1, 0.42745098, 0, 0.5058824)
+color_king = Color(0.71167696, 0.001724621, 0.8762112, 0.5058824)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1423420068]
 position = Vector2(-3, 8)
 scale = Vector2(0.35279945, 0.35279945)
-texture = ExtResource("2_iegto")
+texture = ExtResource("2_7dkjv")
 
 [node name="CountHead" parent="." unique_id=1254211295 instance=ExtResource("3_iegto")]
 position = Vector2(-3, 2)
@@ -60,28 +64,28 @@ scale = Vector2(0.14166072, -0.22939962)
 position = Vector2(59, 15.000008)
 scale = Vector2(0.14166072, -0.22939962)
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1795939242]
-modulate = Color(1, 1, 1, 0.5058824)
-position = Vector2(-3, 8)
-scale = Vector2(0.35279945, 0.35279945)
-texture = ExtResource("2_iegto")
-
 [node name="Name" type="Label" parent="." unique_id=2044214208]
-offset_left = -81.0
-offset_top = 90.0
-offset_right = 69.0
-offset_bottom = 113.0
+offset_left = -86.0
+offset_top = -115.0
+offset_right = 64.0
+offset_bottom = -92.0
 text = "test name name ana"
 label_settings = SubResource("LabelSettings_gxi48")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Gold" type="Label" parent="." unique_id=95995590]
-offset_left = -83.0
-offset_top = 54.0
-offset_right = 67.0
-offset_bottom = 99.0
+offset_left = -82.0
+offset_top = 43.0
+offset_right = 68.0
+offset_bottom = 110.0
 text = "100g"
 label_settings = SubResource("LabelSettings_ep5d0")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1795939242]
+modulate = Color(0.71167696, 0.001724621, 0.8762112, 0.5058824)
+position = Vector2(-3, 8)
+scale = Vector2(0.35279945, 0.35279945)
+texture = ExtResource("2_7dkjv")

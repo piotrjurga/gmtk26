@@ -5,31 +5,32 @@
 [ext_resource type="PackedScene" uid="uid://e6iw8vpxpnn3" path="res://scenes/darts/dart_throw.tscn" id="2_somb7"]
 [ext_resource type="PackedScene" uid="uid://bohk2ejkjy566" path="res://scenes/darts/sight.tscn" id="2_x4xqp"]
 
-[node name="darts" type="Node2D" unique_id=1772197419 node_paths=PackedStringArray("sight", "dart", "target_positions_root")]
+[node name="darts" type="Node2D" unique_id=1772197419 node_paths=PackedStringArray("sight", "dart", "target_positions_root", "king_position")]
 script = ExtResource("1_x4xqp")
 sight = NodePath("Sight")
 dart = NodePath("dart")
 target_positions_root = NodePath("TargetPositions")
+king_position = NodePath("KingPossition")
 
 [node name="TargetPositions" type="Node2D" parent="." unique_id=1493673657]
 
 [node name="TargetPosition" type="Node2D" parent="TargetPositions" unique_id=1807159907]
-position = Vector2(383, 193)
+position = Vector2(316, 201)
 
 [node name="TargetPosition2" type="Node2D" parent="TargetPositions" unique_id=1725992997]
-position = Vector2(1620, 796)
+position = Vector2(1687, 739)
 
 [node name="TargetPosition3" type="Node2D" parent="TargetPositions" unique_id=1951905453]
-position = Vector2(217, 505)
+position = Vector2(217, 593)
 
 [node name="TargetPosition4" type="Node2D" parent="TargetPositions" unique_id=969970363]
-position = Vector2(345, 782)
+position = Vector2(477, 632)
 
 [node name="TargetPosition5" type="Node2D" parent="TargetPositions" unique_id=558544319]
-position = Vector2(614, 484)
+position = Vector2(726, 494)
 
 [node name="TargetPosition6" type="Node2D" parent="TargetPositions" unique_id=346117102]
-position = Vector2(932, 224)
+position = Vector2(680, 201)
 
 [node name="TargetPosition7" type="Node2D" parent="TargetPositions" unique_id=764518188]
 position = Vector2(1284, 564)
@@ -50,3 +51,6 @@ position = Vector2(1017, 843)
 [node name="dart" parent="." unique_id=1523667051 instance=ExtResource("2_somb7")]
 z_index = 100
 position = Vector2(963, 1240)
+
+[node name="KingPossition" type="Node2D" parent="." unique_id=1963790199]
+position = Vector2(1019, 242)
