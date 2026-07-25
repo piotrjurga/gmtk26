@@ -42,6 +42,8 @@ func unlock():
     locked = false
         
 func _input(event):
+    if ! sight.enabled:
+        return
     if Input.is_action_just_pressed("space"):
         throw_target()
         

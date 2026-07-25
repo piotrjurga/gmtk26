@@ -49,7 +49,7 @@ stream_1/volume = 0.0
 
 [node name="Tavern" type="Node2D" unique_id=2119835233 node_paths=PackedStringArray("word_label", "cough", "type", "type_fail", "cheer")]
 script = ExtResource("1_inl0q")
-words = Array[String](["revolution", "we can do it", "eat the rich", "time for change"])
+words = Array[String](["revolution", "we can do it", "eat the rich", "time for change", "burn them all"])
 word_label = NodePath("Control/RichTextLabel")
 cough = NodePath("Cough")
 type = NodePath("Type")

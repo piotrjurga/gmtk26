@@ -85,7 +85,6 @@ func set_target(new_target : Target):
 
     
 func dead_target(dead_target : Target):
-    StatsManager.gold += dead_target.gold
     if dead_target.title == "King":
         king_target = null
     else:

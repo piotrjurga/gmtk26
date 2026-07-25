@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cfku8si8qqhub"
+path="res://.godot/imported/spatula hit 28.wav-2e44e504412eaab499aa4aa16c2af45d.sample"
+
+[deps]
+
+source_file="res://assets/sfx/guillotine/spatula hit 28.wav"
+dest_files=["res://.godot/imported/spatula hit 28.wav-2e44e504412eaab499aa4aa16c2af45d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

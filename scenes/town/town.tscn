@@ -412,6 +412,7 @@ scale = Vector2(0.13226669, 0.13226669)
 texture = ExtResource("28_bjm3s")
 
 [node name="Tutorial" type="Label" parent="." unique_id=431950945]
+visible = false
 offset_left = 1305.0
 offset_top = 177.0
 offset_right = 1758.0
@@ -420,6 +421,7 @@ text = "Storm the Castle"
 label_settings = SubResource("LabelSettings_4yhmd")
 
 [node name="Tutorial2" type="Label" parent="." unique_id=1181917452]
+visible = false
 offset_left = 779.0
 offset_top = 246.0
 offset_right = 1232.0
@@ -428,6 +430,7 @@ text = "Recruit"
 label_settings = SubResource("LabelSettings_4yhmd")
 
 [node name="Tutorial3" type="Label" parent="." unique_id=1291494736]
+visible = false
 offset_left = 145.0
 offset_top = 423.0
 offset_right = 598.0
@@ -436,6 +439,7 @@ text = "Weaponize"
 label_settings = SubResource("LabelSettings_4yhmd")
 
 [node name="Tutorial4" type="Label" parent="." unique_id=912111410]
+visible = false
 offset_left = 202.0
 offset_top = 852.0
 offset_right = 655.0
@@ -444,6 +448,7 @@ text = "Train"
 label_settings = SubResource("LabelSettings_4yhmd")
 
 [node name="Tutorial5" type="Label" parent="." unique_id=1203486029]
+visible = false
 offset_left = 1570.0
 offset_top = 765.0
 offset_right = 2023.0

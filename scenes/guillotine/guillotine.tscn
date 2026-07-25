@@ -20,6 +20,11 @@
 [ext_resource type="Script" uid="uid://dm5l7qkpakfxm" path="res://scenes/guillotine/gargoyle_win.gd" id="15_nxusu"]
 [ext_resource type="Texture2D" uid="uid://b3dnh17wcxalg" path="res://assets/guillotine/guillotine/gargoyle loss.png" id="16_fccpq"]
 [ext_resource type="Script" uid="uid://uktt5smdlmow" path="res://scenes/guillotine/gargoyle_loss.gd" id="17_nxusu"]
+[ext_resource type="AudioStream" uid="uid://bfbj8lfcornin" path="res://assets/sfx/guillotine/knife 8 (1).wav" id="21_ui46s"]
+[ext_resource type="AudioStream" uid="uid://by80rbl5l2xrh" path="res://assets/sfx/guillotine/scream 11.wav" id="22_btaof"]
+[ext_resource type="AudioStream" uid="uid://cfku8si8qqhub" path="res://assets/sfx/guillotine/spatula hit 28.wav" id="23_hwppo"]
+[ext_resource type="Script" uid="uid://b1u3j0ycr8iwu" path="res://scenes/guillotine/success.gd" id="24_btaof"]
+[ext_resource type="Script" uid="uid://dwcioe8rsaa5v" path="res://scenes/guillotine/fail.gd" id="25_hwppo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_10x16"]
 shader = ExtResource("4_prif8")
@@ -33,6 +38,20 @@ bounce = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gxi48"]
 size = Vector2(1925, 20)
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_gxi48"]
+stream_count = 3
+stream_0/stream = ExtResource("21_ui46s")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("22_btaof")
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("23_hwppo")
+stream_2/volume = 0.0
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_hnfpy"]
+stream_count = 1
+stream_0/stream = ExtResource("23_hwppo")
+stream_0/volume = 0.0
 
 [node name="guillotine" type="Node2D" unique_id=959309012 node_paths=PackedStringArray("blade", "head")]
 script = ExtResource("1_woxi1")
@@ -243,3 +262,11 @@ position = Vector2(2232.5, 1221.5)
 texture = ExtResource("16_fccpq")
 script = ExtResource("17_nxusu")
 target = NodePath("../Node2D")
+
+[node name="success" type="AudioStreamPlayer" parent="." unique_id=2138487170]
+stream = SubResource("AudioStreamSynchronized_gxi48")
+script = ExtResource("24_btaof")
+
+[node name="fail" type="AudioStreamPlayer" parent="." unique_id=1873188436]
+stream = SubResource("AudioStreamSynchronized_hnfpy")
+script = ExtResource("25_hwppo")

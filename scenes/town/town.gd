@@ -8,7 +8,7 @@ func _ready():
     Signals.progress_bar_set.connect(restart)
     Signals.progress_bar_set_visibility.emit(false)
     StatsManager.day += 1
-    
+
 func tick(current_tick : int):
     return
     

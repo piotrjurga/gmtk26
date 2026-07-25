@@ -33,10 +33,10 @@ func last_tick():
     super.last_tick()
     if blade_success_height > blade.global_position.y:
         min_height = blade_drop_y
-        blade.global_position.y = blade_drop_y
         Signals.success.emit()
     else:
         Signals.failure.emit()
+    blade.global_position.y = min_height
     enabled = false
 
 func _input(event):
