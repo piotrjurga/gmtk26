@@ -24,5 +24,12 @@ func _physics_process(_delta: float) -> void:
         minions[0].position
     )
     if (p-position).length() < 300.0:
+        $Animation.play('walk')
         velocity = (position - p).normalized() * speed
+        if velocity.x > 0.0:
+            $Sprites.scale.x = -1
+        else:
+            $Sprites.scale.x = 1
         move_and_slide()
+    else:
+        $Animation.stop()

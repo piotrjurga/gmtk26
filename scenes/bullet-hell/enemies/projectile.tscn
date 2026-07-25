@@ -1,18 +1,21 @@
 [gd_scene format=3 uid="uid://c2e8fea0ltu0n"]
 
-[ext_resource type="Texture2D" uid="uid://nruu7s0ldr2d" path="res://icon.svg" id="1_kafko"]
 [ext_resource type="Script" uid="uid://cqfutil280aph" path="res://scenes/bullet-hell/enemies/projectile.gd" id="1_opefv"]
+[ext_resource type="Texture2D" uid="uid://j62wcb3q3ktu" path="res://assets/bullet-hell/spear_throw.png" id="2_opefv"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_uj04i"]
-radius = 9.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n8d6y"]
+size = Vector2(41, 6)
 
 [node name="Projectile" type="Area2D" unique_id=335891914]
 collision_layer = 4
 script = ExtResource("1_opefv")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=289819640]
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("1_kafko")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=10097782]
-shape = SubResource("CircleShape2D_uj04i")
+position = Vector2(43.5, -1)
+shape = SubResource("RectangleShape2D_n8d6y")
+
+[node name="SpearThrow" type="Sprite2D" parent="." unique_id=952205402]
+position = Vector2(1, 3)
+rotation = 1.5707964
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_opefv")

@@ -2,50 +2,81 @@
 
 [ext_resource type="Script" uid="uid://g2pwwab6oqin" path="res://scenes/bullet-hell/minions/minion.gd" id="1_c2eyd"]
 [ext_resource type="Texture2D" uid="uid://nruu7s0ldr2d" path="res://icon.svg" id="2_dxnyw"]
-[ext_resource type="Texture2D" uid="uid://by0qul1o4xx1c" path="res://assets/chlop/body1.png" id="3_2hr1g"]
-[ext_resource type="Texture2D" uid="uid://0fplk6i0bag1" path="res://assets/chlop/body2.png" id="4_du7hq"]
-[ext_resource type="Texture2D" uid="uid://d2yrm8ry43gsn" path="res://assets/chlop/fill1.png" id="5_wqag3"]
-[ext_resource type="Texture2D" uid="uid://t1wdcx7rn10p" path="res://assets/chlop/fill.png" id="6_jngml"]
-[ext_resource type="Texture2D" uid="uid://cs6d5wvinuap2" path="res://assets/chlop/skin1.png" id="7_sxd6w"]
-[ext_resource type="Texture2D" uid="uid://bfciaqe0t0b5v" path="res://assets/chlop/pitchfork1.png" id="8_sxd6w"]
-[ext_resource type="Texture2D" uid="uid://cgypsrbbqywf6" path="res://assets/chlop/armor1.png" id="9_i81sa"]
+[ext_resource type="Texture2D" uid="uid://baad0hddyuk2i" path="res://assets/bullet-hell/pesantrun1.png" id="3_krgny"]
+[ext_resource type="Texture2D" uid="uid://cfbrankard21f" path="res://assets/bullet-hell/pesantrun2.png" id="4_wqag3"]
+[ext_resource type="Texture2D" uid="uid://bsyo4u0pdjtqe" path="res://assets/bullet-hell/armor_peasant.png" id="5_krgny"]
+[ext_resource type="Texture2D" uid="uid://bed5icpxsgn4v" path="res://assets/bullet-hell/pitchfork_peasanthold.png" id="6_krgny"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uj04i"]
 radius = 26.076809
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uj04i"]
-size = Vector2(34, 121)
+size = Vector2(34, 85)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p5viw"]
-radius = 81.394104
+radius = 65.00769
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_uj04i"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_2hr1g")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_du7hq")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 7.0
-}]
+[sub_resource type="Animation" id="Animation_jngml"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/Animation/Body:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_krgny")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites/Animation/Body:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(13.207547, -101.886795)]
+}
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_krgny"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_wqag3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_jngml")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 7.0
-}]
+[sub_resource type="Animation" id="Animation_sxd6w"]
+resource_name = "walk"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprites/Animation/Body:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("3_krgny"), ExtResource("4_wqag3")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprites/Animation/Body:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(13.207547, -101.886795), Vector2(-7.277, -99.437)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i81sa"]
+_data = {
+&"RESET": SubResource("Animation_jngml"),
+&"walk": SubResource("Animation_sxd6w")
+}
 
 [node name="Minion" type="CharacterBody2D" unique_id=665359883 groups=["minions"]]
 collision_mask = 3
@@ -61,14 +92,14 @@ position = Vector2(0, -15)
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1309311867]
-position = Vector2(0, -50.5)
+position = Vector2(0, -32.5)
 shape = SubResource("RectangleShape2D_uj04i")
 
 [node name="AttackRange" type="Area2D" parent="." unique_id=497716543]
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange" unique_id=1904056617]
-position = Vector2(1, -66)
+position = Vector2(1, -57)
 shape = SubResource("CircleShape2D_p5viw")
 
 [node name="Armour" type="Sprite2D" parent="." unique_id=640997024]
@@ -86,32 +117,26 @@ rotation = 0.44678277
 scale = Vector2(0.05682374, 0.96118164)
 texture = ExtResource("2_dxnyw")
 
-[node name="Anim" type="Node2D" parent="." unique_id=318603617]
-position = Vector2(1, -66)
+[node name="Animation" type="AnimationPlayer" parent="." unique_id=250118326]
+libraries/ = SubResource("AnimationLibrary_i81sa")
 
-[node name="Animation" type="Node2D" parent="Anim" unique_id=1231892741]
-scale = Vector2(-0.53, 0.53)
+[node name="Sprites" type="Node2D" parent="." unique_id=1124032455]
 
-[node name="Outline" type="AnimatedSprite2D" parent="Anim/Animation" unique_id=2075778565]
-sprite_frames = SubResource("SpriteFrames_uj04i")
+[node name="ThrowMarker" type="Marker2D" parent="Sprites" unique_id=41803151]
+position = Vector2(17, -84)
 
-[node name="Infill" type="AnimatedSprite2D" parent="Anim/Animation" unique_id=971508261]
-position = Vector2(-4.5, 7)
-sprite_frames = SubResource("SpriteFrames_krgny")
+[node name="Animation" type="Node2D" parent="Sprites" unique_id=1231892741]
+rotation = 3.1415927
+scale = Vector2(0.53, -0.53)
 
-[node name="Skin" type="Sprite2D" parent="Anim/Animation" unique_id=1928364977]
-position = Vector2(-26.5, -59.5)
-texture = ExtResource("7_sxd6w")
+[node name="Body" type="Sprite2D" parent="Sprites/Animation" unique_id=1879042396]
+position = Vector2(13.207547, -101.886795)
+texture = ExtResource("3_krgny")
 
-[node name="Pitchfork" type="Sprite2D" parent="Anim/Animation" unique_id=1764707949]
-visible = false
-position = Vector2(-52.830193, -41.509438)
-texture = ExtResource("8_sxd6w")
+[node name="Armour" type="Sprite2D" parent="Sprites/Animation" unique_id=2074445370]
+position = Vector2(1.8867928, -122.64152)
+texture = ExtResource("5_krgny")
 
-[node name="Armour" type="Sprite2D" parent="Anim/Animation" unique_id=2074445370]
-visible = false
-position = Vector2(-5.5, -27.5)
-texture = ExtResource("9_i81sa")
-
-[node name="ThrowMarker" type="Marker2D" parent="Anim" unique_id=41803151]
-position = Vector2(41, -31)
+[node name="Pitchfork" type="Sprite2D" parent="Sprites/Animation" unique_id=1764707949]
+position = Vector2(-15.09434, -130.18869)
+texture = ExtResource("6_krgny")

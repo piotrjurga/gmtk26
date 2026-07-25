@@ -58,6 +58,9 @@ func remove_minion(id):
 func drop_armour(id):
     army[find(id)].armour = false
 
+func drop_fork(id):
+    army[find(id)].fork = false
+
 func get_gold(target: Target):
     gold += target.gold
 

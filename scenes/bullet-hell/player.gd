@@ -9,8 +9,9 @@ func get_minion_centroid(minions) -> Vector2:
     ) / minions.size()
 
 func throw_fork(minions):
-    var m = minions.filter(func(m): return m.fork).pick_random()
-    m.throw_fork()
+    var fork_bearers = minions.filter(func(m): return m.fork)
+    if !fork_bearers.is_empty():
+        fork_bearers.pick_random().throw_fork()
 
 func _physics_process(delta: float) -> void:
     var minions = get_tree().get_nodes_in_group('minions')
