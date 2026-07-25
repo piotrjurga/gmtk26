@@ -12,13 +12,14 @@ func _ready():
     Signals.last_tick.connect(last_tick)
 
 func last_tick():
-    enabled = false
-    collision_layer = 0
-    collision_mask = 0
     var picked_place : TownPlace.Places = get_parent().picked_place
     
     if picked_place == TownPlace.Places.Street:
-        target = Vector2.ZERO
+        return
+        
+    enabled = false
+    collision_layer = 0
+    collision_mask = 0
     
     for place in places:
         if place.place == picked_place:

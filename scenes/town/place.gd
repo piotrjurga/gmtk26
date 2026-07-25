@@ -1,6 +1,6 @@
 class_name TownPlace extends Node2D
 
-enum Places {Tavern, Gym, Swords, Armour, Street, Boss}
+enum Places {Tavern, Gym, Swords, Armour, Street, Boss, Darts}
 
 @export var place : Places
 @export var area : Area2D

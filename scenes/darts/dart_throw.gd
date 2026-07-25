@@ -2,22 +2,19 @@ class_name DartThrow extends CharacterBody2D
 
 
 const SPEED = 4500.0
+@export var throw : AudioStreamPlayer
+@export var hit : AudioStreamPlayer
 
 @export var target : Vector2 = Vector2.ZERO
+var tween : Tween
 
 func set_target(new_target : Vector2):
+    throw.play()
     target = new_target + Vector2(25 - randf() * 50, 25 - randf() * 50)
     look_at(target)
+    var tween = create_tween()
+    tween.tween_property(self, "global_position", target, 0.2)
+    tween.tween_callback(target_hit)
 
-func _physics_process(delta):
-    if target == Vector2.ZERO:
-        return
-    
-    if global_position.distance_to(target) < 50:
-        global_position = target
-        return
-    
-    var dir = (target - global_position).normalized()    
-    
-    velocity = dir * SPEED
-    move_and_slide()
+func target_hit():
+    hit.play()

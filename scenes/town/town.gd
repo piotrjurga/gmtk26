@@ -10,13 +10,19 @@ func _ready():
             "\nArmour " + str(StatsManager.armour_count()) + \
             "\nForks " + str(StatsManager.fork_count()) + \
             "\nFast soldiers " + str(StatsManager.speed_count())
+    Signals.progress_bar_set.connect(restart)
     
+func restart(value : float):
+    if value == 100.0:
+        progress = 100.0
     
 func place_picked(place : TownPlace.Places):
     picked_place = place
 
 func next_scene() -> PackedScene:
     match picked_place:
+        TownPlace.Places.Darts:
+            return ScenesManager.darts
         TownPlace.Places.Tavern:
             return ScenesManager.tavern
         TownPlace.Places.Gym:
