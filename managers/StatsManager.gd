@@ -65,9 +65,6 @@ func get_gold(target: Target):
     gold += target.gold
 
 func _ready():
-    add_minion(16)
-    get_armour()
-    get_speed()
-    get_fork()
+    add_minion(1)
     Signals.minion_died.connect(remove_minion)
     Signals.target_dead.connect(get_gold)
