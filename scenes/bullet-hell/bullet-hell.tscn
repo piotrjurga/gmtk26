@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://bjmpdolwcqiht"]
 
 [ext_resource type="Script" uid="uid://c3v2f1xc0pvnw" path="res://scenes/bullet-hell/bullet_hell.gd" id="1_eywxy"]
+[ext_resource type="Texture2D" uid="uid://b164tgi8lq053" path="res://assets/bullet-hell/bg.png" id="2_bimlc"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uj04i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5viw"]
+size = Vector2(260, 204)
 
 [node name="BulletHell" type="Node2D" unique_id=1230109447]
 y_sort_enabled = true
@@ -34,3 +38,24 @@ rotation = -1.5707964
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EdgeRight" unique_id=1517909103]
 shape = SubResource("WorldBoundaryShape2D_uj04i")
+
+[node name="Bg" type="Sprite2D" parent="." unique_id=829862860]
+z_index = -1
+position = Vector2(960, 540)
+texture = ExtResource("2_bimlc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bg" unique_id=63469170]
+position = Vector2(-327, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bg/StaticBody2D" unique_id=1920881882]
+position = Vector2(293, -552)
+shape = SubResource("RectangleShape2D_p5viw")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Bg" unique_id=1703771600]
+position = Vector2(-327, 0)
+collision_layer = 16
+collision_mask = 19
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bg/StaticBody2D2" unique_id=75731909]
+position = Vector2(294, 435)
+shape = SubResource("RectangleShape2D_p5viw")
