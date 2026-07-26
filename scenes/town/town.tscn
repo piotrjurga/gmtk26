@@ -8,8 +8,10 @@
 [ext_resource type="Script" uid="uid://cbdk1cwnsyyp6" path="res://scenes/town/target_spot.gd" id="5_06row"]
 [ext_resource type="Texture2D" uid="uid://dn13fi8fvhms4" path="res://assets/main_city/main_city-assets/city_bg.png" id="6_my0xt"]
 [ext_resource type="Texture2D" uid="uid://cc8wl0o2rn2kp" path="res://assets/main_city/main_city-assets/city.png" id="7_fwvjp"]
+[ext_resource type="Script" uid="uid://bkqwfn4girkf1" path="res://scenes/town/recruit_text.gd" id="7_h8fnw"]
 [ext_resource type="Texture2D" uid="uid://b2dq3w8n6y0js" path="res://assets/main_city/main_city-assets/castle_bg.png" id="8_xbtnt"]
 [ext_resource type="Texture2D" uid="uid://du16ntswmw5gt" path="res://assets/main_city/main_city-assets/castle.png" id="9_3sg37"]
+[ext_resource type="Script" uid="uid://camv7p1y8gr74" path="res://scenes/town/castle_label.gd" id="9_sv8qu"]
 [ext_resource type="Texture2D" uid="uid://whiggxw47dce" path="res://assets/main_city/main_city-assets/field_bg.png" id="10_vky2r"]
 [ext_resource type="Texture2D" uid="uid://5wmfynu5hh7n" path="res://assets/main_city/main_city-assets/field.png" id="11_fwdo8"]
 [ext_resource type="Texture2D" uid="uid://bhmg2hh5pdwvl" path="res://assets/main_city/main_city-assets/house_bg.png" id="12_wacgc"]
@@ -157,6 +159,21 @@ shape = SubResource("RectangleShape2D_iu42p")
 position = Vector2(-30.5, -11)
 shape = SubResource("RectangleShape2D_wpqog")
 
+[node name="Recruit" type="Label" parent="tavern" unique_id=2133271207 node_paths=PackedStringArray("timer")]
+offset_left = -149.0
+offset_top = -163.0
+offset_right = 304.0
+offset_bottom = 12.0
+text = "  Recruit 
+peasangs"
+label_settings = SubResource("LabelSettings_oj5b0")
+script = ExtResource("7_h8fnw")
+timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="tavern/Recruit" unique_id=1897070758]
+wait_time = 0.3
+one_shot = true
+
 [node name="boss" type="Node2D" parent="." unique_id=1654516023 node_paths=PackedStringArray("area", "sprite")]
 position = Vector2(1539, 353)
 script = ExtResource("4_8b7wv")
@@ -183,6 +200,21 @@ shape = SubResource("RectangleShape2D_4yhmd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boss/StaticBody2D" unique_id=840313698]
 position = Vector2(44.5, -31)
 shape = SubResource("RectangleShape2D_b3xbq")
+
+[node name="StormTheCastle" type="Label" parent="boss" unique_id=1808920589 node_paths=PackedStringArray("timer")]
+offset_left = -225.0
+offset_top = -158.0
+offset_right = 228.0
+offset_bottom = -50.0
+text = "Storm the Castle
+     to get gold"
+label_settings = SubResource("LabelSettings_oj5b0")
+script = ExtResource("9_sv8qu")
+timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="boss/StormTheCastle" unique_id=1106591036]
+wait_time = 0.3
+one_shot = true
 
 [node name="gym" type="Node2D" parent="." unique_id=480905846 node_paths=PackedStringArray("label", "area", "sprite")]
 position = Vector2(384, 931)
@@ -367,6 +399,11 @@ offset_bottom = 106.56748
 text = "Day"
 label_settings = SubResource("LabelSettings_oj5b0")
 
+[node name="Sprite2D" type="Sprite2D" parent="StatsBar" unique_id=256355520]
+position = Vector2(311.57346, 45.840694)
+scale = Vector2(0.168705, 0.168705)
+texture = ExtResource("21_4yhmd")
+
 [node name="Gold" type="Label" parent="StatsBar" unique_id=75478735 node_paths=PackedStringArray("timer")]
 offset_left = 375.32068
 offset_top = -1.4325217
@@ -380,11 +417,6 @@ timer = NodePath("Timer")
 [node name="Timer" type="Timer" parent="StatsBar/Gold" unique_id=1926654633]
 wait_time = 0.3
 one_shot = true
-
-[node name="Sprite2D" type="Sprite2D" parent="StatsBar/Gold" unique_id=256355520]
-position = Vector2(-63.747223, 47.273216)
-scale = Vector2(0.168705, 0.168705)
-texture = ExtResource("21_4yhmd")
 
 [node name="Army" type="Label" parent="StatsBar" unique_id=1477323806 node_paths=PackedStringArray("timer")]
 offset_left = 580.8876

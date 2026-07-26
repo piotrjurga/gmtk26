@@ -16,6 +16,9 @@ func _ready():
         #label.text = str(cost) + " g"
     
 func pick_place(body : Node2D):
+    if place == Places.Darts:
+        Signals.place_picked.emit(place)
+        return
     if StatsManager.gold < StatsManager.invest:
         Signals.missing_gold.emit()
         return

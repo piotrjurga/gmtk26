@@ -1,17 +1,19 @@
 extends Label
 
+
 var start_pos : Vector2
 @export var timer : Timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    text = str(StatsManager.army.size())
-    
+    if StatsManager.army.size() == 0:
+        visible = true
+    visible = false
     start_pos = global_position
     Signals.missing_peasants.connect(missing)
-    Signals.missing_gold.connect(missing)
     
 func missing():
+    visible = true
     timer.start()
     
 func _physics_process(delta):
