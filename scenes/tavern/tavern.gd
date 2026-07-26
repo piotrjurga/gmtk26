@@ -40,10 +40,14 @@ func _input(event):
     type.pitch_scale = 0.9 + randf() * 0.2
     type.play()
     letter_index += 1
+    
     if letter_index == current_word.length():
         success()
         return
-        
+    
+    if current_word[letter_index] == char(32):
+        letter_index += 1
+
     update_current_label_text()
 
 func update_current_label_text():

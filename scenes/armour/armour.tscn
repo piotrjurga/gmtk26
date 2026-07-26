@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://dooptkbwkfbv5"]
 
 [ext_resource type="Script" uid="uid://cek151lsu5v72" path="res://scenes/armour/armour.gd" id="1_4rhgh"]
-[ext_resource type="Texture2D" uid="uid://dxbxid8a67rxb" path="res://assets/smithy_chestplate/chestplate_background.png" id="2_amb1a"]
 [ext_resource type="Texture2D" uid="uid://nruu7s0ldr2d" path="res://icon.svg" id="2_qqsr2"]
-[ext_resource type="Texture2D" uid="uid://vmf7mnxlbt8g" path="res://assets/smithy_chestplate/chestplate_clean.png" id="3_qqsr2"]
 [ext_resource type="Shader" uid="uid://dth8palkphw3q" path="res://scenes/armour/armour.gdshader" id="3_r42f3"]
-[ext_resource type="Texture2D" uid="uid://bsp17n8dvtfje" path="res://assets/smithy_chestplate/chestplate_rusted.png" id="5_b2tkv"]
+[ext_resource type="Texture2D" uid="uid://bmynt0fu0pjw3" path="res://assets/armour/v2/v2/chestplate_bgv2.png" id="3_x21kr"]
+[ext_resource type="Texture2D" uid="uid://bjcsrhl2cwwxk" path="res://assets/armour/v2/v2/chestplate_cleanv2.png" id="4_ssg56"]
 [ext_resource type="PackedScene" uid="uid://bohk2ejkjy566" path="res://scenes/darts/sight.tscn" id="5_kgeru"]
+[ext_resource type="Texture2D" uid="uid://3tmln5gptin5" path="res://assets/armour/v2/v2/chestplate_rustedv2.png" id="6_hq5w5"]
 [ext_resource type="Texture2D" uid="uid://bgjaohygd0s3l" path="res://assets/smithy_chestplate/chestplate_hammer.png" id="7_5kv3x"]
 [ext_resource type="AudioStream" uid="uid://dalognl1j7nod" path="res://assets/sfx/armour/metal hits metal 10.wav" id="9_b2tkv"]
 [ext_resource type="AudioStream" uid="uid://c17f5fisn2dpv" path="res://assets/sfx/armour/oven ding 2.wav" id="10_bk00s"]
@@ -15,6 +15,8 @@
 [ext_resource type="Script" uid="uid://g66ht0pwvhfb" path="res://scenes/armour/armor_up.gd" id="13_b4mhm"]
 [ext_resource type="Texture2D" uid="uid://b0c7m5fegr85e" path="res://assets/armour/star.png" id="14_x21kr"]
 [ext_resource type="Script" uid="uid://cd03lhrwp1fri" path="res://scenes/armour/star.gd" id="15_ssg56"]
+[ext_resource type="Texture2D" uid="uid://cfx25vvrjotl7" path="res://assets/armour/v2/v2/loss_smith.png" id="16_hq5w5"]
+[ext_resource type="Script" uid="uid://cmeu3we0elqi4" path="res://scenes/armour/smith.gd" id="17_hq5w5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gxi48"]
 shader = ExtResource("3_r42f3")
@@ -38,16 +40,16 @@ stream_idx = 5
 
 [node name="Bg" type="Sprite2D" parent="." unique_id=1460194206]
 position = Vector2(960, 540)
-texture = ExtResource("2_amb1a")
+texture = ExtResource("3_x21kr")
 
 [node name="ArmourGood" type="Sprite2D" parent="." unique_id=1774590243]
 position = Vector2(895, 541)
 scale = Vector2(0.6372081, 0.6372081)
-texture = ExtResource("3_qqsr2")
+texture = ExtResource("4_ssg56")
 
 [node name="ArmourBad" type="Sprite2D" parent="ArmourGood" unique_id=1852762642]
 material = SubResource("ShaderMaterial_gxi48")
-texture = ExtResource("5_b2tkv")
+texture = ExtResource("6_hq5w5")
 
 [node name="Points" type="Node2D" parent="." unique_id=438664028]
 position = Vector2(336, 221)
@@ -337,5 +339,14 @@ position = Vector2(1062, 328)
 texture = ExtResource("14_x21kr")
 offset = Vector2(307, 317)
 script = ExtResource("15_ssg56")
+
+[node name="Target" type="Node2D" parent="." unique_id=776097939]
+position = Vector2(352.5, 679)
+
+[node name="Smith" type="Sprite2D" parent="." unique_id=383611142 node_paths=PackedStringArray("target")]
+position = Vector2(-341, 960)
+texture = ExtResource("16_hq5w5")
+script = ExtResource("17_hq5w5")
+target = NodePath("../Target")
 
 [editable path="Sight"]

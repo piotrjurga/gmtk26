@@ -49,7 +49,7 @@ stream_1/volume = 0.0
 
 [node name="Tavern" type="Node2D" unique_id=2119835233 node_paths=PackedStringArray("word_label", "cough", "type", "type_fail", "cheer")]
 script = ExtResource("1_inl0q")
-words = Array[String](["revolution", "we can do it", "eat the rich", "time for change", "burn them all"])
+words = Array[String](["revolution", "we can do it", "eat the rich", "time for change", "burn them all", "revolt", "rebellion", "strike tonight", "uprise", "vengeance", "take his head"])
 word_label = NodePath("Control/RichTextLabel")
 cough = NodePath("Cough")
 type = NodePath("Type")
@@ -193,7 +193,7 @@ grow_vertical = 2
 theme_override_fonts/normal_font = SubResource("FontVariation_ae3ij")
 theme_override_font_sizes/normal_font_size = 109
 bbcode_enabled = true
-text = "[TAVERN]TIME FOR CHANGE"
+text = "[TAVERN]TAKE HIS HEAD"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
