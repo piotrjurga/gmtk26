@@ -3,6 +3,7 @@ extends Node
 var army = []
 var gold = 5
 var day = 1
+var invest : int = 1
 
 var current_army_id = 1
 
