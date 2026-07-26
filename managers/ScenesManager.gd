@@ -10,6 +10,7 @@ var darts : PackedScene = preload("res://scenes/darts/darts.tscn")
 var guillotine : PackedScene = preload("res://scenes/guillotine/guillotine.tscn")
 var title_screen : PackedScene = preload("res://scenes/title-screen/title_screen.tscn")
 var game_won : PackedScene = preload("res://scenes/game-won/game-won.tscn")
+var game_over : PackedScene = preload("res://scenes/game-over/game_over.tscn")
 
 var current_scene : Scene
 

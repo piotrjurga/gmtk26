@@ -26,7 +26,7 @@ func next_scene() -> PackedScene:
         return ScenesManager.guillotine
     if StatsManager.army.is_empty():
         TargetManager.current_target = null
-        return ScenesManager.title_screen
+        return ScenesManager.game_over
     TargetManager.current_target = null
     return ScenesManager.town
 
