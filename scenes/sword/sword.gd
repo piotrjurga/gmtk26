@@ -13,5 +13,6 @@ func last_tick():
         if !prong.is_sharp():
             Signals.failure.emit()
             return
-            
-    StatsManager.get_fork()
+    
+    for x in range(StatsManager.invest):
+        StatsManager.get_fork()

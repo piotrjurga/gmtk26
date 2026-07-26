@@ -54,6 +54,7 @@ func success():
     cheer.play()
     Signals.success.emit()
     is_success = true
-    StatsManager.add_minion()
+    for x in range(StatsManager.invest):
+        StatsManager.add_minion()
     word_label.text = ("[success]" + current_word).to_upper()
     

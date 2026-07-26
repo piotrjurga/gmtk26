@@ -92,7 +92,8 @@ func last_tick():
     if is_success:
         success.play()
         armour_bad.visible = false
-        StatsManager.get_armour()
+        for x in range(StatsManager.invest):
+            StatsManager.get_armour()
         Signals.success.emit()
     else:
         fail.play()

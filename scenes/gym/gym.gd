@@ -37,6 +37,7 @@ func last_tick():
     if gym_character.got_hit:
         Signals.failure.emit()
     else:
-        StatsManager.get_speed()
+        for x in range(StatsManager.invest):
+            StatsManager.get_speed()
         Signals.success.emit()
         success.play()
