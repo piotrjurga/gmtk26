@@ -10,6 +10,10 @@ signal progress_bar_set_visibility(value : bool)
 # town
 signal place_picked(place : TownPlace.Places)
 signal missing_gold()
+signal missing_peasants()
+signal incorrect_dmg()
+signal incorrect_armour()
+signal incorrect_speed()
 
 # bullet hell
 signal minion_died(id: int)

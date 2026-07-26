@@ -23,6 +23,8 @@ func finished():
     skip()
     
 func skip():
+    if is_started:
+        return
     videos[video_idx].stop()
     videos[video_idx].visible = false
     
@@ -36,5 +38,6 @@ func skip():
     videos[video_idx].visible = true
     
 func start_game():
+    is_started = true
     Signals.start_new_game.emit()
     queue_free()
