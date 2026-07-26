@@ -134,9 +134,11 @@ position = Vector2(13.207547, -101.886795)
 texture = ExtResource("3_krgny")
 
 [node name="Armour" type="Sprite2D" parent="Sprites/Animation" unique_id=2074445370]
+visible = false
 position = Vector2(1.8867928, -122.64152)
 texture = ExtResource("5_krgny")
 
 [node name="Pitchfork" type="Sprite2D" parent="Sprites/Animation" unique_id=1764707949]
+visible = false
 position = Vector2(-15.09434, -130.18869)
 texture = ExtResource("6_krgny")
