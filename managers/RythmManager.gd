@@ -43,7 +43,6 @@ func set_stream(stream_index : int):
             stream.set_sync_stream_volume(i, 0)
         else:
             stream.set_sync_stream_volume(i, -60)
-            
     
 func finished():
     song_position = 0.0
@@ -66,7 +65,6 @@ func _process(_delta):
         song_position -= AudioServer.get_output_latency()
         song_position_in_beats = int(floor(song_position / sec_per_beat)) + beats_before_start
         _report_beat()
-
 
 func _report_beat():
     var last_measure = measure

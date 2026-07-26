@@ -4,7 +4,10 @@
 [ext_resource type="AudioStream" uid="uid://bodj1ek1ady5s" path="res://assets/Music/menuambient.wav" id="2_ir78n"]
 [ext_resource type="Texture2D" uid="uid://df0p5bxkkvs12" path="res://assets/title-screen/title_screen_assets/clouds.png" id="3_r6myx"]
 [ext_resource type="Texture2D" uid="uid://dkd2d7lxm7220" path="res://assets/title-screen/title_screen_assets/castle.png" id="4_7b7la"]
-[ext_resource type="VideoStream" uid="uid://dteoe2vkeye0q" path="res://assets/Video/title screen converted to godot.ogv" id="5_7b7la"]
+[ext_resource type="VideoStream" uid="uid://cqwa36dsp4aew" path="res://assets/Video/title_screen_assets/title_screen.ogv" id="4_kovq1"]
+[ext_resource type="VideoStream" uid="uid://u3eg054rw0h0" path="res://assets/Video/title_screen_assets/title_tutorial.ogv" id="5_7b7la"]
+[ext_resource type="AudioStream" uid="uid://kuk483o53bnq" path="res://assets/Video/title_screen_assets/thunder_sfx.wav" id="7_ytrci"]
+[ext_resource type="Script" uid="uid://bk5plprc8qq8a" path="res://scenes/title-screen/audio_stream_player.gd" id="8_yjdgj"]
 
 [node name="TitleScreen" type="Node2D" unique_id=294450116 node_paths=PackedStringArray("videos")]
 script = ExtResource("1_4x23d")
@@ -23,17 +26,28 @@ texture = ExtResource("4_7b7la")
 visible = false
 offset_right = 40.0
 offset_bottom = 40.0
-stream = ExtResource("5_7b7la")
-volume_db = -80.0
+stream = ExtResource("4_kovq1")
+volume_db = -10.0
 
 [node name="VideoStreamPlayer2" type="VideoStreamPlayer" parent="." unique_id=832598615]
 visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 stream = ExtResource("5_7b7la")
-volume_db = -80.0
-loop = true
+volume_db = -10.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1213426288]
 stream = ExtResource("2_ir78n")
+volume_db = -1.675
 autoplay = true
+
+[node name="ThunderDelay" type="Timer" parent="." unique_id=768664476]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ThunderDelay" unique_id=1678944710 node_paths=PackedStringArray("timer")]
+stream = ExtResource("7_ytrci")
+volume_db = -10.0
+script = ExtResource("8_yjdgj")
+timer = NodePath("..")

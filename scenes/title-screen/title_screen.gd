@@ -10,17 +10,15 @@ func _ready():
     Signals.title_screen.emit()
     videos[video_idx].play()
     videos[video_idx].visible = true
-    for video in videos:
-        video.finished.connect(finished)
+    #for video in videos:
+        #video.finished.connect(finished)
 
 func _input(event):
     if Input.is_action_just_pressed("space"):
         skip()
 
-func finished():
-    if videos[video_idx].loop:
-        return
-    skip()
+#func finished():
+    #videos[video_idx].set_stream_position(videos[video_idx].get_stream_length() - 0.5)
     
 func skip():
     if is_started:

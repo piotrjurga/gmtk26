@@ -14,19 +14,19 @@
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_kenwu"]
 stream_count = 7
 stream_0/stream = ExtResource("4_7tegy")
-stream_0/volume = 0.0
+stream_0/volume = -60.0
 stream_1/stream = ExtResource("5_7tegy")
-stream_1/volume = 0.0
+stream_1/volume = -60.0
 stream_2/stream = ExtResource("6_72hui")
-stream_2/volume = 0.0
+stream_2/volume = -60.0
 stream_3/stream = ExtResource("7_qc1qe")
-stream_3/volume = 0.0
+stream_3/volume = -60.0
 stream_4/stream = ExtResource("9_ak0dy")
-stream_4/volume = 0.0
+stream_4/volume = -60.0
 stream_5/stream = ExtResource("8_kmnq6")
-stream_5/volume = 0.0
+stream_5/volume = -60.0
 stream_6/stream = ExtResource("10_ak0dy")
-stream_6/volume = 0.0
+stream_6/volume = -60.0
 
 [node name="RythmManager" type="Node" unique_id=82670960 node_paths=PackedStringArray("pip_sound", "pop_sound", "music", "delay_start_timer")]
 script = ExtResource("1_kenwu")
