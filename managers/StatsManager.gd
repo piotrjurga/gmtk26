@@ -7,6 +7,15 @@ var invest : int = 1
 
 var current_army_id = 1
 
+func reset():
+    army = []
+    gold = 5
+    day = 1
+    invest = 1
+
+    current_army_id = 1
+    add_minion(1)
+
 func army_count():
     return army.size()
 
@@ -69,3 +78,4 @@ func _ready():
     add_minion(1)
     Signals.minion_died.connect(remove_minion)
     Signals.target_dead.connect(get_gold)
+    Signals.title_screen.connect(reset)

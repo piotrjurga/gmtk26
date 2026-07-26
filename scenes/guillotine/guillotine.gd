@@ -53,6 +53,6 @@ func next_scene() -> PackedScene:
     TargetManager.current_target = null
     
     if TargetManager.king_target == null:
-        return ScenesManager.town
+        return ScenesManager.game_won
         
     return ScenesManager.town

@@ -22,11 +22,11 @@ func enemy_down():
     enemy_count -= 1
 
 func next_scene() -> PackedScene:
-    if StatsManager.army.is_empty():
-        TargetManager.current_target = null
-        return ScenesManager.town # TODO(piotr): game over
     if count_down:
         return ScenesManager.guillotine
+    if StatsManager.army.is_empty():
+        TargetManager.current_target = null
+        return ScenesManager.title_screen
     TargetManager.current_target = null
     return ScenesManager.town
 

@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://5kr3iiso6v3m"]
+
+[ext_resource type="Texture2D" uid="uid://df0p5bxkkvs12" path="res://assets/title-screen/title_screen_assets/clouds.png" id="1_asdji"]
+[ext_resource type="Script" uid="uid://bo7yl3m3g8e1v" path="res://scenes/game-over/clouds_2.gd" id="2_828xe"]
+[ext_resource type="Texture2D" uid="uid://dkd2d7lxm7220" path="res://assets/title-screen/title_screen_assets/castle.png" id="2_dymkb"]
+[ext_resource type="AudioStream" uid="uid://bhse8s8kxtu0k" path="res://assets/sfx/game-over/death.wav" id="3_828xe"]
+[ext_resource type="FontFile" uid="uid://ba3ym60trydwg" path="res://assets/Fonts/Almendra_Display/AlmendraDisplay-Regular.ttf" id="4_iaii3"]
+[ext_resource type="Script" uid="uid://mb1687v77oyd" path="res://scenes/game-over/you_died.gd" id="6_828xe"]
+
+[sub_resource type="FontVariation" id="FontVariation_lgfpo"]
+base_font = ExtResource("4_iaii3")
+variation_embolden = 0.93
+
+[sub_resource type="LabelSettings" id="LabelSettings_b4r5c"]
+font = SubResource("FontVariation_lgfpo")
+font_size = 120
+font_color = Color(1, 0.3372549, 0, 1)
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_iaii3"]
+font = SubResource("FontVariation_lgfpo")
+font_size = 45
+font_color = Color(1, 0.3372549, 0, 1)
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[node name="GameOver" type="Node2D" unique_id=1774875898]
+
+[node name="Clouds2" type="Sprite2D" parent="." unique_id=826259901]
+modulate = Color(1, 0.03529412, 0, 1)
+position = Vector2(960, 540)
+scale = Vector2(1.0981288, 1.0981288)
+texture = ExtResource("1_asdji")
+script = ExtResource("2_828xe")
+
+[node name="Castle" type="Sprite2D" parent="." unique_id=1500081263]
+modulate = Color(1, 0.654902, 0, 1)
+position = Vector2(960, 541)
+texture = ExtResource("2_dymkb")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1054292154]
+stream = ExtResource("3_828xe")
+volume_db = -1.675
+autoplay = true
+
+[node name="YouDied" type="Label" parent="." unique_id=1855994838]
+offset_left = 645.0
+offset_top = 532.0
+offset_right = 1262.0
+offset_bottom = 707.0
+text = "You all Died"
+label_settings = SubResource("LabelSettings_b4r5c")
+horizontal_alignment = 1
+script = ExtResource("6_828xe")
+
+[node name="continue" type="Label" parent="." unique_id=437753681]
+offset_left = 1230.0
+offset_top = 1004.0
+offset_right = 1909.0
+offset_bottom = 1179.0
+text = "Press space top return to title screen"
+label_settings = SubResource("LabelSettings_iaii3")
+horizontal_alignment = 1

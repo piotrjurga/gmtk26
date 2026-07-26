@@ -13,7 +13,7 @@ var wigs : Array[Texture]
 var title : Array[String] = [
     "Sir",
     "Lord",
-    "Count",
+    "Baron",
 ]
 var names : Array[String] = [
     "Baguette",

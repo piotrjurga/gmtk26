@@ -11,7 +11,7 @@
 
 [node name="TitleScreen" type="Node2D" unique_id=294450116 node_paths=PackedStringArray("videos")]
 script = ExtResource("1_4x23d")
-videos = [NodePath("VideoStreamPlayer"), NodePath("VideoStreamPlayer2")]
+videos = [NodePath("VideoStreamPlayer")]
 stream_idx = 99
 
 [node name="Clouds" type="Sprite2D" parent="." unique_id=1897907973]

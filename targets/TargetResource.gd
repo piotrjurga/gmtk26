@@ -14,6 +14,6 @@ class_name Target extends Resource
 
 func full_name():
     if title == "King":
-        return 'Emperor ' + name
+        return 'Count ' + name
         
     return title + ' ' + name

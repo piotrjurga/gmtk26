@@ -27,8 +27,8 @@ func init_from_target(new_target : Target):
             overlay.modulate = color_sir
         "Lord":
             overlay.modulate = color_lord
-        "Count":
+        "Baron":
             overlay.modulate = color_count
-        "King":
+        "Count":
             overlay.modulate = color_king
     

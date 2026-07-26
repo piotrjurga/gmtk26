@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://d38ptfnjue7vt"]
+
+[ext_resource type="Script" uid="uid://db3sj2ugifngb" path="res://scenes/game-won/game_won.gd" id="1_rec5t"]
+[ext_resource type="VideoStream" uid="uid://ck867fhyws0l" path="res://assets/Video/title_screen_assets/title_win_screen.ogv" id="2_efii3"]
+[ext_resource type="Texture2D" uid="uid://df0p5bxkkvs12" path="res://assets/title-screen/title_screen_assets/clouds.png" id="2_ylimo"]
+[ext_resource type="AudioStream" uid="uid://bodj1ek1ady5s" path="res://assets/Music/menuambient.wav" id="3_efii3"]
+[ext_resource type="Texture2D" uid="uid://dkd2d7lxm7220" path="res://assets/title-screen/title_screen_assets/castle.png" id="3_woqp8"]
+[ext_resource type="AudioStream" uid="uid://wqehv1lrx45y" path="res://assets/sfx/game-won/glockenspiel magic 7.wav" id="4_pqk2i"]
+[ext_resource type="Script" uid="uid://bk5plprc8qq8a" path="res://scenes/title-screen/audio_stream_player.gd" id="5_kf3vn"]
+[ext_resource type="AudioStream" uid="uid://ievf8mt47h6w" path="res://assets/sfx/game-won/spring tension 18.wav" id="6_ylimo"]
+[ext_resource type="AudioStream" uid="uid://s0xj8tvycpe3" path="res://assets/sfx/game-won/spring tube 7.wav" id="7_woqp8"]
+[ext_resource type="FontFile" uid="uid://ba3ym60trydwg" path="res://assets/Fonts/Almendra_Display/AlmendraDisplay-Regular.ttf" id="10_spahy"]
+[ext_resource type="Script" uid="uid://b0k8sfefoal5a" path="res://scenes/town/day_count.gd" id="11_yfcav"]
+
+[sub_resource type="FontVariation" id="FontVariation_5jysw"]
+base_font = ExtResource("10_spahy")
+variation_embolden = 0.93
+
+[sub_resource type="LabelSettings" id="LabelSettings_qhu57"]
+font = SubResource("FontVariation_5jysw")
+font_size = 66
+font_color = Color(1, 0.8901961, 0.81960785, 1)
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[node name="GameWon" type="Node2D" unique_id=183011999 node_paths=PackedStringArray("videos")]
+script = ExtResource("1_rec5t")
+videos = [NodePath("VideoStreamPlayer")]
+stream_idx = 99
+
+[node name="Clouds" type="Sprite2D" parent="." unique_id=488291832]
+position = Vector2(960, 540)
+texture = ExtResource("2_ylimo")
+
+[node name="Castle" type="Sprite2D" parent="." unique_id=770179198]
+position = Vector2(960, 541)
+texture = ExtResource("3_woqp8")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=892151092]
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("2_efii3")
+volume_db = -10.0
+autoplay = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1597599744]
+stream = ExtResource("3_efii3")
+volume_db = -1.675
+autoplay = true
+
+[node name="Delay" type="Timer" parent="." unique_id=1918252571]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="Magic" type="AudioStreamPlayer" parent="Delay" unique_id=1770346175 node_paths=PackedStringArray("timer")]
+stream = ExtResource("4_pqk2i")
+volume_db = -10.0
+script = ExtResource("5_kf3vn")
+timer = NodePath("..")
+
+[node name="Delay2" type="Timer" parent="." unique_id=1770335101]
+wait_time = 1.2999999999999998
+one_shot = true
+autostart = true
+
+[node name="Tension" type="AudioStreamPlayer" parent="Delay2" unique_id=640048322 node_paths=PackedStringArray("timer")]
+stream = ExtResource("6_ylimo")
+volume_db = -10.0
+script = ExtResource("5_kf3vn")
+timer = NodePath("..")
+
+[node name="Delay3" type="Timer" parent="." unique_id=810211959]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="Break" type="AudioStreamPlayer" parent="Delay3" unique_id=1211877134 node_paths=PackedStringArray("timer")]
+stream = ExtResource("7_woqp8")
+volume_db = -10.0
+script = ExtResource("5_kf3vn")
+timer = NodePath("..")
+
+[node name="DayCount" type="Label" parent="." unique_id=100831976]
+offset_left = 165.45627
+offset_right = 543.4563
+offset_bottom = 108.0
+text = "1"
+label_settings = SubResource("LabelSettings_qhu57")
+script = ExtResource("11_yfcav")
+
+[node name="Day" type="Label" parent="DayCount" unique_id=269834601]
+layout_mode = 0
+offset_left = -148.266
+offset_top = -1.4325217
+offset_right = 229.734
+offset_bottom = 106.56748
+text = "Day"
+label_settings = SubResource("LabelSettings_qhu57")
