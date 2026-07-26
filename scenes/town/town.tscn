@@ -331,7 +331,7 @@ script = ExtResource("5_06row")
 position = Vector2(983, 726)
 collision_layer = 3
 script = ExtResource("1_n11nm")
-places = [NodePath("../tavern"), NodePath("../boss"), NodePath("../gym"), NodePath("../swords"), NodePath("../armour"), null]
+places = [NodePath("../tavern"), NodePath("../boss"), NodePath("../gym"), NodePath("../swords"), NodePath("../armour")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1853602988]
 shape = SubResource("CircleShape2D_gxi48")
@@ -564,10 +564,11 @@ text = "Too few peasants"
 label_settings = SubResource("LabelSettings_sv8qu")
 script = ExtResource("30_4axs1")
 
-[node name="Invest" type="Node2D" parent="." unique_id=1423187423 node_paths=PackedStringArray("change", "investment_label")]
+[node name="Invest" type="Node2D" parent="." unique_id=1423187423 node_paths=PackedStringArray("change", "investment_label", "character")]
 script = ExtResource("30_bjm3s")
 change = NodePath("AudioStreamPlayer")
 investment_label = NodePath("Invest")
+character = NodePath("../CharacterBody2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="Invest" unique_id=221149668]
 position = Vector2(1025, 1021)

@@ -2,6 +2,7 @@ class_name Invest extends Node2D
 
 @export var change : AudioStreamPlayer
 @export var investment_label : Label
+@export var character : CharacterBody2D
 var invest_toggle_values : Array[int] = [1, 2, 5, 10]
 var tween : Tween
 
@@ -24,6 +25,8 @@ func set_init_investment():
     
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _input(event):
+    if character.picked_place != TownPlace.Places.Street:
+        return
     if Input.is_action_just_pressed("space"):
         toggle()
 
