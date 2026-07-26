@@ -19,6 +19,7 @@ signal incorrect_speed()
 signal minion_died(id: int)
 signal enemy_died()
 signal scene_done(success : bool)
+signal weapon_thrown()
 
 # target
 signal target_dead(target : Target)

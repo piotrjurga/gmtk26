@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dg5aybwiap24h"
+path="res://.godot/imported/woosh 5.wav-69f4df5e5071a062909a1b57cb6a28ff.sample"
+
+[deps]
+
+source_file="res://assets/sfx/fight/woosh 5.wav"
+dest_files=["res://.godot/imported/woosh 5.wav-69f4df5e5071a062909a1b57cb6a28ff.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

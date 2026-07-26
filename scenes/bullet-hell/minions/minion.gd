@@ -13,6 +13,8 @@ var id = -1
 var armour = false
 var fork = false
 
+@export var armour_drop_sound : AudioStreamPlayer
+
 func throw_fork():
     if !fork: return
     fork = false
@@ -45,9 +47,18 @@ func die():
         $Animation.stop()
 
 func drop_armour():
+    armour_drop_sound.play()
     armour = false
-    $Sprites/Animation/Armour.visible = true
+    $Sprites/Animation/Armour.visible = false
     StatsManager.drop_armour(id)
+    
+    var armour_on_floor : Node2D = $Sprites/Animation/Armour.duplicate()
+    armour_on_floor.visible = true
+    self.get_parent().add_child(armour_on_floor)
+    armour_on_floor.global_position = $Sprites/Animation/Armour.global_position
+    armour_on_floor.scale = Vector2(0.7, 0.7)
+    armour_on_floor.rotation_degrees = -45
+
 
 func get_hit(area: Area2D):
     area.destroy()
@@ -76,6 +87,8 @@ func follow_target():
     var centroid = get_minion_centroid(minions)
 
     var t_pos = target.global_position
+    if t_pos == Vector2.ZERO:
+        t_pos = global_position
     var delta = t_pos - global_position
 
     var dest_is_center = (centroid - t_pos).length() < 10.0

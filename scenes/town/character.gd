@@ -8,12 +8,15 @@ var enabled : bool = true
 var target : Vector2
 var tween : Tween 
 var picked_place : TownPlace.Places = TownPlace.Places.Street
+@export var step : AudioStreamPlayer
 
 @onready var sprite = $Sprite2D
 var crowd_one = load('res://assets/main_city/crowd_map_alone.png')
 var crowd_small = load('res://assets/main_city/crowd_map_small.png')
 var crowd_medium = load('res://assets/main_city/crowd_map_medium.png')
 var crowd_big = load('res://assets/main_city/crowd_map_big.png')
+
+var move_tween : Tween
 
 func _ready():
     var n = StatsManager.army.size()
@@ -65,8 +68,25 @@ func move_to_target():
     var dir = (target - global_position).normalized()    
     
     velocity = dir * SPEED * 2
-    move_and_slide()
+    move()
 
+func move():
+    if !step.playing && velocity != Vector2.ZERO:
+        step.pitch_scale = 0.9 + 0.2 * randf()
+        step.play()
+    
+    if !move_tween is Tween && velocity != Vector2.ZERO:
+        move_tween = create_tween()
+        move_tween.tween_property(sprite, "rotation_degrees", -15, 0.05)
+        move_tween.tween_property(sprite, "rotation_degrees", 15, 0.05)
+        move_tween.tween_property(sprite, "rotation_degrees", 0, 0.05)
+        move_tween.tween_callback(clear_tween)
+    move_and_slide()
+    
+func clear_tween():
+    move_tween.kill()
+    move_tween = null
+    
 func _physics_process(delta):
     if not enabled:
         move_to_target()
@@ -82,4 +102,4 @@ func _physics_process(delta):
     else:
         velocity.y = move_toward(velocity.y, 0, SPEED)
 
-    move_and_slide()
+    move()

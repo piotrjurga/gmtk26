@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dskp8bdwmdkrk" path="res://scenes/bullet-hell/enemies/count.gd" id="1_lnby1"]
 [ext_resource type="Texture2D" uid="uid://cv5ftrit7ccny" path="res://assets/bullet-hell/count.png" id="2_bwxwe"]
 [ext_resource type="Texture2D" uid="uid://dsgk6jfln37j0" path="res://assets/bullet-hell/count2.png" id="3_2ifk8"]
+[ext_resource type="PackedScene" uid="uid://dd5hgml0v4nxi" path="res://scenes/count-head/count_head.tscn" id="4_2ifk8"]
 
 [sub_resource type="Animation" id="Animation_uk5dg"]
 length = 0.001
@@ -72,10 +73,11 @@ size = Vector2(34, 121)
 [sub_resource type="CircleShape2D" id="CircleShape2D_6d1v2"]
 radius = 19.0
 
-[node name="Count" type="CharacterBody2D" unique_id=1963144886]
+[node name="Count" type="CharacterBody2D" unique_id=1963144886 node_paths=PackedStringArray("head")]
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_lnby1")
+head = NodePath("Sprites/Scale/CountHead")
 
 [node name="Animation" type="AnimationPlayer" parent="." unique_id=160936537]
 root_node = NodePath("../Sprites/Scale/Body")
@@ -100,3 +102,8 @@ scale = Vector2(0.5, 0.5)
 
 [node name="Body" type="Sprite2D" parent="Sprites/Scale" unique_id=819563866]
 texture = ExtResource("2_bwxwe")
+
+[node name="CountHead" parent="Sprites/Scale" unique_id=1254211295 instance=ExtResource("4_2ifk8")]
+modulate = Color(1, 0.3764706, 1, 1)
+position = Vector2(-18, -74)
+scale = Vector2(0.18433496, 0.18433496)

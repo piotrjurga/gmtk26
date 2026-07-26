@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bhrrsdi63ux5d"
+path="res://.godot/imported/oof 17 (1).wav-b00f83ab108009de1bf1737bbcc6b4a8.sample"
+
+[deps]
+
+source_file="res://assets/sfx/fight/oof 17 (1).wav"
+dest_files=["res://.godot/imported/oof 17 (1).wav-b00f83ab108009de1bf1737bbcc6b4a8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

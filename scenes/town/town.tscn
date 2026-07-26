@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://c74rlaufmmve5" path="res://assets/Random assets-assets/scroll.png" id="18_fwdo8"]
 [ext_resource type="Script" uid="uid://b0k8sfefoal5a" path="res://scenes/town/day_count.gd" id="19_s1uhr"]
 [ext_resource type="Script" uid="uid://dhohpuoa27rv1" path="res://scenes/town/gold.gd" id="20_hhop4"]
+[ext_resource type="AudioStream" uid="uid://11avufpp0kgf" path="res://assets/sfx/town/footstep grass 6.wav" id="20_lgueu"]
 [ext_resource type="Texture2D" uid="uid://dd5gbtiisr7fx" path="res://assets/Random assets-assets/Random assets-assets/coin.png" id="21_4yhmd"]
 [ext_resource type="Script" uid="uid://cvi356gtvv7u6" path="res://scenes/town/army.gd" id="21_o16h7"]
 [ext_resource type="Texture2D" uid="uid://connmcvr7w0td" path="res://assets/Random assets-assets/Random assets-assets/pesant_upnoarrow.png" id="22_wpqog"]
@@ -37,12 +38,12 @@
 [ext_resource type="AudioStream" uid="uid://b5dbtavl2kdo7" path="res://assets/sfx/tavern/keyboard mechanical single key 6.wav" id="32_67633"]
 [ext_resource type="Script" uid="uid://bg3q8lpvxcejd" path="res://scenes/town/invest_img.gd" id="32_n51ow"]
 
-[sub_resource type="FontVariation" id="FontVariation_5jysw"]
+[sub_resource type="FontVariation" id="FontVariation_h8fnw"]
 base_font = ExtResource("17_my0xt")
 variation_embolden = 0.93
 
 [sub_resource type="LabelSettings" id="LabelSettings_oj5b0"]
-font = SubResource("FontVariation_5jysw")
+font = SubResource("FontVariation_h8fnw")
 font_size = 66
 font_color = Color(1, 0.8901961, 0.81960785, 1)
 outline_size = 12
@@ -77,6 +78,10 @@ radius = 18.027756
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0w7qi"]
 size = Vector2(217, 1729)
+
+[sub_resource type="FontVariation" id="FontVariation_5jysw"]
+base_font = ExtResource("17_my0xt")
+variation_embolden = 0.93
 
 [sub_resource type="LabelSettings" id="LabelSettings_4yhmd"]
 font = SubResource("FontVariation_5jysw")
@@ -205,7 +210,7 @@ shape = SubResource("RectangleShape2D_b3xbq")
 offset_left = -225.0
 offset_top = -158.0
 offset_right = 228.0
-offset_bottom = -50.0
+offset_bottom = 17.0
 text = "Storm the Castle
      to get gold"
 label_settings = SubResource("LabelSettings_oj5b0")
@@ -327,18 +332,24 @@ shape = SubResource("RectangleShape2D_1k5f7")
 position = Vector2(168, 106)
 script = ExtResource("5_06row")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1037026528 node_paths=PackedStringArray("places")]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1037026528 node_paths=PackedStringArray("places", "step")]
 position = Vector2(983, 726)
 collision_layer = 3
 script = ExtResource("1_n11nm")
 places = [NodePath("../tavern"), NodePath("../boss"), NodePath("../gym"), NodePath("../swords"), NodePath("../armour")]
+step = NodePath("step")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1853602988]
 shape = SubResource("CircleShape2D_gxi48")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=706238606]
+position = Vector2(2, 26)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_gxugk")
+offset = Vector2(-4, -52)
+
+[node name="step" type="AudioStreamPlayer" parent="CharacterBody2D" unique_id=2127248317]
+stream = ExtResource("20_lgueu")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=507702271]
 visible = false

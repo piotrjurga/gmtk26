@@ -64,6 +64,7 @@ func shoot():
             var t = transform.translated(weapon.position)
             p.transform = t.looking_at(t_pos)
             add_sibling(p)
+            Signals.weapon_thrown.emit()
         if shot_count == 3:
             shot_count = 0
             state = State.WALK

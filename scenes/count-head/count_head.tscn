@@ -12,15 +12,20 @@
 [ext_resource type="Texture2D" uid="uid://ch3nti7hvb8c6" path="res://assets/count/count generator-assets/mouth3.png" id="8_vjilk"]
 [ext_resource type="Script" uid="uid://du5qda2mh7w2k" path="res://nose.gd" id="10_8mmkl"]
 [ext_resource type="Texture2D" uid="uid://dq8nl0htucp1m" path="res://assets/count/count generator-assets/nose1.png" id="10_vf1f2"]
+[ext_resource type="Texture2D" uid="uid://dwexap6ikptx1" path="res://assets/count/count generator-assets/mouth4.png" id="11_3ydro"]
 [ext_resource type="Texture2D" uid="uid://djps6yb146day" path="res://assets/count/count generator-assets/nose2.png" id="11_8mmkl"]
 [ext_resource type="Texture2D" uid="uid://c0p6i38unkc2x" path="res://assets/count/count generator-assets/nose3.png" id="12_3ydro"]
 [ext_resource type="Texture2D" uid="uid://bcsyd3n8ue57o" path="res://assets/count/count generator-assets/eyes1.png" id="13_sfrm6"]
 [ext_resource type="Texture2D" uid="uid://cj6erd5gdc2ws" path="res://assets/count/count generator-assets/eyes2.png" id="14_r3bbu"]
 [ext_resource type="Texture2D" uid="uid://de2ojleoc6xws" path="res://assets/count/count generator-assets/eyes3.png" id="15_ecquj"]
 [ext_resource type="Texture2D" uid="uid://bxbjki8ll5g58" path="res://assets/count/count generator-assets/wig1.png" id="16_7ai0i"]
+[ext_resource type="Texture2D" uid="uid://brh57g6vtr52c" path="res://assets/count/count generator-assets/nose4.png" id="16_sfrm6"]
+[ext_resource type="Texture2D" uid="uid://4whiry56pi7t" path="res://assets/count/count generator-assets/nose5.png" id="17_r3bbu"]
 [ext_resource type="Texture2D" uid="uid://bd0m5l4xw1xos" path="res://assets/count/count generator-assets/wig2.png" id="17_twy2n"]
 [ext_resource type="Texture2D" uid="uid://de646aehm1gnc" path="res://assets/count/count generator-assets/wig3.png" id="18_yu0gm"]
 [ext_resource type="Texture2D" uid="uid://vfk43211kqb2" path="res://assets/count/count generator-assets/wig4.png" id="19_3r4q8"]
+[ext_resource type="Texture2D" uid="uid://c863pc7f2frx7" path="res://assets/count/count generator-assets/eyes4.png" id="21_ecquj"]
+[ext_resource type="Texture2D" uid="uid://bi4pl4ux777sv" path="res://assets/count/count generator-assets/eyes5.png" id="22_7ai0i"]
 
 [node name="CountHead" type="Node2D" unique_id=1254211295 node_paths=PackedStringArray("eyes", "mouth", "neck", "nose", "wig", "neck_background")]
 script = ExtResource("1_fjo7r")
@@ -80,19 +85,28 @@ position = Vector2(-4, 67)
 texture = ExtResource("7_xbg5b")
 
 [node name="Mouth3" type="Sprite2D" parent="Mouth" unique_id=936235628]
+visible = false
 modulate = Color(1.3979995, 1.269694, 0.9133265, 1)
 position = Vector2(-8, 61)
 texture = ExtResource("8_vjilk")
+
+[node name="Mouth4" type="Sprite2D" parent="Mouth" unique_id=1104209517]
+visible = false
+modulate = Color(1.3979995, 1.269694, 0.9133265, 1)
+position = Vector2(3, 59)
+texture = ExtResource("11_3ydro")
 
 [node name="Nose" type="Node2D" parent="." unique_id=2014848782]
 script = ExtResource("10_8mmkl")
 
 [node name="Nose1" type="Sprite2D" parent="Nose" unique_id=409996465]
+visible = false
 modulate = Color(1.3979995, 1.269694, 0.9133265, 1)
 position = Vector2(-10, -12)
 texture = ExtResource("10_vf1f2")
 
 [node name="Nose2" type="Sprite2D" parent="Nose" unique_id=2121659455]
+visible = false
 modulate = Color(1.3979995, 1.269694, 0.9133265, 1)
 position = Vector2(-25, -5)
 texture = ExtResource("11_8mmkl")
@@ -102,6 +116,17 @@ visible = false
 modulate = Color(1.3979995, 1.269694, 0.9133265, 1)
 position = Vector2(14, -27)
 texture = ExtResource("12_3ydro")
+
+[node name="Nose4" type="Sprite2D" parent="Nose" unique_id=1285766546]
+modulate = Color(1.3979995, 1.269694, 0.9133265, 1)
+position = Vector2(-11, -15)
+texture = ExtResource("16_sfrm6")
+
+[node name="Nose5" type="Sprite2D" parent="Nose" unique_id=1343974105]
+visible = false
+modulate = Color(1.3979995, 1.269694, 0.9133265, 1)
+position = Vector2(-10, -11)
+texture = ExtResource("17_r3bbu")
 
 [node name="Eyes" type="Node2D" parent="." unique_id=1272614605]
 position = Vector2(4, -6)
@@ -114,6 +139,7 @@ position = Vector2(-12, -48)
 texture = ExtResource("13_sfrm6")
 
 [node name="Eyes2" type="Sprite2D" parent="Eyes" unique_id=1845680432]
+visible = false
 modulate = Color(1.3979995, 1.269694, 0.9133265, 1)
 position = Vector2(-17, -58)
 texture = ExtResource("14_r3bbu")
@@ -123,6 +149,17 @@ visible = false
 modulate = Color(1.3979995, 1.269694, 0.9133265, 1)
 position = Vector2(-20, -45)
 texture = ExtResource("15_ecquj")
+
+[node name="Eyes4" type="Sprite2D" parent="Eyes" unique_id=1585497123]
+visible = false
+modulate = Color(1.3979995, 1.269694, 0.9133265, 1)
+position = Vector2(-15, -59)
+texture = ExtResource("21_ecquj")
+
+[node name="Eyes5" type="Sprite2D" parent="Eyes" unique_id=1763934238]
+modulate = Color(1.3979995, 1.269694, 0.9133265, 1)
+position = Vector2(-12, -52)
+texture = ExtResource("22_7ai0i")
 
 [node name="Wig" type="Node2D" parent="." unique_id=2075430307]
 
@@ -144,5 +181,6 @@ position = Vector2(-25, 82)
 texture = ExtResource("18_yu0gm")
 
 [node name="Wig4" type="Sprite2D" parent="Wig" unique_id=99128417]
+visible = false
 position = Vector2(-8, 37)
 texture = ExtResource("19_3r4q8")

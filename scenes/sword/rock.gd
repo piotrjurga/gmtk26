@@ -6,6 +6,7 @@ extends Node2D
 var target : Node2D
 var max_distance : float
 @export var attack : AudioStreamPlayer
+@export var area : Area2D
 
 enum Modes {Swing, Hit}
 var mode : Modes = Modes.Swing
@@ -79,6 +80,10 @@ func set_swing():
         tween = null
 
 func last_tick():
+    area.monitorable = false
+    area.monitoring = false
+    area.collision_layer = 0
+    area.collision_mask = 0
     Signals.last_tick.disconnect(last_tick)
     Signals.success.disconnect(last_tick)
     

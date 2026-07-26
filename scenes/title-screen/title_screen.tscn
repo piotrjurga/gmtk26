@@ -42,7 +42,7 @@ volume_db = -1.675
 autoplay = true
 
 [node name="ThunderDelay" type="Timer" parent="." unique_id=768664476]
-wait_time = 4.0
+wait_time = 3.5
 one_shot = true
 autostart = true
 

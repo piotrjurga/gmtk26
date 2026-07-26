@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cfbrankard21f" path="res://assets/bullet-hell/pesantrun2.png" id="4_wqag3"]
 [ext_resource type="Texture2D" uid="uid://bsyo4u0pdjtqe" path="res://assets/bullet-hell/armor_peasant.png" id="5_krgny"]
 [ext_resource type="Texture2D" uid="uid://bed5icpxsgn4v" path="res://assets/bullet-hell/pitchfork_peasanthold.png" id="6_krgny"]
+[ext_resource type="AudioStream" uid="uid://bp2j33rhsaxwt" path="res://assets/sfx/fight/toaster hit 4.wav" id="7_wqag3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uj04i"]
 radius = 26.076809
@@ -78,10 +79,11 @@ _data = {
 &"walk": SubResource("Animation_sxd6w")
 }
 
-[node name="Minion" type="CharacterBody2D" unique_id=665359883 groups=["minions"]]
+[node name="Minion" type="CharacterBody2D" unique_id=665359883 node_paths=PackedStringArray("armour_drop_sound") groups=["minions"]]
 collision_mask = 19
 motion_mode = 1
 script = ExtResource("1_c2eyd")
+armour_drop_sound = NodePath("drop")
 
 [node name="Feet" type="CollisionShape2D" parent="." unique_id=718312711]
 position = Vector2(0, -15)
@@ -142,3 +144,7 @@ texture = ExtResource("5_krgny")
 visible = false
 position = Vector2(-15.09434, -130.18869)
 texture = ExtResource("6_krgny")
+
+[node name="drop" type="AudioStreamPlayer" parent="." unique_id=1074497046]
+stream = ExtResource("7_wqag3")
+volume_db = -10.0

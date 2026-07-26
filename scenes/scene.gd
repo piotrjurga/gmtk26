@@ -1,4 +1,4 @@
-class_name Scene extends Node
+class_name Scene extends Node2D
 
 @export var stream_idx : int = 0
 

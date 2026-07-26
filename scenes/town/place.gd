@@ -7,13 +7,33 @@ enum Places {Tavern, Gym, Swords, Armour, Street, Boss, Darts}
 @export var area : Area2D
 @export var sprite : Sprite2D
 var is_picked : bool = false
+var pulse_tween: Tween
 
 func _ready():
     area.body_entered.connect(pick_place)
     Signals.place_picked.connect(place_picked)
     sprite.visible = false
-    #if label:
-        #label.text = str(cost) + " g"
+    Signals.tick.connect(pulse)
+        
+
+func stop():
+    Signals.tick.disconnect(pulse)
+
+func pulse(tick_idx : int):
+    if place != Places.Darts:
+        if StatsManager.gold < StatsManager.invest:
+            return
+        if !validate(false):
+            return
+    if pulse_tween is Tween:
+        pulse_tween.kill()
+        pulse_tween = null
+    pulse_tween = create_tween()
+    pulse_tween.set_trans(Tween.TRANS_SINE)
+    pulse_tween.set_ease(Tween.EASE_IN_OUT)
+    scale = Vector2(1.02, 1.02)
+    pulse_tween.tween_property(self, "scale", Vector2(1, 1), 0.2)
+
     
 func pick_place(body : Node2D):
     if place == Places.Darts:
@@ -37,22 +57,25 @@ func _physics_process(delta):
     
     sprite.visible = true
 
-func validate() -> bool:
+func validate(emit : bool = true) -> bool:
     match place:
         Places.Gym:
             if (StatsManager.speed_count() + StatsManager.invest) > StatsManager.army.size():
-                Signals.missing_peasants.emit()
-                Signals.incorrect_speed.emit()
+                if emit:
+                    Signals.missing_peasants.emit()
+                    Signals.incorrect_speed.emit()
                 return false
         Places.Armour:
             if (StatsManager.armour_count() + StatsManager.invest) > StatsManager.army.size():
-                Signals.missing_peasants.emit()
-                Signals.incorrect_armour.emit()
+                if emit:
+                    Signals.missing_peasants.emit()
+                    Signals.incorrect_armour.emit()
                 return false
         Places.Swords:
             if (StatsManager.fork_count() + StatsManager.invest) > StatsManager.army.size():
-                Signals.missing_peasants.emit()
-                Signals.incorrect_dmg.emit()
+                if emit:
+                    Signals.missing_peasants.emit()
+                    Signals.incorrect_dmg.emit()
                 return false
     
     return true

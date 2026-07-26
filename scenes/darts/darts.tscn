@@ -4,6 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://blp4gn6f8fxj" path="res://assets/darts/background.png" id="2_lhdhh"]
 [ext_resource type="PackedScene" uid="uid://e6iw8vpxpnn3" path="res://scenes/darts/dart_throw.tscn" id="2_somb7"]
 [ext_resource type="PackedScene" uid="uid://bohk2ejkjy566" path="res://scenes/darts/sight.tscn" id="2_x4xqp"]
+[ext_resource type="FontFile" uid="uid://ba3ym60trydwg" path="res://assets/Fonts/Almendra_Display/AlmendraDisplay-Regular.ttf" id="5_lhdhh"]
+
+[sub_resource type="FontVariation" id="FontVariation_4elfv"]
+base_font = ExtResource("5_lhdhh")
+variation_embolden = 0.93
+
+[sub_resource type="LabelSettings" id="LabelSettings_o20ai"]
+font = SubResource("FontVariation_4elfv")
+font_size = 53
+font_color = Color(1, 0.8901961, 0.81960785, 1)
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
 
 [node name="darts" type="Node2D" unique_id=1772197419 node_paths=PackedStringArray("sight", "dart", "target_positions_root", "king_position")]
 script = ExtResource("1_x4xqp")
@@ -47,7 +59,7 @@ position = Vector2(960, 540)
 texture = ExtResource("2_lhdhh")
 
 [node name="Sight" parent="." unique_id=1568300132 instance=ExtResource("2_x4xqp")]
-position = Vector2(1017, 843)
+position = Vector2(893, 638)
 
 [node name="dart" parent="." unique_id=1523667051 instance=ExtResource("2_somb7")]
 z_index = 100
@@ -55,3 +67,13 @@ position = Vector2(963, 1240)
 
 [node name="KingPossition" type="Node2D" parent="." unique_id=1963790199]
 position = Vector2(1019, 242)
+
+[node name="tutorial" type="Label" parent="." unique_id=1952665461]
+z_index = 4096
+offset_left = 743.0
+offset_top = 716.0
+offset_right = 1199.0
+offset_bottom = 859.0
+text = "WSAD to Aim
+Space to throw"
+label_settings = SubResource("LabelSettings_o20ai")

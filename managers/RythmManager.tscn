@@ -10,9 +10,10 @@
 [ext_resource type="AudioStream" uid="uid://s6i32xec8ten" path="res://assets/Music/song armor hut.wav" id="8_kmnq6"]
 [ext_resource type="AudioStream" uid="uid://kdqga3fx64no" path="res://assets/Music/song field run.wav" id="9_ak0dy"]
 [ext_resource type="AudioStream" uid="uid://clk0wfkx7uk06" path="res://assets/Music/song dart.wav" id="10_ak0dy"]
+[ext_resource type="AudioStream" uid="uid://t4r4lahrt0d8" path="res://assets/Music/count_downa.wav" id="11_4qee7"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_kenwu"]
-stream_count = 7
+stream_count = 8
 stream_0/stream = ExtResource("4_7tegy")
 stream_0/volume = -60.0
 stream_1/stream = ExtResource("5_7tegy")
@@ -27,6 +28,8 @@ stream_5/stream = ExtResource("8_kmnq6")
 stream_5/volume = -60.0
 stream_6/stream = ExtResource("10_ak0dy")
 stream_6/volume = -60.0
+stream_7/stream = ExtResource("11_4qee7")
+stream_7/volume = 0.0
 
 [node name="RythmManager" type="Node" unique_id=82670960 node_paths=PackedStringArray("pip_sound", "pop_sound", "music", "delay_start_timer")]
 script = ExtResource("1_kenwu")

@@ -2,10 +2,18 @@ extends CharacterBody2D
 
 const speed = 200.0
 
+@export var head : CountHead
+
 var window_size = Vector2(1920, 1080)
 
 var captured = false
 var timer = 0.0
+
+func _ready():
+    if TargetManager.current_target:
+        head.init_from_target(TargetManager.current_target)
+    else:
+        head.visible = false
 
 func get_hit():
     if !captured:

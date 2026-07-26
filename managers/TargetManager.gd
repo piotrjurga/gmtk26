@@ -56,10 +56,10 @@ func generate_targets():
         var new_target : Target = Target.new()
         new_target.title = title[i % 3]
         new_target.name = temp_names.pop_front()
-        new_target.eyes = randi_range(0, 2)
-        new_target.mouth = randi_range(0, 2)
+        new_target.eyes = randi_range(0, 4)
+        new_target.mouth = randi_range(0, 3)
         new_target.neck = randi_range(0, 3)
-        new_target.nose = randi_range(0, 2)
+        new_target.nose = randi_range(0, 4)
         new_target.torso = 0
         new_target.wig = randi_range(0, 3)
         set_gold(new_target)

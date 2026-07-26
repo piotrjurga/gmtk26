@@ -16,15 +16,17 @@
 [ext_resource type="PackedScene" uid="uid://dd5hgml0v4nxi" path="res://scenes/count-head/count_head.tscn" id="9_prif8"]
 [ext_resource type="Texture2D" uid="uid://cq0xeonjtjib0" path="res://assets/guillotine/guillotine/hand2.png" id="10_10x16"]
 [ext_resource type="Texture2D" uid="uid://bs070e6ffdnsh" path="res://assets/guillotine/guillotine/hand3.png" id="11_1yfkj"]
-[ext_resource type="Texture2D" uid="uid://cjunp3x3go4l2" path="res://assets/guillotine/guillotine/gargoyle win.png" id="14_l7mfy"]
-[ext_resource type="Script" uid="uid://dm5l7qkpakfxm" path="res://scenes/guillotine/gargoyle_win.gd" id="15_nxusu"]
-[ext_resource type="Texture2D" uid="uid://b3dnh17wcxalg" path="res://assets/guillotine/guillotine/gargoyle loss.png" id="16_fccpq"]
-[ext_resource type="Script" uid="uid://uktt5smdlmow" path="res://scenes/guillotine/gargoyle_loss.gd" id="17_nxusu"]
 [ext_resource type="AudioStream" uid="uid://bfbj8lfcornin" path="res://assets/sfx/guillotine/knife 8 (1).wav" id="21_ui46s"]
 [ext_resource type="AudioStream" uid="uid://by80rbl5l2xrh" path="res://assets/sfx/guillotine/scream 11.wav" id="22_btaof"]
+[ext_resource type="AudioStream" uid="uid://dwh4t7bv6wrvu" path="res://assets/sfx/guillotine/laugh-evil.wav" id="23_btaof"]
 [ext_resource type="AudioStream" uid="uid://cfku8si8qqhub" path="res://assets/sfx/guillotine/spatula hit 28.wav" id="23_hwppo"]
 [ext_resource type="Script" uid="uid://b1u3j0ycr8iwu" path="res://scenes/guillotine/success.gd" id="24_btaof"]
+[ext_resource type="FontFile" uid="uid://ba3ym60trydwg" path="res://assets/Fonts/Almendra_Display/AlmendraDisplay-Regular.ttf" id="25_hnfpy"]
 [ext_resource type="Script" uid="uid://dwcioe8rsaa5v" path="res://scenes/guillotine/fail.gd" id="25_hwppo"]
+[ext_resource type="Script" uid="uid://b07k7t1df58af" path="res://scenes/guillotine/tutorial.gd" id="26_nxxey"]
+[ext_resource type="Texture2D" uid="uid://dd5gbtiisr7fx" path="res://assets/Random assets-assets/Random assets-assets/coin.png" id="27_eby74"]
+[ext_resource type="Script" uid="uid://g66ht0pwvhfb" path="res://scenes/armour/armor_up.gd" id="28_eby74"]
+[ext_resource type="Script" uid="uid://te4j44sxpj72" path="res://scenes/guillotine/coins.gd" id="29_kw4vy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_10x16"]
 shader = ExtResource("4_prif8")
@@ -49,9 +51,36 @@ stream_2/stream = ExtResource("23_hwppo")
 stream_2/volume = 0.0
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_hnfpy"]
-stream_count = 1
+stream_count = 2
 stream_0/stream = ExtResource("23_hwppo")
-stream_0/volume = 0.0
+stream_0/volume = -10.0
+stream_1/stream = ExtResource("23_btaof")
+stream_1/volume = 0.0
+
+[sub_resource type="FontVariation" id="FontVariation_hnfpy"]
+base_font = ExtResource("25_hnfpy")
+variation_embolden = 0.93
+
+[sub_resource type="LabelSettings" id="LabelSettings_8lj2o"]
+font = SubResource("FontVariation_hnfpy")
+font_size = 53
+font_color = Color(1, 0.8901961, 0.81960785, 1)
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_aeyp7"]
+font = SubResource("FontVariation_hnfpy")
+font_size = 200
+font_color = Color(1, 0.8901961, 0.81960785, 1)
+outline_size = 25
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jtl53"]
+font = SubResource("FontVariation_hnfpy")
+font_size = 300
+font_color = Color(1, 0.8901961, 0.81960785, 1)
+outline_size = 25
+outline_color = Color(0, 0, 0, 1)
 
 [node name="guillotine" type="Node2D" unique_id=959309012 node_paths=PackedStringArray("blade", "head")]
 script = ExtResource("1_woxi1")
@@ -63,6 +92,7 @@ blade = NodePath("Blade")
 fall_speed = 200.0
 strength = 75.0
 head = NodePath("Head2")
+stream_idx = 7
 
 [node name="Background" type="Sprite2D" parent="." unique_id=644898017]
 position = Vector2(960, 540)
@@ -251,22 +281,47 @@ texture = ExtResource("11_1yfkj")
 [node name="Node2D" type="Node2D" parent="." unique_id=169943260]
 position = Vector2(1489, 663)
 
-[node name="GargoyleWin" type="Sprite2D" parent="." unique_id=339458956 node_paths=PackedStringArray("target")]
-position = Vector2(2183.5, 1216.5)
-texture = ExtResource("14_l7mfy")
-script = ExtResource("15_nxusu")
-target = NodePath("../Node2D")
-
-[node name="GargoyleLoss" type="Sprite2D" parent="." unique_id=973930243 node_paths=PackedStringArray("target")]
-position = Vector2(2232.5, 1221.5)
-texture = ExtResource("16_fccpq")
-script = ExtResource("17_nxusu")
-target = NodePath("../Node2D")
-
 [node name="success" type="AudioStreamPlayer" parent="." unique_id=2138487170]
 stream = SubResource("AudioStreamSynchronized_gxi48")
+volume_db = -5.226
 script = ExtResource("24_btaof")
 
 [node name="fail" type="AudioStreamPlayer" parent="." unique_id=1873188436]
 stream = SubResource("AudioStreamSynchronized_hnfpy")
 script = ExtResource("25_hwppo")
+
+[node name="tutorial" type="Label" parent="." unique_id=1192356595]
+z_index = 4096
+offset_left = 371.0
+offset_top = 511.0
+offset_right = 827.0
+offset_bottom = 654.0
+text = "MASH SPACE"
+label_settings = SubResource("LabelSettings_8lj2o")
+script = ExtResource("26_nxxey")
+
+[node name="ArmorUp" type="Sprite2D" parent="." unique_id=304514822]
+position = Vector2(1395, 421)
+scale = Vector2(0.7173345, 0.7173345)
+texture = ExtResource("27_eby74")
+script = ExtResource("28_eby74")
+new_scale = 0.7
+
+[node name="plus" type="Label" parent="ArmorUp" unique_id=706820800]
+z_index = 4096
+offset_left = 270.44565
+offset_top = -122.67639
+offset_right = 992.4457
+offset_bottom = 137.32361
+text = "+"
+label_settings = SubResource("LabelSettings_aeyp7")
+
+[node name="coins" type="Label" parent="ArmorUp" unique_id=565267906]
+z_index = 4096
+offset_left = 409.85065
+offset_top = -197.95508
+offset_right = 1131.8506
+offset_bottom = 192.04492
+text = "0"
+label_settings = SubResource("LabelSettings_jtl53")
+script = ExtResource("29_kw4vy")

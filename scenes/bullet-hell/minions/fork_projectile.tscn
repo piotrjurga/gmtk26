@@ -2,21 +2,33 @@
 
 [ext_resource type="Script" uid="uid://covw5arntsq3u" path="res://scenes/bullet-hell/minions/fork_projectile.gd" id="1_34yls"]
 [ext_resource type="Texture2D" uid="uid://cm0nl2vgtnv33" path="res://assets/bullet-hell/pitchfork_peasantthrow.png" id="2_34yls"]
+[ext_resource type="AudioStream" uid="uid://bn22k6l8smvdn" path="res://assets/sfx/fight/punch 12.wav" id="3_a564r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uj04i"]
 size = Vector2(33, 28)
 
-[node name="Fork" type="Area2D" unique_id=54148250]
+[node name="Fork" type="Area2D" unique_id=54148250 node_paths=PackedStringArray("timer", "fall_sound")]
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_34yls")
+timer = NodePath("Timer")
+fall_sound = NodePath("AudioStreamPlayer")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1364310107]
-position = Vector2(52.5, -1)
-shape = SubResource("RectangleShape2D_uj04i")
+[node name="Timer" type="Timer" parent="." unique_id=1399246931]
+wait_time = 0.75
+one_shot = true
+autostart = true
 
 [node name="PitchforkPeasantthrow" type="Sprite2D" parent="." unique_id=2088363647]
 position = Vector2(0, -1)
 rotation = 1.5707964
 scale = Vector2(0.745, 0.745)
 texture = ExtResource("2_34yls")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1364310107]
+position = Vector2(52.5, -1)
+shape = SubResource("RectangleShape2D_uj04i")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1431934120]
+stream = ExtResource("3_a564r")
+volume_db = -10.0

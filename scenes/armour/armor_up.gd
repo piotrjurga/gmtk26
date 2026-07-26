@@ -1,6 +1,5 @@
 extends Sprite2D
 
-@export var target : Node2D
 @export var new_scale : float = 1.0
 var tween : Tween
 

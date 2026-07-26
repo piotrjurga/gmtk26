@@ -29,4 +29,4 @@ func _physics_process(delta: float) -> void:
     if dir:
         position = centroid + len*dir
     else:
-        position = centroid
+        position = Vector2.ZERO

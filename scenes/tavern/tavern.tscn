@@ -17,12 +17,14 @@
 [ext_resource type="FontFile" uid="uid://ba3ym60trydwg" path="res://assets/Fonts/Almendra_Display/AlmendraDisplay-Regular.ttf" id="13_dlb7h"]
 [ext_resource type="Texture2D" uid="uid://flmrbaua2qoc" path="res://assets/tavern_typing/patron1.png" id="14_v4sj0"]
 [ext_resource type="Texture2D" uid="uid://ce5iki8cvtqoa" path="res://assets/tavern_typing/scroll.png" id="15_a8mxi"]
+[ext_resource type="Script" uid="uid://c8bpgyy6en03q" path="res://scenes/tavern/rich_text_label.gd" id="18_a8mxi"]
 [ext_resource type="AudioStream" uid="uid://dov51aal2y47a" path="res://assets/sfx/tavern/cough 2.wav" id="18_eq8gq"]
 [ext_resource type="AudioStream" uid="uid://b5dbtavl2kdo7" path="res://assets/sfx/tavern/keyboard mechanical single key 6.wav" id="19_lc1qo"]
 [ext_resource type="AudioStream" uid="uid://tpsahl0e0geg" path="res://assets/sfx/tavern/169233__mlteenie__crowd-yay.wav" id="20_eq8gq"]
 [ext_resource type="AudioStream" uid="uid://cd6v43olfbhlo" path="res://assets/sfx/tavern/403057__vesperia94__hooray.wav" id="21_v4sj0"]
 [ext_resource type="Texture2D" uid="uid://coemg8xis8c81" path="res://assets/Random assets-assets/pesant_up.png" id="22_b1jo1"]
 [ext_resource type="Script" uid="uid://g66ht0pwvhfb" path="res://scenes/armour/armor_up.gd" id="23_v4sj0"]
+[ext_resource type="Script" uid="uid://cnscmglr1hsaa" path="res://scenes/bullet-hell/tutorial.gd" id="24_v4sj0"]
 
 [sub_resource type="FontVariation" id="FontVariation_ae3ij"]
 base_font = ExtResource("13_dlb7h")
@@ -46,6 +48,17 @@ stream_0/stream = ExtResource("20_eq8gq")
 stream_0/volume = 0.0
 stream_1/stream = ExtResource("21_v4sj0")
 stream_1/volume = 0.0
+
+[sub_resource type="FontVariation" id="FontVariation_8qe3j"]
+base_font = ExtResource("13_dlb7h")
+variation_embolden = 0.93
+
+[sub_resource type="LabelSettings" id="LabelSettings_a8mxi"]
+font = SubResource("FontVariation_8qe3j")
+font_size = 53
+font_color = Color(1, 0.8901961, 0.81960785, 1)
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Tavern" type="Node2D" unique_id=2119835233 node_paths=PackedStringArray("word_label", "cough", "type", "type_fail", "cheer")]
 script = ExtResource("1_inl0q")
@@ -190,6 +203,7 @@ offset_right = 178.0
 offset_bottom = 197.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(457, 85)
 theme_override_fonts/normal_font = SubResource("FontVariation_ae3ij")
 theme_override_font_sizes/normal_font_size = 109
 bbcode_enabled = true
@@ -198,6 +212,7 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 custom_effects = [SubResource("RichTextEffect_5jmso"), SubResource("RichTextEffect_inl0q"), SubResource("RichTextEffect_nnv1s")]
+script = ExtResource("18_a8mxi")
 
 [node name="Cough" type="AudioStreamPlayer" parent="." unique_id=229960639]
 stream = ExtResource("18_eq8gq")
@@ -216,8 +231,22 @@ stream = SubResource("AudioStreamSynchronized_gxi48")
 volume_db = -10.0
 
 [node name="ArmorUp" type="Sprite2D" parent="." unique_id=1506781836]
+z_index = 1
 position = Vector2(1120, 269)
 scale = Vector2(0.7173345, 0.7173345)
 texture = ExtResource("22_b1jo1")
 script = ExtResource("23_v4sj0")
 new_scale = 0.72
+
+[node name="Node2D" type="Node2D" parent="." unique_id=2031465328]
+position = Vector2(966, 123)
+
+[node name="tutorial" type="Label" parent="Node2D" unique_id=47840869]
+offset_right = 456.0
+offset_bottom = 143.0
+pivot_offset = Vector2(187, 39)
+text = "Type in the phrase"
+label_settings = SubResource("LabelSettings_a8mxi")
+script = ExtResource("24_v4sj0")
+enable_pulse = true
+enable_move = false

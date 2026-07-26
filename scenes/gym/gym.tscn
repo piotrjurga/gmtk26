@@ -24,6 +24,8 @@
 [ext_resource type="AudioStream" uid="uid://ckka78aoeg20j" path="res://assets/sfx/gym/woosh 23.wav" id="20_8kom0"]
 [ext_resource type="AudioStream" uid="uid://bbmyofmsqb1lk" path="res://assets/sfx/gym/slide whistle 15.wav" id="21_l8map"]
 [ext_resource type="AudioStream" uid="uid://41i1jycn0g40" path="res://assets/sfx/gym/party blowers multiple 3.wav" id="22_dk2vg"]
+[ext_resource type="FontFile" uid="uid://ba3ym60trydwg" path="res://assets/Fonts/Almendra_Display/AlmendraDisplay-Regular.ttf" id="25_jl0wx"]
+[ext_resource type="Script" uid="uid://cnscmglr1hsaa" path="res://scenes/bullet-hell/tutorial.gd" id="26_sbifr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1k5f7"]
 size = Vector2(1895, 50)
@@ -71,6 +73,17 @@ animations = [{
 "name": &"slide",
 "speed": 5.0
 }]
+
+[sub_resource type="FontVariation" id="FontVariation_jl0wx"]
+base_font = ExtResource("25_jl0wx")
+variation_embolden = 0.93
+
+[sub_resource type="LabelSettings" id="LabelSettings_a4s7y"]
+font = SubResource("FontVariation_jl0wx")
+font_size = 53
+font_color = Color(1, 0.8901961, 0.81960785, 1)
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Gym" type="Node2D" unique_id=1809102907 node_paths=PackedStringArray("timer", "main_spawn_point", "gym_character", "success", "fail")]
 script = ExtResource("1_ih2u8")
@@ -209,3 +222,17 @@ stream = ExtResource("21_l8map")
 
 [node name="Success" type="AudioStreamPlayer" parent="." unique_id=1154482469]
 stream = ExtResource("22_dk2vg")
+
+[node name="tutorial" type="Label" parent="." unique_id=488513335]
+z_index = 4096
+offset_left = 1626.0
+offset_top = 30.0
+offset_right = 2082.0
+offset_bottom = 173.0
+pivot_offset = Vector2(113, 70)
+text = "W to jump
+ S  to slide"
+label_settings = SubResource("LabelSettings_a4s7y")
+script = ExtResource("26_sbifr")
+enable_pulse = true
+enable_move = false
